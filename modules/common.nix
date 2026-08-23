@@ -62,6 +62,9 @@
     enableAskPassword = true;
   };
 
+  users.users.coffeeshader.shell = pkgs.yash;
+  environment.shells = [ pkgs.yash ];
+
   environment.sessionVariables.SSH_ASKPASS_REQUIRE = "prefer";
 
   # List packages installed in system profile. To search, run:
