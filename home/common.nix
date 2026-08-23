@@ -160,5 +160,9 @@
 
   home.packages = with pkgs; [
     inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
+    mpv
+    yt-dlp
+    btop
+    fastfetch
   ];
 }
