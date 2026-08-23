@@ -60,20 +60,23 @@
 
   programs.ssh = {
     enable = true;
-    addKeysToAgent = "yes";
+    enableDefaultConfig = false;
 
-    matchBlocks = {
+    settings = {
+      "*" = {
+        AddKeysToAgent = "yes";
+      };
       "github.com" = {
-        user = "git";
-        identityFile = "~/.ssh/id_ed25519_sk_ciri";
+        User = "git";
+        IdentityFile = "~/.ssh/id_ed25519_sk_ciri";
       };
       "git.sr.ht" = {
-        user = "git";
-        identityFile = "~/.ssh/id_ed25519_sk_ciri";
+        User = "git";
+        IdentityFile = "~/.ssh/id_ed25519_sk_ciri";
       };
       "codeberg.org" = {
-        user = "git";
-        identityFile = "~/.ssh/id_ed25519_sk_ciri";
+        User = "git";
+        IdentityFile = "~/.ssh/id_ed25519_sk_ciri";
       };
     };
   };
