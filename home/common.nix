@@ -53,6 +53,26 @@
 sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAICNcdy7rKlx1Hgldb/JJInHDFK5IEk+XmGbsaNkds72iAAAABHNzaDo= me@shader.coffee
   '';
 
+  programs.ssh = {
+    enable = true;
+    addKeysToAgent = "yes";
+
+    matchBlocks = {
+      "github.com" = {
+        user = "git";
+        identityFile = "~/.ssh/id_ed25519_sk_ciri";
+      };
+      "git.sr.ht" = {
+        user = "git";
+        identityFile = "~/.ssh/id_ed25519_sk_ciri";
+      };
+      "codeberg.org" = {
+        user = "git";
+        identityFile = "~/.ssh/id_ed25519_sk_ciri";
+      };
+    };
+  };
+
   programs.bash = {
     enable = true;
     shellAliases.nrs = "doas nixos-rebuild switch --flake ~/aperture";
