@@ -9,7 +9,7 @@
     "nix-command"
     "flakes"
   ];
-  nixpkgs.config.allowunfree = true;
+  nixpkgs.config.allowUnfree = true;
 
   networking.networkmanager.enable = true;
 
