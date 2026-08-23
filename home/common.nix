@@ -2,7 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, inputs, config, ... }:
+{
+  pkgs,
+  inputs,
+  config,
+  ...
+}:
 
 {
 
@@ -50,7 +55,7 @@
   };
 
   xdg.configFile."git/allowed_signers".text = ''
-sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAICNcdy7rKlx1Hgldb/JJInHDFK5IEk+XmGbsaNkds72iAAAABHNzaDo= me@shader.coffee
+    sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAICNcdy7rKlx1Hgldb/JJInHDFK5IEk+XmGbsaNkds72iAAAABHNzaDo= me@shader.coffee
   '';
 
   programs.ssh = {
@@ -81,29 +86,32 @@ sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAICNcdy7rK
   programs.emacs = {
     enable = true;
     package = pkgs.emacs-pgtk;
-    extraPackages = epkgs: with epkgs; [
-      dashboard
-      catppuccin-theme
-      company
-      rust-mode
-      zig-mode
-      evil
-      evil-surround
-      evil-collection
-      evil-org
-      magit
-      markdown-mode
-      nix-mode
+    extraPackages =
+      epkgs: with epkgs; [
+        dashboard
+        catppuccin-theme
+        company
+        rust-mode
+        zig-mode
+        evil
+        evil-surround
+        evil-collection
+        evil-org
+        magit
+        markdown-mode
+        nix-mode
 
-      (treesit-grammars.with-grammars (grammars: with grammars; [
-        tree-sitter-rust
-        tree-sitter-java
-        tree-sitter-odin
-        tree-sitter-zig
-        tree-sitter-c
-        tree-sitter-python
-      ]))
-    ];
+        (treesit-grammars.with-grammars (
+          grammars: with grammars; [
+            tree-sitter-rust
+            tree-sitter-java
+            tree-sitter-odin
+            tree-sitter-zig
+            tree-sitter-c
+            tree-sitter-python
+          ]
+        ))
+      ];
   };
 
   programs.vesktop = {

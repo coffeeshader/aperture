@@ -5,7 +5,10 @@
 { pkgs, ... }:
 
 {
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nixpkgs.config.allowunfree = true;
 
   networking.networkmanager.enable = true;
@@ -38,8 +41,11 @@
   users.users."coffeeshader" = {
     isNormalUser = true;
     description = "Helder Rodrigues";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
+    packages = with pkgs; [ ];
   };
 
   programs.ssh = {
@@ -62,7 +68,7 @@
     {
       groups = [ "wheel" ];
       persist = true;
-	    keepEnv = true;
+      keepEnv = true;
     }
   ];
 
