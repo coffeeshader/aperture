@@ -9,6 +9,15 @@
     "nix-command"
     "flakes"
   ];
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 14d";
+  };
+
+  nix.settings.auto-optimise-store = true;
+
   nixpkgs.config.allowUnfree = true;
 
   networking.networkmanager.enable = true;
