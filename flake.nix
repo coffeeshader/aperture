@@ -27,6 +27,7 @@
   outputs =
     { nixpkgs, home-manager, ... }@inputs:
     {
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
       nixosConfigurations.glados = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
