@@ -23,6 +23,7 @@
     print-manager
     plasma-browser-integration
     krdp
+    konsole
   ];
 
   qt = {
