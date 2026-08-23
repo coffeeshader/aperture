@@ -5,23 +5,29 @@
 { pkgs, ... }:
 
 {
-services = {
-	xserver.enable = false;
+  services = {
+    xserver.enable = false;
 
-	displayManager = {
-	    plasma-login-manager.enable = true;
-            defaultSession = "plasma";
-	};
+    displayManager = {
+      plasma-login-manager.enable = true;
+      defaultSession = "plasma";
+    };
 
-	desktopManager.plasma6.enable = true;
-};
+    desktopManager.plasma6.enable = true;
+  };
 
-environment.plasma6.excludePackages = with pkgs.kdePackages; [
-	elisa
-	okular
-	khelpcenter
-	print-manager
-	plasma-browser-integration
-	krdp
-];
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    elisa
+    okular
+    khelpcenter
+    print-manager
+    plasma-browser-integration
+    krdp
+  ];
+
+  qt = {
+    enable = true;
+    platformTheme = "kde";
+    style = "breeze";
+  };
 }
