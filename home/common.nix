@@ -123,6 +123,8 @@
 
   xdg.configFile."yash/profile".source = ./dotfiles/yash/profile;
 
+  xdg.configFile."foot/foot.ini".source = ./dotfiles/foot/foot.ini;
+
   programs.emacs = {
     enable = true;
     package = pkgs.emacs-pgtk;
@@ -197,6 +199,7 @@
 
   home.packages = with pkgs; [
     inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
+    foot
     mpv
     yt-dlp
     btop
