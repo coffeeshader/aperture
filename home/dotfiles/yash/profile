@@ -7,7 +7,7 @@ case $- in
     if [ -z "$NU_RUNNING" ] && command -v nu >/dev/null 2>&1; then
       NU_RUNNING=1
       export NU_RUNNING
-      nu
+      exec nu
     fi
     ;;
 esac
