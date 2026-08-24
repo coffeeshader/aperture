@@ -1,26 +1,20 @@
-{ config, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
+  devEnvironmentDirectory = "${config.home.homeDirectory}/.dev-env";
   sandboxWritableRoots = [
-    "${config.home.homeDirectory}/.cargo"
-    "${config.home.homeDirectory}/.m2/repository"
-    "${config.home.homeDirectory}/.cache/zig"
+    "${devEnvironmentDirectory}/cargo"
+    "${devEnvironmentDirectory}/maven/repository"
+    "${devEnvironmentDirectory}/maven/wrapper"
+    "${devEnvironmentDirectory}/zig/global-cache"
   ];
 in
 {
   home.packages = with pkgs; [
-    rustc
-    cargo
-    zig
-    odin
-    clang
-    jdk
-    maven
-
-    rust-analyzer
-    zls
-    ols
-    clang-tools
-    jdt-language-server
     nil
     nixfmt
 
@@ -28,7 +22,25 @@ in
     socat
   ];
 
-  home.sessionVariables.JAVA_HOME = "${pkgs.jdk}/lib/openjdk";
+  home.sessionVariables = {
+    CARGO_HOME = "${devEnvironmentDirectory}/cargo";
+    MAVEN_USER_HOME = "${devEnvironmentDirectory}/maven";
+    MAVEN_ARGS = "--settings ${devEnvironmentDirectory}/maven/settings.xml";
+    ZIG_GLOBAL_CACHE_DIR = "${devEnvironmentDirectory}/zig/global-cache";
+  };
+
+  home.activation.createDevEnvironmentDirectories = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    run mkdir -p ${lib.escapeShellArgs sandboxWritableRoots}
+  '';
+
+  home.file.".dev-env/maven/settings.xml".text = ''
+    <?xml version="1.0" encoding="UTF-8"?>
+    <settings xmlns="http://maven.apache.org/SETTINGS/1.2.0"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.2.0 https://maven.apache.org/xsd/settings-1.2.0.xsd">
+      <localRepository>${devEnvironmentDirectory}/maven/repository</localRepository>
+    </settings>
+  '';
 
   programs.claude-code = {
     enable = true;
@@ -67,6 +79,8 @@ in
           "Read(~/.ssh/**)"
           "Read(~/.cargo/credentials)"
           "Read(~/.cargo/credentials.toml)"
+          "Read(~/.dev-env/cargo/credentials)"
+          "Read(~/.dev-env/cargo/credentials.toml)"
         ];
       };
 

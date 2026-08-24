@@ -28,10 +28,12 @@
     { nixpkgs, home-manager, ... }@inputs:
     let
       user = "coffeeshader";
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
       mkHost =
         name:
         nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
+          inherit system;
           specialArgs = { inherit inputs; };
           modules = [
             ./hosts/${name}
@@ -49,7 +51,8 @@
         };
     in
     {
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
+      formatter.${system} = pkgs.nixfmt-tree;
+      packages.${system} = import ./packages/environments.nix { inherit pkgs; };
       nixosConfigurations.glados = mkHost "glados";
     };
 }

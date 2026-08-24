@@ -23,6 +23,22 @@
       ff = "fastfetch";
     };
 
+    extraConfig = ''
+      def --wrapped dev [environment: string, ...args: string] {
+        let environments = ["rust" "c" "zig" "odin" "java"]
+        if $environment not-in $environments {
+          error make {
+            msg: $"unknown environment '($environment)', expected one of: ($environments | str join ', ')"
+          }
+        }
+        if ($args | is-empty) {
+          nix shell $"aperture#($environment)"
+        } else {
+          nix shell $"aperture#($environment)" --command ...$args
+        }
+      }
+    '';
+
     plugins = with pkgs.nushellPlugins; [
       formats
       query
