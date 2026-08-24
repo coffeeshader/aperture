@@ -11,7 +11,16 @@
     gamescopeSession.enable = false;
   };
 
-  programs.gamemode.enable = true;
+  programs.gamemode = {
+    enable = true;
+    enableRenice = true;
+
+    settings = {
+      general = {
+        renice = 11;
+      };
+    };
+  };
 
   environment.sessionVariables.ENABLE_LAYER_MESA_ANTI_LAG = "1";
 
