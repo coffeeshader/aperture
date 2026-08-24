@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     ../../modules/desktop-kde.nix
     ../../modules/gaming.nix
+    ../../modules/vr.nix
   ];
 
   # Bootloader.
