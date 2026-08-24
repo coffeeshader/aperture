@@ -1,6 +1,8 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
+  nix.registry.aperture.flake = inputs.self;
+
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
