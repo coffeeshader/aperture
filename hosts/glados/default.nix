@@ -2,8 +2,9 @@
 
 {
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ../../modules/desktop-kde.nix
+    ../../modules/gaming.nix
   ];
 
   # Bootloader.

@@ -2,7 +2,9 @@
 
 {
   imports = [
-    ./common.nix
+    ./common
     ./plasma.nix
   ];
+
+  home.stateVersion = "26.05";
 }

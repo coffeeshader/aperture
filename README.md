@@ -5,10 +5,12 @@ My NixOS configuration, as a flake.
 ## Layout
 
 ```
-flake.nix          inputs and host definitions
-hosts/             host-specific config + hardware scan
-modules/           system modules (common, KDE Plasma, gaming, audio)
-home/              home-manager config (shell, git, emacs, plasma, ...)
+flake.nix          inputs and mkHost helper; one line per host
+hosts/<name>/      hardware scan + per-host module selection
+modules/           system modules (common incl. audio, KDE Plasma, gaming)
+home/<name>.nix    per-host home entry (stateVersion)
+home/common/       home-manager config, one file per topic (git, shell, emacs, ...)
+home/plasma.nix    KDE-only plasma-manager config
 ```
 
 ## Hosts

@@ -1,4 +1,11 @@
 { config, pkgs, ... }:
+let
+  sandboxWritableRoots = [
+    "${config.home.homeDirectory}/.cargo"
+    "${config.home.homeDirectory}/.m2/repository"
+    "${config.home.homeDirectory}/.cache/zig"
+  ];
+in
 {
   home.packages = with pkgs; [
     rustc
@@ -68,11 +75,7 @@
         failIfUnavailable = true;
         allowUnsandboxedCommands = true;
 
-        filesystem.allowWrite = [
-          "${config.home.homeDirectory}/.cargo"
-          "${config.home.homeDirectory}/.m2/repository"
-          "${config.home.homeDirectory}/.cache/zig"
-        ];
+        filesystem.allowWrite = sandboxWritableRoots;
 
         network.allowedDomains = [
           "github.com"
@@ -116,11 +119,7 @@
       analytics.enabled = false;
       feedback.enabled = false;
 
-      sandbox_workspace_write.writable_roots = [
-        "${config.home.homeDirectory}/.cargo"
-        "${config.home.homeDirectory}/.m2/repository"
-        "${config.home.homeDirectory}/.cache/zig"
-      ];
+      sandbox_workspace_write.writable_roots = sandboxWritableRoots;
 
       otel = {
         exporter = "none";

@@ -26,27 +26,30 @@
 
   outputs =
     { nixpkgs, home-manager, ... }@inputs:
+    let
+      user = "coffeeshader";
+      mkHost =
+        name:
+        nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/${name}
+            ./modules/common.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = { inherit inputs; };
+                users.${user} = import ./home/${name}.nix;
+              };
+            }
+          ];
+        };
+    in
     {
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
-      nixosConfigurations.glados = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/glados
-          ./modules/common.nix
-          ./modules/desktop-kde.nix
-          ./modules/gaming.nix
-          ./modules/audio.nix
-
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = { inherit inputs; };
-            home-manager.sharedModules = [ inputs.plasma-manager.homeModules.plasma-manager ];
-            home-manager.users.coffeeshader = import ./home/glados.nix;
-          }
-        ];
-      };
+      nixosConfigurations.glados = mkHost "glados";
     };
 }

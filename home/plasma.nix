@@ -1,6 +1,13 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 
 {
+  imports = [ inputs.plasma-manager.homeModules.plasma-manager ];
+
   home.packages = [ pkgs.kdePackages.karousel ];
 
   programs.plasma = {
