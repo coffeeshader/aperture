@@ -13,7 +13,10 @@
 
   programs.gamemode.enable = true;
 
+  environment.sessionVariables.ENABLE_LAYER_MESA_ANTI_LAG = "1";
+
   environment.systemPackages = with pkgs; [
     mangohud
+    vulkan-tools
   ];
 }
