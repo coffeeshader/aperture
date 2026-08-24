@@ -29,6 +29,5 @@
 
   environment.systemPackages = with pkgs; [
     mangohud
-    vulkan-tools
   ];
 }

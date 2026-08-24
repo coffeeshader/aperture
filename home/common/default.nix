@@ -11,6 +11,7 @@
     ./browser.nix
     ./media.nix
     ./development.nix
+    ./graphics.nix
   ];
 
   home.packages = with pkgs; [
