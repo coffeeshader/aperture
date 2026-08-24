@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { pkgs, ... }:
 
 {
@@ -54,6 +50,7 @@
       "networkmanager"
       "wheel"
     ];
+    shell = pkgs.yash;
     packages = with pkgs; [ ];
   };
 
@@ -62,7 +59,6 @@
     enableAskPassword = true;
   };
 
-  users.users.coffeeshader.shell = pkgs.yash;
   environment.shells = [ pkgs.yash ];
 
   environment.sessionVariables.SSH_ASKPASS_REQUIRE = "prefer";
