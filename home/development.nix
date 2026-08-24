@@ -31,8 +31,6 @@
         DISABLE_TELEMETRY = "1";
         DISABLE_ERROR_REPORTING = "1";
         CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY = "1";
-
-        CLAUDE_CODE_SUBPROCESS_ENV_SCRUB = "1";
       };
 
       cleanupPeriodDays = 14;

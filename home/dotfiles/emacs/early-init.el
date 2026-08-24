@@ -9,6 +9,9 @@
         use-dialog-box nil
         use-file-dialog nil)
 
+;; Accept pixel-exact frame sizes
+(setq frame-resize-pixelwise t)
+
 ;; Faster runtime
 
 (setq read-process-output-max (* 4 1024 1024))

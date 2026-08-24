@@ -24,6 +24,8 @@
         dashboard-items '((projects  . 8)
                           (bookmarks . 8)
                           (recents   . 5)))
+  ;; emacsclient frames (no file args) open on the dashboard too
+  (setq initial-buffer-choice (lambda () (get-buffer-create dashboard-buffer-name)))
   (dashboard-setup-startup-hook))
 
 (which-function-mode 1)
