@@ -32,7 +32,7 @@
           }
         }
         if ($args | is-empty) {
-          nix shell $"aperture#($environment)"
+          nix shell $"aperture#($environment)" --command nu
         } else {
           nix shell $"aperture#($environment)" --command ...$args
         }
