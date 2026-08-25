@@ -1,7 +1,17 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
-  home.packages = [ pkgs.foot ];
+  programs.foot = {
+    enable = true;
 
-  xdg.configFile."foot/foot.ini".source = ../dotfiles/foot/foot.ini;
+    settings = {
+      main = {
+        font = "IntelOneMono:size=11";
+        login-shell = "yes";
+        resize-by-cells = "no";
+      };
+
+      colors.alpha = "0.85";
+    };
+  };
 }

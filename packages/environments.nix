@@ -21,7 +21,6 @@
     ];
   };
 
-
   zig = pkgs.buildEnv {
     name = "zig-environment";
     paths = with pkgs; [
