@@ -37,7 +37,10 @@
       ];
   };
 
-  services.emacs.enable = true;
+  services.emacs = {
+    enable = true;
+    defaultEditor = true;
+  };
 
   xdg.configFile."emacs/early-init.el".source = ../dotfiles/emacs/early-init.el;
   xdg.configFile."emacs/init.el".source = ../dotfiles/emacs/init.el;

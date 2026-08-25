@@ -4,8 +4,6 @@
   programs.git = {
     enable = true;
     settings = {
-      core.editor = "emacs";
-
       user = {
         name = "Hélder Rodrigues";
         email = "me@shader.coffee";
