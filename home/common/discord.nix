@@ -72,7 +72,7 @@ in
       arRPC = true;
       tray = true;
       minimizeToTray = false;
-      hardwareAccelaration = true;
+      hardwareAcceleration = true;
     };
     vencord = {
       themes = lib.mkIf config.theme.oled {
