@@ -8,10 +8,11 @@
     package = pkgs.millennium-steam;
     extraCompatPackages = [ pkgs.proton-ge-bin ];
 
-    remotePlay.openFirewall = false;
     gamescopeSession.enable = false;
-
     extest.enable = true;
+
+    remotePlay.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
   };
 
   programs.gamemode = {
