@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   programs.emacs = {
@@ -37,4 +42,13 @@
   xdg.configFile."emacs/early-init.el".source = ../dotfiles/emacs/early-init.el;
   xdg.configFile."emacs/init.el".source = ../dotfiles/emacs/init.el;
   xdg.configFile."emacs/custom.el".source = ../dotfiles/emacs/custom.el;
+
+  xdg.configFile."emacs/theme.el".text = ''
+    (setq catppuccin-flavor '${config.catppuccin.flavor})
+  ''
+  + lib.optionalString config.theme.oled (
+    config.theme.oledColors
+    |> lib.mapAttrsToList (name: c: "(catppuccin-set-color '${name} \"#${c.to}\")")
+    |> lib.concatStringsSep "\n"
+  );
 }
