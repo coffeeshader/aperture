@@ -6,7 +6,7 @@
 
     settings = {
       main = {
-        font = "IntelOneMono:size=11";
+        font = "IntelOneMono:size=13";
         login-shell = "yes";
         resize-by-cells = "no";
       };
