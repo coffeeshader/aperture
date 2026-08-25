@@ -49,7 +49,7 @@ let
       {
         src = pkgs.fetchurl {
           url = "https://raw.githubusercontent.com/catppuccin/discord/0d8c7aaea33c655bb9e4c93d352a28f3baa69a75/dist/catppuccin-${flavor}-${accent}.theme.css";
-          hash = "sha256-KVv9vfqI+WADn3w4yE1eNsmtm7PQq9ugKiSL3EOLheI=";
+          hash = "sha256-kX6O2wxQpZvCF2RjsP4yH+Ojvijd8KJ/uCVu/VObTOg=";
         };
       }
       ''

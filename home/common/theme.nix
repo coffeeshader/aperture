@@ -37,7 +37,7 @@
     enable = true;
     autoEnable = true;
     flavor = "mocha";
-    accent = "blue";
+    accent = "mauve";
 
     sources = lib.mkIf config.theme.oled (
       inputs.catppuccin.packages.${pkgs.stdenv.hostPlatform.system}.overrideScope (
