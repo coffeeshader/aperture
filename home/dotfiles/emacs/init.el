@@ -37,8 +37,6 @@
               whitespace-style '(face trailing tabs spaces spaces-mark space-mark tab-mark missing-newline-at-eof))
 
 (use-package catppuccin-theme
-  :init
-  (setq catppuccin-flavor 'mocha)
   :config
   (load (locate-user-emacs-file "theme") 'noerror)
   (load-theme 'catppuccin :no-confirm))

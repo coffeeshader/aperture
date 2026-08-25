@@ -10,7 +10,7 @@
   imports = [ inputs.catppuccin.homeModules.catppuccin ];
 
   options.theme = {
-    oled = lib.mkEnableOption "pure-black backgrounds for oled displays";
+    oled = lib.mkEnableOption "OLED-optimized Catppuccin backgrounds";
 
     oledColors = lib.mkOption {
       internal = true;
@@ -41,7 +41,7 @@
 
     sources = lib.mkIf config.theme.oled (
       inputs.catppuccin.packages.${pkgs.stdenv.hostPlatform.system}.overrideScope (
-        final: prev: {
+        _final: prev: {
           whiskers = pkgs.symlinkJoin {
             name = "whiskers-wrapped";
             paths = [ prev.whiskers ];

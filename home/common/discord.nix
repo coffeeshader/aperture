@@ -42,7 +42,7 @@ let
     |> lib.concatStringsSep "|"
     |> lib.replaceStrings [ "(" ] [ "\\(" ];
 
-  themeName = "catppuccin-${flavor}-oled.theme";
+  themeName = "catppuccin-${flavor}-${accent}-oled.theme";
 
   oledTheme =
     pkgs.runCommand "${themeName}.css"

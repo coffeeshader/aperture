@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, ... }:
 
 {
   programs.foot = {
@@ -11,7 +11,7 @@
         resize-by-cells = "no";
       };
 
-      colors = lib.mkIf (!config.theme.oled) { alpha = "0.85"; };
+      colors.alpha = if config.theme.oled then "1.0" else "0.85";
     };
   };
 }
