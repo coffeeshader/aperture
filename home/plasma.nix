@@ -10,6 +10,8 @@
 
   home.packages = [ pkgs.kdePackages.karousel ];
 
+  xdg.dataFile."kwin/scripts/focus-or-desktop".source = ./dotfiles/kwin/focus-or-desktop;
+
   programs.plasma = {
     enable = true;
 
@@ -61,14 +63,10 @@
           "Meta+Right"
           "Meta+L"
         ];
-        karousel-focus-up = [
-          "Meta+Up"
-          "Meta+K"
-        ];
-        karousel-focus-down = [
-          "Meta+Down"
-          "Meta+J"
-        ];
+        karousel-focus-up = "Meta+Up";
+        karousel-focus-down = "Meta+Down";
+        "focus-up-or-desktop" = "Meta+K";
+        "focus-down-or-desktop" = "Meta+J";
         karousel-focus-start = "Meta+Home";
         karousel-focus-end = "Meta+End";
 
@@ -186,6 +184,7 @@
 
     configFile = {
       kwinrc.Plugins.karouselEnabled = true;
+      kwinrc.Plugins."focus-or-desktopEnabled" = true;
       kwinrc.Windows_HDR.MaxLuminance = 560;
       kwinrc.Windows_HDR.Reference = 250;
       kdeglobals.General = {

@@ -1,0 +1,11 @@
+{
+    "KPlugin": {
+        "Id": "focus-or-desktop",
+        "Name": "Focus window or switch desktop",
+        "ServiceTypes": ["KWin/Script"],
+        "Version": "1.0"
+    },
+    "KPackageStructure": "KWin/Script",
+    "X-Plasma-API": "javascript",
+    "X-Plasma-MainScript": "code/main.js"
+}
