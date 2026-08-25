@@ -19,6 +19,10 @@
     print-manager
     plasma-browser-integration
     krdp
+    kate
+    ktexteditor
+    spectacle
+    gwenview
     konsole
   ];
 
