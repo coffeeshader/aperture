@@ -38,9 +38,11 @@
       ];
   };
 
-  services.emacs = {
-    enable = true;
-    defaultEditor = true;
+  services.emacs.enable = true;
+
+  home.sessionVariables = {
+    EDITOR = "emacsclient -c";
+    VISUAL = "emacsclient -c";
   };
 
   xdg.configFile."emacs/early-init.el".source = ../dotfiles/emacs/early-init.el;
