@@ -24,6 +24,10 @@
         markdown-mode
         nix-mode
         envrc
+        org-roam
+        org-roam-ui
+        org-modern
+        org-appear
 
         (treesit-grammars.with-grammars (
           grammars: with grammars; [

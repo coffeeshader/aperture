@@ -34,7 +34,9 @@
 (global-whitespace-mode t)
 
 (setq-default display-line-numbers-type 'relative
-              whitespace-style '(face trailing tabs spaces spaces-mark space-mark tab-mark missing-newline-at-eof))
+              whitespace-style '(face trailing tabs spaces space-mark tab-mark missing-newline-at-eof))
+
+(setq whitespace-global-modes '(not org-mode))
 
 (use-package catppuccin-theme
   :config
@@ -113,7 +115,48 @@
   :defer t
   :config
   (setq org-element-use-cache t
-        org-element-cache-persistent t))
+        org-element-cache-persistent t
+        org-directory "~/Notes"
+        org-return-follows-link t
+        org-hide-emphasis-markers t
+        org-startup-indented t
+        org-startup-with-inline-images t
+        org-startup-folded 'overview
+        org-edit-src-content-indentation 0
+        org-yank-image-save-method "images"))
+
+(use-package org-roam
+  :defer t
+  :init
+  (setq org-roam-directory (file-truename "~/Notes")
+        org-roam-db-location
+        (expand-file-name "emacs/org-roam.db"
+                          (or (getenv "XDG_CACHE_HOME") "~/.cache")))
+  (make-directory org-roam-directory t)
+
+  :config
+  (setq org-roam-completion-everywhere t)
+  (org-roam-db-autosync-mode))
+
+(use-package org-roam-ui
+  :after org-roam
+  :config
+  (setq org-roam-ui-sync-theme t
+        org-roam-ui-follow t
+        org-roam-ui-update-on-save t))
+
+(defun my/org-roam-ui-toggle ()
+  "Start org-roam-ui and open the browser, or shut the server down."
+  (interactive)
+  (if (bound-and-true-p org-roam-ui-mode)
+      (org-roam-ui-mode -1)
+    (org-roam-ui-open)))
+
+(use-package org-modern
+  :hook (org-mode . org-modern-mode))
+
+(use-package org-appear
+  :hook (org-mode . org-appear-mode))
 
 ;;;; Keybindings
 
@@ -166,6 +209,16 @@
 
   (kbd "SPC d")   #'dashboard-open
 
+  (kbd "SPC n f") #'org-roam-node-find
+  (kbd "SPC n i") #'org-roam-node-insert
+  (kbd "SPC n b") #'org-roam-buffer-toggle
+  (kbd "SPC n c") #'org-roam-capture
+  (kbd "SPC n p") #'yank-media
+  (kbd "SPC n t") #'org-roam-tag-add
+  (kbd "SPC n a") #'org-roam-alias-add
+  (kbd "SPC n l") #'org-store-link
+  (kbd "SPC n g") #'my/org-roam-ui-toggle
+
   (kbd "SPC w w") #'whitespace-mode
   (kbd "SPC w c") #'whitespace-cleanup)
 
@@ -179,6 +232,9 @@
 
 (evil-define-key 'normal markdown-mode-map
   (kbd "gf") #'markdown-follow-thing-at-point)
+
+(evil-define-key 'normal org-mode-map
+  (kbd "SPC n v") #'org-toggle-inline-images)
 
 ;;;; Save information across sessions
 (save-place-mode t)
