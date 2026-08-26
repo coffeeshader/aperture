@@ -23,6 +23,7 @@
         magit
         markdown-mode
         nix-mode
+        envrc
 
         (treesit-grammars.with-grammars (
           grammars: with grammars; [

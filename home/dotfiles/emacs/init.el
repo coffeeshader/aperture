@@ -64,15 +64,6 @@
           nix-mode
           ) . eglot-ensure)
   :config
-  (add-to-list 'eglot-server-programs
-               '(rust-ts-mode . ("nix" "shell" "aperture#rust" "-c" "rust-analyzer")))
-  (add-to-list 'eglot-server-programs
-               '((c-mode c-ts-mode c++-mode c++-ts-mode)
-                 . ("nix" "shell" "aperture#c" "-c" "clangd")))
-  (add-to-list 'eglot-server-programs
-               '(zig-mode . ("nix" "shell" "aperture#zig" "-c" "zls")))
-  (add-to-list 'eglot-server-programs
-               '(java-ts-mode . ("nix" "shell" "aperture#java" "-c" "jdtls")))
   (setq eglot-ignored-server-capabilities '(:documentFormattingProvider
                                             :documentOnTypeFormattingProvider
                                             :documentRangeFormattingProvider)
@@ -208,4 +199,10 @@
               auto-save-default nil)
 
 (load-file custom-file)
+
+;; buffer-local direnv environments; must be enabled late in init
+(use-package envrc
+  :config
+  (envrc-global-mode))
+
 (provide 'init)

@@ -29,6 +29,11 @@ in
     ZIG_GLOBAL_CACHE_DIR = "${devEnvironmentDirectory}/zig/global-cache";
   };
 
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
+
   home.activation.createDevEnvironmentDirectories = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     run mkdir -p ${lib.escapeShellArgs sandboxWritableRoots}
   '';

@@ -35,6 +35,7 @@
       user = "coffeeshader";
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+      environments = import ./packages/environments.nix { inherit pkgs; };
       mkHost =
         name:
         nixpkgs.lib.nixosSystem {
@@ -57,7 +58,13 @@
     in
     {
       formatter.${system} = pkgs.nixfmt-tree;
-      packages.${system} = import ./packages/environments.nix { inherit pkgs; };
+      packages.${system} = environments;
+      devShells.${system} = builtins.mapAttrs (
+        _: environment:
+        pkgs.mkShellNoCC {
+          packages = [ environment ];
+        }
+      ) environments;
       nixosConfigurations.glados = mkHost "glados";
     };
 }
