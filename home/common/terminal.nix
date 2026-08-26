@@ -11,7 +11,7 @@
         resize-by-cells = "no";
       };
 
-      colors.alpha = if config.theme.oled then "1.0" else "0.85";
+      "colors-dark".alpha = if config.theme.oled then "1.0" else "0.85";
     };
   };
 }
