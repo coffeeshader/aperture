@@ -52,7 +52,9 @@
         {||
           let pwd = ($env.PWD | str replace $env.HOME "~")
           let host = (sys host | get hostname | split row "." | first)
-          $"(ansi cyan_bold)($env.USER)(ansi yellow_bold)@(ansi magenta_bold)($host)(ansi reset) (ansi red)($pwd)(ansi reset) "
+          let colors = $env.config.color_config
+
+          $"(ansi { fg: $colors.shape_operator attr: b })($env.USER)(ansi { fg: $colors.shape_filepath attr: b })@(ansi { fg: $colors.shape_keyword attr: b })($host)(ansi reset) (ansi { fg: $colors.shape_garbage })($pwd)(ansi reset) "
         }
       '';
       PROMPT_INDICATOR = "";
