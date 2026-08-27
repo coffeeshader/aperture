@@ -27,6 +27,7 @@ in
     })
     pkgs.kdePackages.karousel
     pkgs.kwin-script-geometry-change
+    pkgs.kde-rounded-corners
   ];
 
   xdg.dataFile."kwin/scripts/focus-or-desktop".source = ../dotfiles/kwin/focus-or-desktop;
@@ -215,6 +216,17 @@ in
       kwinrc.Plugins.kwin4_effect_geometry_changeEnabled = true;
       kwinrc."Effect-kwin4_effect_geometry_change".Duration = 467;
       kwinrc.Plugins."focus-or-desktopEnabled" = true;
+      kwinrc.Plugins.kwin4_effect_shapecornersEnabled = true;
+      kwinrc."Round-Corners" = {
+        Size = 0;
+        InactiveCornerRadius = 0;
+        OutlineThickness = 4;
+        ActiveOutlineUsePalette = true;
+        ActiveOutlineUseCustom = false;
+        InactiveOutlineThickness = 0;
+        SecondOutlineThickness = 0;
+        InactiveSecondOutlineThickness = 0;
+      };
       kwinrc.Windows_HDR.MaxLuminance = 560;
       kwinrc.Windows_HDR.Reference = 250;
       kdeglobals.General = {
