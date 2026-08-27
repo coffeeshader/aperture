@@ -218,6 +218,7 @@ in
       kwinrc.Plugins."focus-or-desktopEnabled" = true;
       kwinrc.Plugins.kwin4_effect_shapecornersEnabled = true;
       kwinrc."Round-Corners" = {
+        AnimationDuration = 0;
         Size = 0;
         InactiveCornerRadius = 0;
         OutlineThickness = 4;
