@@ -11,7 +11,7 @@ modules/           system modules (common, audio, KDE Plasma, gaming, vr)
 packages/          reusable flake packages; dev environments via nix shell aperture#<env>
 home/<name>.nix    per-host home entry (stateVersion)
 home/common/       home-manager config, one file per topic (git, shell, emacs, ...)
-home/plasma.nix    KDE-only plasma-manager config
+home/profiles/     opt-in bundles a host imports (plasma, gaming)
 ```
 
 ## Hosts

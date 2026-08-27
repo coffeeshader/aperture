@@ -3,8 +3,8 @@
 {
   imports = [
     ./common
-    ./plasma.nix
-    ./gaming.nix
+    ./profiles/plasma.nix
+    ./profiles/gaming.nix
   ];
 
   theme.oled = true;

@@ -29,7 +29,7 @@ in
     pkgs.kwin-script-geometry-change
   ];
 
-  xdg.dataFile."kwin/scripts/focus-or-desktop".source = ./dotfiles/kwin/focus-or-desktop;
+  xdg.dataFile."kwin/scripts/focus-or-desktop".source = ../dotfiles/kwin/focus-or-desktop;
 
   programs.plasma = {
     enable = true;
