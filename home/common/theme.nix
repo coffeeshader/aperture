@@ -33,7 +33,10 @@
     };
   };
 
-  config.home.pointerCursor.enable = true;
+  config.home.pointerCursor = {
+    enable = true;
+    size = 24;
+  };
 
   config.catppuccin = {
     enable = true;

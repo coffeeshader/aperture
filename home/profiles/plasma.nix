@@ -38,7 +38,10 @@ in
       colorScheme = "CatppuccinMochaMauve";
       iconTheme = "Papirus-Dark";
       # catppuccin-mocha-mauve-cursors, from catppuccin.cursors in theme.nix
-      cursor.theme = config.home.pointerCursor.name;
+      cursor = {
+        theme = config.home.pointerCursor.name;
+        size = config.home.pointerCursor.size;
+      };
     };
 
     powerdevil.AC.powerProfile = "performance";
