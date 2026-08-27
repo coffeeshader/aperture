@@ -19,7 +19,7 @@
     };
 
     shellAliases = {
-      nrs = "doas nixos-rebuild switch --flake ~/aperture";
+      nrs = "nixos-rebuild switch --flake ~/aperture --elevate=run0";
       ff = "fastfetch";
     };
 

@@ -73,20 +73,19 @@
     git
   ];
 
-  # Replace sudo with doas
-  security.doas.enable = true;
-  security.doas.extraRules = [
-    {
-      groups = [ "wheel" ];
-      persist = true;
-      keepEnv = true;
-    }
-  ];
+  # Use run0 instead of sudo
+  security = {
+    sudo.enable = false;
 
-  security.sudo.enable = false;
+    run0 = {
+      enable = true;
+      persistentAuth.enable = true;
+    };
+  };
+
+  system.tools.nixos-rebuild.enableRun0Elevation = true;
 
   security.rtkit.enable = true;
-
   services.pipewire = {
     enable = true;
     alsa.enable = true;
