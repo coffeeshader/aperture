@@ -189,14 +189,6 @@ in
 
     window-rules = [
       {
-        description = "hide titlebars";
-        match.window-types = [ "normal" ];
-        apply.noborder = {
-          value = true;
-          apply = "force";
-        };
-      }
-      {
         description = "open at half screen width";
         match.window-class = {
           value = "^(?!ksshaskpass$)";
@@ -221,12 +213,25 @@ in
         AnimationDuration = 0;
         Size = 0;
         InactiveCornerRadius = 0;
-        OutlineThickness = 4;
-        ActiveOutlineUsePalette = true;
-        ActiveOutlineUseCustom = false;
+        OutlineThickness = 0;
         InactiveOutlineThickness = 0;
         SecondOutlineThickness = 0;
         InactiveSecondOutlineThickness = 0;
+        OuterOutlineThickness = 3;
+        ActiveOuterOutlineUsePalette = true;
+        ActiveOuterOutlineUseCustom = false;
+      };
+      # hidden titlebars via Breeze keep the decoration shadow the outer outline draws in
+      kwinrc."org.kde.kdecoration2" = {
+        BorderSize = "None";
+        BorderSizeAuto = false;
+      };
+      breezerc."Windeco Exception 0" = {
+        Enabled = true;
+        ExceptionPattern = ".*";
+        ExceptionType = 0;
+        HideTitleBar = true;
+        Mask = 0;
       };
       kwinrc.Windows_HDR.MaxLuminance = 560;
       kwinrc.Windows_HDR.Reference = 250;
