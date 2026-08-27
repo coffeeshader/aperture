@@ -219,8 +219,9 @@ in
       kwinrc.Plugins.kwin4_effect_shapecornersEnabled = true;
       kwinrc."Round-Corners" = {
         AnimationDuration = 0;
-        Size = 0;
-        InactiveCornerRadius = 0;
+        Size = 10;
+        InactiveCornerRadius = 10;
+        UseSquircleShape = false;
         OutlineThickness = 0;
         InactiveOutlineThickness = 0;
         SecondOutlineThickness = 0;
@@ -229,6 +230,7 @@ in
         ActiveOuterOutlineUsePalette = true;
         ActiveOuterOutlineUseCustom = false;
         DisableOutlineTile = false;
+        DisableRoundTile = false;
       };
       # hidden titlebars via Breeze keep the decoration shadow the outer outline draws in
       kwinrc."org.kde.kdecoration2" = {
