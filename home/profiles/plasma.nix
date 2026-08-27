@@ -220,6 +220,7 @@ in
         OuterOutlineThickness = 3;
         ActiveOuterOutlineUsePalette = true;
         ActiveOuterOutlineUseCustom = false;
+        DisableOutlineTile = false;
       };
       # hidden titlebars via Breeze keep the decoration shadow the outer outline draws in
       kwinrc."org.kde.kdecoration2" = {
