@@ -8,7 +8,10 @@
 {
   imports = [ inputs.plasma-manager.homeModules.plasma-manager ];
 
-  home.packages = [ pkgs.kdePackages.karousel ];
+  home.packages = [
+    pkgs.kdePackages.karousel
+    pkgs.kwin-script-geometry-change
+  ];
 
   xdg.dataFile."kwin/scripts/focus-or-desktop".source = ./dotfiles/kwin/focus-or-desktop;
 
@@ -184,6 +187,8 @@
 
     configFile = {
       kwinrc.Plugins.karouselEnabled = true;
+      kwinrc.Plugins.kwin4_effect_geometry_changeEnabled = true;
+      kwinrc."Effect-kwin4_effect_geometry_change".Duration = 467;
       kwinrc.Plugins."focus-or-desktopEnabled" = true;
       kwinrc.Windows_HDR.MaxLuminance = 560;
       kwinrc.Windows_HDR.Reference = 250;
@@ -191,6 +196,7 @@
         TerminalApplication = "foot";
         TerminalService = "foot.desktop";
       };
+      kdeglobals.KDE.AnimationDurationFactor = 0.75;
     };
   };
 }
