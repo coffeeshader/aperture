@@ -33,11 +33,15 @@
     };
   };
 
+  config.home.pointerCursor.enable = true;
+
   config.catppuccin = {
     enable = true;
     autoEnable = true;
     flavor = "mocha";
     accent = "mauve";
+
+    cursors.enable = true;
 
     sources = lib.mkIf config.theme.oled (
       inputs.catppuccin.packages.${pkgs.stdenv.hostPlatform.system}.overrideScope (

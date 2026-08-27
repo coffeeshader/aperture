@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   lib,
   inputs,
@@ -9,6 +10,14 @@
   imports = [ inputs.plasma-manager.homeModules.plasma-manager ];
 
   home.packages = [
+    (pkgs.catppuccin-kde.override {
+      flavour = [ "mocha" ];
+      accents = [ "mauve" ];
+    })
+    (pkgs.catppuccin-papirus-folders.override {
+      flavor = "mocha";
+      accent = "mauve";
+    })
     pkgs.kdePackages.karousel
     pkgs.kwin-script-geometry-change
   ];
@@ -19,9 +28,10 @@
     enable = true;
 
     workspace = {
-      colorScheme = "BreezeDark";
-      iconTheme = "breeze-dark";
-      cursor.theme = "Breeze_Snow";
+      colorScheme = "CatppuccinMochaMauve";
+      iconTheme = "Papirus-Dark";
+      # catppuccin-mocha-mauve-cursors, from catppuccin.cursors in theme.nix
+      cursor.theme = config.home.pointerCursor.name;
     };
 
     powerdevil.AC.powerProfile = "performance";
@@ -166,10 +176,18 @@
       );
     };
 
-    # 5120x2160 at scale 1.3 = 3939x1662.
-    # Karousel's 50% preset = floor((tilingArea + innerGap)/2 - innerGap)
-    # with tilingArea = 3939 - 2*16 outer gap = 3907, innerGap = 8 -> 1949,
     window-rules = [
+      {
+        description = "hide titlebars";
+        match.window-types = [ "normal" ];
+        apply.noborder = {
+          value = true;
+          apply = "force";
+        };
+      }
+      # 5120x2160 at scale 1.3 = 3939x1662.
+      # Karousel's 50% preset = floor((tilingArea + innerGap)/2 - innerGap)
+      # with tilingArea = 3939 - 2*16 outer gap = 3907, innerGap = 8 -> 1949,
       {
         description = "open at half screen width";
         match.window-class = {
