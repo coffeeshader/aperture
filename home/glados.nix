@@ -5,6 +5,7 @@
     ./common
     ./profiles/plasma.nix
     ./profiles/gaming.nix
+    ./profiles/modding.nix
   ];
 
   theme.oled = true;
