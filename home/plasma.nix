@@ -6,6 +6,13 @@
   ...
 }:
 
+let
+  # Karousel's 50% preset = floor((tilingArea + innerGap)/2 - innerGap)
+  outerGap = 16;
+  innerGap = 8;
+  tilingArea = config.screen.width - 2 * outerGap;
+  halfWidth = (tilingArea + innerGap) / 2 - innerGap;
+in
 {
   imports = [ inputs.plasma-manager.homeModules.plasma-manager ];
 
@@ -185,9 +192,6 @@
           apply = "force";
         };
       }
-      # 5120x2160 at scale 1.3 = 3939x1662.
-      # Karousel's 50% preset = floor((tilingArea + innerGap)/2 - innerGap)
-      # with tilingArea = 3939 - 2*16 outer gap = 3907, innerGap = 8 -> 1949,
       {
         description = "open at half screen width";
         match.window-class = {
@@ -197,7 +201,7 @@
         };
         match.window-types = [ "normal" ];
         apply.size = {
-          value = "1949,1662";
+          value = "${toString halfWidth},${toString config.screen.height}";
           apply = "initially";
         };
       }
