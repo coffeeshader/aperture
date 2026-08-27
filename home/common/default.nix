@@ -17,8 +17,8 @@
 
   xdg.enable = true;
 
-  home.packages = with pkgs; [
-    fastfetch
+  home.packages = [
+    pkgs.fastfetch
   ];
 
   programs.btop.enable = true;

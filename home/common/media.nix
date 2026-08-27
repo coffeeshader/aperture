@@ -1,8 +1,8 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [
-    yt-dlp
+  home.packages = [
+    pkgs.yt-dlp
   ];
 
   programs.mpv = {

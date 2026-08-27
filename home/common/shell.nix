@@ -39,10 +39,10 @@
       }
     '';
 
-    plugins = with pkgs.nushellPlugins; [
-      formats
-      query
-      gstat
+    plugins = [
+      pkgs.nushellPlugins.formats
+      pkgs.nushellPlugins.query
+      pkgs.nushellPlugins.gstat
     ];
 
     environmentVariables = {

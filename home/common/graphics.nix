@@ -1,18 +1,18 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [
-    vulkan-tools
-    vulkan-tools-lunarg
-    vulkan-caps-viewer
-    vulkan-validation-layers
+  home.packages = [
+    pkgs.vulkan-tools
+    pkgs.vulkan-tools-lunarg
+    pkgs.vulkan-caps-viewer
+    pkgs.vulkan-validation-layers
 
-    renderdoc
-    spirv-tools
-    shaderc
-    mesa-demos
+    pkgs.renderdoc
+    pkgs.spirv-tools
+    pkgs.shaderc
+    pkgs.mesa-demos
 
-    glsl_analyzer
+    pkgs.glsl_analyzer
   ];
 
   home.sessionVariables.VK_LAYER_PATH = "${pkgs.vulkan-validation-layers}/share/vulkan/explicit_layer.d";

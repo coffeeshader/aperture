@@ -12,18 +12,18 @@
     desktopManager.plasma6.enable = true;
   };
 
-  environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    elisa
-    okular
-    khelpcenter
-    print-manager
-    plasma-browser-integration
-    krdp
-    kate
-    ktexteditor
-    spectacle
-    gwenview
-    konsole
+  environment.plasma6.excludePackages = [
+    pkgs.kdePackages.elisa
+    pkgs.kdePackages.okular
+    pkgs.kdePackages.khelpcenter
+    pkgs.kdePackages.print-manager
+    pkgs.kdePackages.plasma-browser-integration
+    pkgs.kdePackages.krdp
+    pkgs.kdePackages.kate
+    pkgs.kdePackages.ktexteditor
+    pkgs.kdePackages.spectacle
+    pkgs.kdePackages.gwenview
+    pkgs.kdePackages.konsole
   ];
 
   qt = {

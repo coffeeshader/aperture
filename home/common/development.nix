@@ -14,12 +14,12 @@ let
   ];
 in
 {
-  home.packages = with pkgs; [
-    nil
-    nixfmt
+  home.packages = [
+    pkgs.nil
+    pkgs.nixfmt
 
-    bubblewrap
-    socat
+    pkgs.bubblewrap
+    pkgs.socat
   ];
 
   home.sessionVariables = {

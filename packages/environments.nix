@@ -3,46 +3,46 @@
 {
   c = pkgs.buildEnv {
     name = "c-environment";
-    paths = with pkgs; [
-      clang
-      clang-tools
-      lld
+    paths = [
+      pkgs.clang
+      pkgs.clang-tools
+      pkgs.lld
     ];
   };
 
   rust = pkgs.buildEnv {
     name = "rust-environment";
-    paths = with pkgs; [
-      rustc
-      cargo
-      rustfmt
-      clippy
-      rust-analyzer
+    paths = [
+      pkgs.rustc
+      pkgs.cargo
+      pkgs.rustfmt
+      pkgs.clippy
+      pkgs.rust-analyzer
     ];
   };
 
   zig = pkgs.buildEnv {
     name = "zig-environment";
-    paths = with pkgs; [
-      zig
-      zls
+    paths = [
+      pkgs.zig
+      pkgs.zls
     ];
   };
 
   odin = pkgs.buildEnv {
     name = "odin-environment";
-    paths = with pkgs; [
-      odin
-      ols
+    paths = [
+      pkgs.odin
+      pkgs.ols
     ];
   };
 
   java = pkgs.buildEnv {
     name = "java-environment";
-    paths = with pkgs; [
-      jdk
-      maven
-      jdt-language-server
+    paths = [
+      pkgs.jdk
+      pkgs.maven
+      pkgs.jdt-language-server
     ];
   };
 }
