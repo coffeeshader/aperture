@@ -9,15 +9,7 @@
       "*" = {
         AddKeysToAgent = "yes";
       };
-      "github.com" = {
-        User = "git";
-        IdentityFile = "~/.ssh/id_ed25519_sk_ciri";
-      };
-      "git.sr.ht" = {
-        User = "git";
-        IdentityFile = "~/.ssh/id_ed25519_sk_ciri";
-      };
-      "codeberg.org" = {
+      "github.com git.sr.ht codeberg.org" = {
         User = "git";
         IdentityFile = "~/.ssh/id_ed25519_sk_ciri";
       };

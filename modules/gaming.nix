@@ -27,8 +27,4 @@
   };
 
   environment.sessionVariables.ENABLE_LAYER_MESA_ANTI_LAG = "1";
-
-  environment.systemPackages = [
-    pkgs.mangohud
-  ];
 }
