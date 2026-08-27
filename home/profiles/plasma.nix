@@ -189,6 +189,14 @@ in
 
     window-rules = [
       {
+        description = "always decorate";
+        match.window-types = [ "normal" ];
+        apply.noborder = {
+          value = false;
+          apply = "force";
+        };
+      }
+      {
         description = "open at half screen width";
         match.window-class = {
           value = "^(?!ksshaskpass$)";
