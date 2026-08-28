@@ -1,7 +1,16 @@
 { config, pkgs, ... }:
 
 {
-  home.packages = [ pkgs.streamrip ];
+  home.packages = [
+    (pkgs.streamrip.overrideAttrs (old: {
+      postPatch = (old.postPatch or "") + ''
+        substituteInPlace streamrip/client/qobuz.py \
+          --replace-fail \
+            'raise IneligibleError("Free accounts are not eligible to download tracks.")' \
+            'logger.warning("No streaming plan; only purchased tracks will download")'
+      '';
+    }))
+  ];
 
   programs.beets = {
     enable = true;
