@@ -12,6 +12,7 @@
     ./discord.nix
     ./browser.nix
     ./media.nix
+    ./music.nix
     ./development.nix
     ./graphics.nix
   ];
