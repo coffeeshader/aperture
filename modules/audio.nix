@@ -17,5 +17,12 @@
       176400
       192000
     ];
+
+    extraConfig.client."10-mpd-resample"."stream.rules" = [
+      {
+        matches = [ { "application.name" = "Music Player Daemon"; } ];
+        actions.update-props."resample.quality" = 8;
+      }
+    ];
   };
 }
