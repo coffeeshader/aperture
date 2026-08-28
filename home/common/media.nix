@@ -13,6 +13,7 @@
       gpu-context = "waylandvk";
       hwdec = "auto-copy";
       save-position-on-quit = true;
+      volume = 20;
     };
   };
 }
