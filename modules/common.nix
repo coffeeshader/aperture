@@ -64,6 +64,8 @@
     pkgs.git
   ];
 
+  fonts.packages = [ pkgs.intel-one-mono ];
+
   # Use run0 instead of sudo
   security = {
     sudo.enable = false;
