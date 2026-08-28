@@ -55,8 +55,9 @@ in
     };
 
     shortcuts = {
-      # Launchers (niri: Mod+Return / Mod+M / Mod+B)
+      # Launchers (niri: Mod+Return / Mod+M / Mod+B / Mod+Space)
       "services/com.mitchellh.ghostty.desktop"._launch = "Meta+Return";
+      "services/org.kde.krunner.desktop"._launch = "Meta+Space";
       "services/emacsclient.desktop"._launch = "Meta+M";
       "services/emacs.desktop"._launch = [ ];
       "services/helium.desktop"._launch = "Meta+B";
