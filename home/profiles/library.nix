@@ -8,6 +8,12 @@
           --replace-fail \
             'raise IneligibleError("Free accounts are not eligible to download tracks.")' \
             'logger.warning("No streaming plan; only purchased tracks will download")'
+
+        substituteInPlace streamrip/client/qobuz.py \
+          --replace-fail 'import hashlib' \
+            'import hashlib
+        import http.client
+        http.client._MAXHEADERS = 1000'
       '';
     }))
   ];
