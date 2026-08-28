@@ -56,7 +56,7 @@ in
 
     shortcuts = {
       # Launchers (niri: Mod+Return / Mod+M / Mod+B)
-      "services/foot.desktop"._launch = "Meta+Return";
+      "services/com.mitchellh.ghostty.desktop"._launch = "Meta+Return";
       "services/emacsclient.desktop"._launch = "Meta+M";
       "services/emacs.desktop"._launch = [ ];
       "services/helium.desktop"._launch = "Meta+B";
@@ -247,8 +247,8 @@ in
       kwinrc.Windows_HDR.MaxLuminance = 560;
       kwinrc.Windows_HDR.Reference = 250;
       kdeglobals.General = {
-        TerminalApplication = "foot";
-        TerminalService = "foot.desktop";
+        TerminalApplication = "ghostty";
+        TerminalService = "com.mitchellh.ghostty.desktop";
       };
       kdeglobals.KDE.AnimationDurationFactor = 0.75;
     };

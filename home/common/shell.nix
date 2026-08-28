@@ -5,6 +5,13 @@
   ...
 }:
 
+let
+  hmSessionVars = ''
+    if [ -f "${config.home.profileDirectory}/etc/profile.d/hm-session-vars.sh" ]; then
+      . "${config.home.profileDirectory}/etc/profile.d/hm-session-vars.sh"
+    fi
+  '';
+in
 {
   programs.nushell = {
     enable = true;
@@ -63,19 +70,12 @@
     };
   };
 
-  xdg.configFile."yash/profile".text = ''
-    if [ -f "/etc/profiles/per-user/$USER/etc/profile.d/hm-session-vars.sh" ]; then
-      . "/etc/profiles/per-user/$USER/etc/profile.d/hm-session-vars.sh"
-    fi
+  xdg.configFile."yash/profile".text = hmSessionVars;
 
-    case $- in
-      *i*)
-        if [ -z "$NU_RUNNING" ] && command -v nu >/dev/null 2>&1; then
-          NU_RUNNING=1
-          export NU_RUNNING
-          exec nu
-        fi
-        ;;
-    esac
+  xdg.configFile."yash/rc".text = hmSessionVars + ''
+
+    if command -v nu >/dev/null 2>&1 && [ "$(ps -o comm= -p $PPID)" != "nu" ]; then
+      exec nu
+    fi
   '';
 }
