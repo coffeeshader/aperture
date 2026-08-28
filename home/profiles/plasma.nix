@@ -55,10 +55,10 @@ in
     };
 
     shortcuts = {
-      # Launchers (niri: Mod+Return / Mod+M / Mod+B / Mod+Space)
+      # Launchers (niri: Mod+Return / Mod+E / Mod+B / Mod+Space)
       "services/com.mitchellh.ghostty.desktop"._launch = "Meta+Return";
       "services/org.kde.krunner.desktop"._launch = "Meta+Space";
-      "services/emacsclient.desktop"._launch = "Meta+M";
+      "services/emacsclient.desktop"._launch = "Meta+E";
       "services/emacs.desktop"._launch = [ ];
       "services/helium.desktop"._launch = "Meta+B";
       "services/org.kde.dolphin.desktop"._launch = [ ];
@@ -72,6 +72,8 @@ in
       plasmashell = {
         # Meta+V is toggle-floating
         "show-on-mouse-pos" = [ ];
+        # Meta+Q is close-window
+        "manage activities" = [ ];
       }
       # Meta+1..9 switch desktops instead of task manager entries
       // lib.mergeAttrsList (
@@ -149,10 +151,10 @@ in
           "Meta+Ctrl+I"
         ];
 
-        # Window controls (niri: Mod+E close, Mod+Shift+F fullscreen,
+        # Window controls (niri: Mod+Q close, Mod+Shift+F fullscreen,
         # Mod+V floating, Mod+O overview)
         "Window Close" = [
-          "Meta+E"
+          "Meta+Q"
           "Alt+F4"
         ];
         "Window Fullscreen" = "Meta+Shift+F";
