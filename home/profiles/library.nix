@@ -55,6 +55,13 @@
         from_scratch = true;
       };
 
+      musicbrainz = {
+        host = "musicbrainz.org:443";
+        https = true;
+        ratelimit = 1;
+        ratelimit_interval = 2;
+      };
+
       lastgenre = {
         count = 3;
         force = true;
