@@ -59,6 +59,7 @@ in
       "services/com.mitchellh.ghostty.desktop"._launch = "Meta+Return";
       "services/org.kde.krunner.desktop"._launch = "Meta+Space";
       "services/emacsclient.desktop"._launch = "Meta+E";
+      "services/rmpc.desktop"._launch = "Meta+M";
       "services/emacs.desktop"._launch = [ ];
       "services/helium.desktop"._launch = "Meta+B";
       "services/org.kde.dolphin.desktop"._launch = [ ];
