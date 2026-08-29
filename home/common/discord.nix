@@ -6,6 +6,8 @@
 }:
 
 let
+  tomlFormat = pkgs.formats.toml { };
+
   inherit (config.catppuccin) flavor accent;
 
   rgb =
@@ -95,5 +97,25 @@ in
         };
       };
     };
+  };
+
+  xdg.configFile."mprisence/config.toml".source = tomlFormat.generate "mprisence-config" {
+    cover.provider.provider = [ "musicbrainz" ];
+  };
+
+  systemd.user.services.mprisence = {
+    Unit = {
+      Description = "Discord Rich Presence for MPRIS media players";
+      After = [ "graphical-session.target" ];
+      PartOf = [ "graphical-session.target" ];
+    };
+
+    Service = {
+      ExecStart = lib.getExe pkgs.mprisence;
+      Restart = "on-failure";
+      RestartSec = 10;
+    };
+
+    Install.WantedBy = [ "graphical-session.target" ];
   };
 }
