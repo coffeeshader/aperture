@@ -7,6 +7,8 @@
     settings = {
       window-decoration = "server";
       window-theme = "ghostty";
+      window-padding-color = "extend";
+      window-padding-balance = true;
       quit-after-last-window-closed = false;
       shell-integration-features = "ssh-env,ssh-terminfo";
       gtk-wide-tabs = false;
