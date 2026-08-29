@@ -1,11 +1,14 @@
 { config, ... }:
 
 let
-  devices = {
+  allDevices = {
     glados.id = "MSMOCWY-FKLTHHO-ERQPZ42-HJVER5Z-KPW2Q2C-56RVHK5-2A4PION-3APWFAG";
-#    chell.id = "CHELL00-AAAAAAA-AAAAAAA-AAAAAAA-AAAAAAA-AAAAAAA-AAAAAAA-AAAAAAA";
     phone.id = "F6HJUKI-XSLZYZ3-COPRDER-LN7ZXWU-3CTNHEX-AKEIF4O-E6JUVOE-DV7NXAC";
   };
+
+  devices = builtins.removeAttrs allDevices [
+    config.networking.hostName
+  ];
 in
 {
   services.syncthing = {
