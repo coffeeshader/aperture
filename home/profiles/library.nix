@@ -2,6 +2,7 @@
 
 {
   home.packages = [
+    (pkgs.writers.writeNuBin "sort-m3u" (builtins.readFile ../dotfiles/sort-m3u.nu))
     (pkgs.streamrip.overrideAttrs (old: {
       postPatch = (old.postPatch or "") + ''
         substituteInPlace streamrip/client/qobuz.py \
