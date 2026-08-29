@@ -16,6 +16,7 @@ let
     crust = "11111b";
     text = "cdd6f4";
     overlay0 = "6c7086";
+    surface2 = "585b70";
     mauve = "cba6f7";
     lavender = "b4befe";
     sky = "89dceb";
@@ -51,6 +52,65 @@ let
             direction: Vertical,
             panes: [
                 (pane: Pane(Header),      size: "1"),
+                (
+                    size: "1",
+                    pane: Split(
+                        direction: Horizontal,
+                        panes: [
+                            (size: "5", background_color: "${band}", pane: Pane(Property(
+                                content: [(kind: Property(Status(Elapsed)), style: (fg: "${p.lavender}"))],
+                                align: Left,
+                            ))),
+                            (size: "3", background_color: "${band}", pane: Pane(Property(
+                                content: [(kind: Text(" / "), style: (fg: "${p.overlay0}"))],
+                                align: Left,
+                            ))),
+                            (size: "5", background_color: "${band}", pane: Pane(Property(
+                                content: [(kind: Property(Status(Duration)), style: (fg: "${p.lavender}"))],
+                                align: Left,
+                            ))),
+                            (size: "13", background_color: "${band}", pane: Pane(Property(
+                                content: [(kind: Group([
+                                    (kind: Text(" (")),
+                                    (kind: Property(Status(Bitrate))),
+                                    (kind: Text(" kbps)"))
+                                ]), style: (fg: "${p.overlay0}"))],
+                                align: Left,
+                            ))),
+                            (size: "100%", background_color: "${band}", pane: Pane(Property(
+                                content: [
+                                    (kind: Property(Status(RepeatV2(
+                                        on_label: "󰑖", off_label: "󰑗",
+                                        on_style: (fg: "${p.green}", modifiers: "Bold"),
+                                        off_style: (fg: "${p.surface2}", modifiers: "Bold")
+                                    )))),
+                                    (kind: Text(" | "), style: (fg: "${p.overlay0}")),
+                                    (kind: Property(Status(RandomV2(
+                                        on_label: "󰒝", off_label: "󰒞",
+                                        on_style: (fg: "${p.pink}", modifiers: "Bold"),
+                                        off_style: (fg: "${p.surface2}", modifiers: "Bold")
+                                    )))),
+                                    (kind: Text(" | "), style: (fg: "${p.overlay0}")),
+                                    (kind: Property(Status(ConsumeV2(
+                                        on_label: "󰮯", off_label: "󰮯", oneshot_label: "󰮯 󰇊",
+                                        on_style: (fg: "${p.yellow}", modifiers: "Bold"),
+                                        off_style: (fg: "${p.surface2}", modifiers: "Bold"),
+                                        oneshot_style: (fg: "${p.blue}", modifiers: "Bold")
+                                    )))),
+                                    (kind: Text(" | "), style: (fg: "${p.overlay0}")),
+                                    (kind: Property(Status(SingleV2(
+                                        on_label: "󰎤", off_label: "󰎦", oneshot_label: "󰇊",
+                                        on_style: (fg: "${p.lavender}", modifiers: "Bold"),
+                                        off_style: (fg: "${p.surface2}", modifiers: "Bold"),
+                                        oneshot_style: (fg: "${p.yellow}", modifiers: "Bold")
+                                    )))),
+                                    (kind: Text(" "))
+                                ],
+                                align: Right,
+                            ))),
+                        ],
+                    ),
+                ),
                 (pane: Pane(TabContent),  size: "100%"),
                 (pane: Pane(ProgressBar), size: "1"),
             ],
