@@ -191,8 +191,6 @@ in
       );
     };
 
-    # rmpc's own volume (the Vol: in its header), not the system mixer;
-    # , and . neighbour M on the bottom row and already read as < and >
     hotkeys.commands =
       let
         rmpc = lib.getExe config.programs.rmpc.package;
@@ -200,12 +198,12 @@ in
       {
         rmpc-volume-down = {
           name = "Decrease rmpc volume";
-          key = "Meta+,";
+          key = "Meta+;";
           command = "${rmpc} volume -5";
         };
         rmpc-volume-up = {
           name = "Increase rmpc volume";
-          key = "Meta+.";
+          key = "Meta+'";
           command = "${rmpc} volume +5";
         };
       };
