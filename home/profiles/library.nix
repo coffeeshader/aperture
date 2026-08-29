@@ -22,7 +22,7 @@
     enable = true;
 
     package = pkgs.python3Packages.toPythonApplication (
-      pkgs.python3Packages.beets-minimal.override {
+      (pkgs.python3Packages.beets-minimal.override {
         pluginOverrides = {
           musicbrainz.enable = true;
           scrub.enable = true;
@@ -31,7 +31,20 @@
           lyrics.enable = true;
           mpdupdate.enable = true;
         };
-      }
+      }).overridePythonAttrs
+        (old: {
+          postPatch = (old.postPatch or "") + ''
+            substituteInPlace beets/util/lyrics.py \
+              --replace-fail \
+                'data = {"text": item.lyrics}' \
+                'data = {"text": item.lyrics or ""}'
+
+            substituteInPlace beetsplug/lyrics.py \
+              --replace-fail \
+                'return self.plain' \
+                'return self.plain or ""'
+          '';
+        })
     );
 
     mpdIntegration.enableUpdate = true;
