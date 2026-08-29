@@ -34,6 +34,8 @@ in
         urAccepted = -1;
         globalAnnounceEnabled = false;
         relaysEnabled = false;
+        natEnabled = false;
+        crashReportingEnabled = false;
       };
     };
   };
