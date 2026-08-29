@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 
@@ -13,7 +12,6 @@ let
   mocha = {
     base = "1e1e2e";
     mantle = "181825";
-    crust = "11111b";
     text = "cdd6f4";
     overlay0 = "6c7086";
     surface2 = "585b70";
@@ -21,11 +19,8 @@ let
     lavender = "b4befe";
     sky = "89dceb";
     yellow = "f9e2af";
-    teal = "94e2d5";
-    sapphire = "74c7ec";
     blue = "89b4fa";
     pink = "f5c2e7";
-    maroon = "eba0ac";
     red = "f38ba8";
     green = "a6e3a1";
   };
@@ -39,45 +34,45 @@ let
 
   band = "#${mocha.mantle}";
 
-  theme = pkgs.writeText "${themeName}.ron" ''
+  theme = ''
     #![enable(implicit_some)]
     #![enable(unwrap_newtypes)]
     #![enable(unwrap_variant_newtypes)]
     (
         default_album_art_path: None,
         draw_borders: false,
-        show_song_table_header: false,
         symbols: (song: "󰝚", dir: "󰀥", playlist: "󰲸", marker: "\u{e0b0}"),
         layout: Split(
             direction: Vertical,
             panes: [
-                (pane: Pane(Header),      size: "1"),
+                (size: "1", background_color: "${band}", pane: Pane(Header)),
                 (
                     size: "1",
+                    background_color: "${band}",
                     pane: Split(
                         direction: Horizontal,
                         panes: [
-                            (size: "5", background_color: "${band}", pane: Pane(Property(
+                            (size: "5", pane: Pane(Property(
                                 content: [(kind: Property(Status(Elapsed)), style: (fg: "${p.lavender}"))],
                                 align: Left,
                             ))),
-                            (size: "3", background_color: "${band}", pane: Pane(Property(
+                            (size: "3", pane: Pane(Property(
                                 content: [(kind: Text(" / "), style: (fg: "${p.overlay0}"))],
                                 align: Left,
                             ))),
-                            (size: "5", background_color: "${band}", pane: Pane(Property(
+                            (size: "5", pane: Pane(Property(
                                 content: [(kind: Property(Status(Duration)), style: (fg: "${p.lavender}"))],
                                 align: Left,
                             ))),
-                            (size: "13", background_color: "${band}", pane: Pane(Property(
+                            (size: "13", pane: Pane(Property(
                                 content: [(kind: Group([
-                                    (kind: Text(" (")),
-                                    (kind: Property(Status(Bitrate))),
-                                    (kind: Text(" kbps)"))
-                                ]), style: (fg: "${p.overlay0}"))],
+                                    (kind: Text(" ("), style: (fg: "${p.overlay0}")),
+                                    (kind: Property(Status(Bitrate)), style: (fg: "${p.overlay0}")),
+                                    (kind: Text(" kbps)"), style: (fg: "${p.overlay0}"))
+                                ]))],
                                 align: Left,
                             ))),
-                            (size: "100%", background_color: "${band}", pane: Pane(Property(
+                            (size: "100%", pane: Pane(Property(
                                 content: [
                                     (kind: Property(Status(RepeatV2(
                                         on_label: "󰑖", off_label: "󰑗",
@@ -130,10 +125,8 @@ let
         browser_column_widths: [20, 38, 42],
         text_color: "${p.text}",
         background_color: "${p.base}",
-        header_background_color: "${band}",
         modal_background_color: None,
         modal_backdrop: false,
-        tab_bar: (active_style: (fg: "black", bg: "${p.mauve}", modifiers: "Bold"), inactive_style: ()),
         borders_style: (fg: "${p.overlay0}"),
         highlighted_item_style: (fg: "${p.mauve}", modifiers: "Bold"),
         current_item_style: (fg: "black", bg: "${p.lavender}", modifiers: "Bold"),
@@ -145,9 +138,8 @@ let
                 alignment: Right,
             ),
             (
-                prop: (kind: Text("-"), style: (fg: "${p.lavender}"), default: (kind: Text("Unknown"))),
+                prop: (kind: Text("-"), style: (fg: "${p.lavender}")),
                 width: "1",
-                alignment: Center,
             ),
             (
                 prop: (kind: Property(Title), style: (fg: "${p.sky}"), default: (kind: Text("Unknown"))),
@@ -185,23 +177,6 @@ let
             error: (fg: "${p.red}",      bg: "${p.base}"),
             debug: (fg: "${p.green}",    bg: "${p.base}"),
             trace: (fg: "${p.lavender}", bg: "${p.base}"),
-        ),
-        cava: (
-            bar_symbols: ['▁', '▂', '▃', '▄', '▅', '▆', '▇', '█'],
-            inverted_bar_symbols: ['▔', '🮂', '🮃', '▀', '🮄', '🮅', '🮆', '█'],
-            bar_width: 1,
-            bar_spacing: 1,
-            orientation: Horizontal,
-            bar_color: Gradient({
-                12: "${p.teal}",
-                25: "${p.sky}",
-                36: "${p.sapphire}",
-                50: "${p.blue}",
-                60: "${p.mauve}",
-                75: "${p.pink}",
-                84: "${p.maroon}",
-                100: "${p.red}",
-            }),
         ),
     )
   '';
@@ -250,7 +225,7 @@ in
     '';
   };
 
-  xdg.configFile."rmpc/themes/${themeName}.ron".source = theme;
+  xdg.configFile."rmpc/themes/${themeName}.ron".text = theme;
 
   xdg.desktopEntries.rmpc = {
     name = "rmpc";
