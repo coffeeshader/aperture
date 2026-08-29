@@ -4,6 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/audio.nix
+    ../../modules/syncthing.nix
     ../../modules/desktop-kde.nix
     ../../modules/gaming.nix
     ../../modules/vr.nix

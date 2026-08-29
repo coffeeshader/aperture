@@ -7,7 +7,7 @@ My NixOS configuration, as a flake.
 ```
 flake.nix          inputs and mkHost helper; one line per host
 hosts/<name>/      hardware scan + per-host module selection
-modules/           system modules (common, audio, KDE Plasma, gaming, vr)
+modules/           system modules (common, audio, syncthing, KDE Plasma, gaming, vr)
 packages/          reusable flake packages; dev environments via nix shell aperture#<env>
 home/<name>.nix    per-host home entry (stateVersion)
 home/common/       home-manager config, one file per topic (git, shell, emacs, ...)
