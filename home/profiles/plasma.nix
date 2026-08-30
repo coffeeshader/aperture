@@ -38,6 +38,7 @@ in
     workspace = {
       colorScheme = "CatppuccinMochaMauve";
       iconTheme = "Papirus-Dark";
+      clickItemTo = "open";
       # Change this later to a wallpaper in dotfiles/
       wallpaper = "${config.home.homeDirectory}/Documents/Wallpapers/orange-clouds.jpg";
       # catppuccin-mocha-mauve-cursors, from catppuccin.cursors in theme.nix
