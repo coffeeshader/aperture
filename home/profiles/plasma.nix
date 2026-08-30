@@ -206,6 +206,11 @@ in
           key = "Meta+'";
           command = "${rmpc} volume +5";
         };
+        rmpc-toggle-pause = {
+          name = "Toggle rmpc playback";
+          key = "Meta+Shift+M";
+          command = "${rmpc} togglepause";
+        };
       };
 
     window-rules = [
