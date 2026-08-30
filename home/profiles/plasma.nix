@@ -311,6 +311,15 @@ in
         TerminalService = "com.mitchellh.ghostty.desktop";
       };
       kdeglobals.KDE.AnimationDurationFactor = 0.75;
+      krunnerrc.Plugins = {
+        baloosearchEnabled = false;
+        krunner_appstreamEnabled = false;
+        krunner_recentdocumentsEnabled = false;
+        krunner_webshortcutsEnabled = false;
+        krunner_bookmarksrunnerEnabled = false;
+        krunner_sessionsEnabled = false;
+        helprunnerEnabled = false;
+      };
     };
   };
 }
