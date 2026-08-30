@@ -24,6 +24,12 @@ home/profiles/     opt-in bundles a host imports (plasma, gaming, modding, libra
 Rebuild the system:
 
 ```sh
+nh os switch
+```
+
+Or without nh:
+
+```sh
 nixos-rebuild switch --flake ~/aperture --elevate=run0
 ```
 

@@ -26,7 +26,8 @@ in
     };
 
     shellAliases = {
-      nrs = "nixos-rebuild switch --flake ~/aperture --elevate=run0";
+      nrs = "nh os switch";
+      nru = "nh os switch --update";
       ff = "fastfetch";
     };
 

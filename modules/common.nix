@@ -12,13 +12,19 @@
       ];
       auto-optimise-store = true;
     };
+  };
 
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 14d";
+  programs.nh = {
+    enable = true;
+    flake = "/home/coffeeshader/aperture";
+
+    clean = {
+      enable = true;
+      extraArgs = "--keep 5 --keep-since 14d";
     };
   };
+
+  environment.sessionVariables.NH_ELEVATION_STRATEGY = "run0";
 
   nixpkgs.config.allowUnfree = true;
 
