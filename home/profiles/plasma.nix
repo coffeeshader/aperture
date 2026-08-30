@@ -54,6 +54,31 @@ in
       rows = 9;
     };
 
+    panels = [
+      {
+        location = "bottom";
+        widgets = [
+          "org.kde.plasma.kickoff"
+          "org.kde.plasma.pager"
+          {
+            iconTasks.launchers = [
+              "applications:systemsettings.desktop"
+              "preferred://filemanager"
+              "applications:com.mitchellh.ghostty.desktop"
+              "preferred://browser"
+              "applications:emacsclient.desktop"
+              "applications:vesktop.desktop"
+              "applications:steam.desktop"
+            ];
+          }
+          "org.kde.plasma.marginsseparator"
+          "org.kde.plasma.systemtray"
+          "org.kde.plasma.digitalclock"
+          "org.kde.plasma.showdesktop"
+        ];
+      }
+    ];
+
     shortcuts = {
       # Launchers (niri: Mod+Return / Mod+E / Mod+B / Mod+Space)
       "services/com.mitchellh.ghostty.desktop"._launch = "Meta+Return";
