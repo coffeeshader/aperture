@@ -194,7 +194,8 @@ in
         ];
         "Window Fullscreen" = "Meta+Shift+F";
         karousel-window-toggle-floating = "Meta+V";
-        Overview = "Meta+O";
+        Overview = "Meta+Shift+O";
+        "Grid View" = "Meta+O";
 
         # Unbind KWin defaults that collide with the binds above
         "Window Quick Tile Left" = [ ];
@@ -277,6 +278,11 @@ in
       kwinrc."Effect-kwin4_effect_geometry_change".Duration = 467;
       kwinrc.Plugins."focus-or-desktopEnabled" = true;
       kwinrc.Plugins.kwin4_effect_shapecornersEnabled = true;
+      kwinrc."Effect-overview" = {
+        FilterWindows = true;
+        OrganizedGrid = true;
+        IgnoreMinimized = true;
+      };
       kwinrc."Round-Corners" = {
         AnimationDuration = 0;
         Size = 10;
