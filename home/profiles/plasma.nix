@@ -38,6 +38,8 @@ in
     workspace = {
       colorScheme = "CatppuccinMochaMauve";
       iconTheme = "Papirus-Dark";
+      # Change this later to a wallpaper in dotfiles/
+      wallpaper = "${config.home.homeDirectory}/Documents/Wallpapers/orange-clouds.jpg";
       # catppuccin-mocha-mauve-cursors, from catppuccin.cursors in theme.nix
       cursor = {
         theme = config.home.pointerCursor.name;
@@ -56,7 +58,14 @@ in
 
     panels = [
       {
-        location = "bottom";
+        location = "top";
+        height = 46;
+        floating = true;
+        hiding = "autohide";
+        alignment = "center";
+        lengthMode = "custom";
+        minLength = 1355;
+        maxLength = 3879;
         widgets = [
           "org.kde.plasma.kickoff"
           "org.kde.plasma.pager"
