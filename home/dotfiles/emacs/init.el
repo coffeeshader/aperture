@@ -94,8 +94,7 @@
                                              (note "!" compilation-info))))
 
 (use-package company
-  :config
-  (global-company-mode 1))
+  :hook (prog-mode . company-mode))
 
 (use-package rust-mode
   :init
