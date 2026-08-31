@@ -16,6 +16,9 @@
 
 (setq read-process-output-max (* 4 1024 1024))
 
+(setq bidi-inhibit-bpa t)
+(setq-default bidi-paragraph-direction 'left-to-right)
+
 ;; Faster startup
 (defvar old-file-name-handler file-name-handler-alist)
 
