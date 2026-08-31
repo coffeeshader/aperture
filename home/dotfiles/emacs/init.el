@@ -235,6 +235,16 @@
 (evil-define-key 'normal org-mode-map
   (kbd "SPC n v") #'org-toggle-inline-images)
 
+(evil-define-command my/evil-write-and-kill-buffer (file &optional bang)
+  :repeat nil
+  (interactive "<f><!>")
+  (evil-write nil nil nil file bang)
+  (let ((buffer (current-buffer)))
+    (evil-delete-buffer buffer)
+    (when (buffer-live-p buffer)
+      (kill-buffer buffer))))
+(evil-ex-define-cmd "wq" #'my/evil-write-and-kill-buffer)
+
 ;;;; Save information across sessions
 (save-place-mode t)
 
