@@ -64,7 +64,9 @@
           nix-mode
           ) . eglot-ensure)
   :config
-  (setq eglot-ignored-server-capabilities '(:documentFormattingProvider
+  (setq eglot-autoshutdown t
+        eglot-events-buffer-config '(:size 0 :format short)
+        eglot-ignored-server-capabilities '(:documentFormattingProvider
                                             :documentOnTypeFormattingProvider
                                             :documentRangeFormattingProvider)
         eglot-code-action-indicator ""))
