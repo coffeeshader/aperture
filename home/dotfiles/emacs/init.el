@@ -28,15 +28,13 @@
   (setq initial-buffer-choice (lambda () (get-buffer-create dashboard-buffer-name)))
   (dashboard-setup-startup-hook))
 
-(which-function-mode 1)
-(global-display-line-numbers-mode 1)
-(global-visual-line-mode t)
-(global-whitespace-mode t)
+(global-so-long-mode 1)
+
+(add-hook 'prog-mode-hook #'display-line-numbers-mode)
+(add-hook 'text-mode-hook #'visual-line-mode)
 
 (setq-default display-line-numbers-type 'relative
               whitespace-style '(face trailing tabs spaces space-mark tab-mark missing-newline-at-eof))
-
-(setq whitespace-global-modes '(not org-mode))
 
 (use-package catppuccin-theme
   :config
