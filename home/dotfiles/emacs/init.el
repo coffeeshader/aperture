@@ -1,17 +1,4 @@
-;;;; Package management
-(if (or (file-exists-p "/etc/gentoo-release")
-        (file-exists-p "/etc/NIXOS"))
-    (setq use-package-always-ensure nil)
-  (setq use-package-always-ensure t))
-
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(package-initialize)
-(require 'use-package)
-
-(setopt native-comp-async-report-warnings-errors 'silent
-        package-install-upgrade-built-in t
-        package-native-compile t)
+(setopt native-comp-async-report-warnings-errors 'silent)
 
 ;;;; UI / Theme
 
