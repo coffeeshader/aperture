@@ -41,9 +41,12 @@ in
     in
     {
       enable = true;
-      settings.wallpaper = {
-        monitor = "*";
-        path = wallpaper;
+      settings = {
+        splash = false;
+        wallpaper = {
+          monitor = "*";
+          path = wallpaper;
+        };
       };
     };
 
