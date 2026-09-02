@@ -13,7 +13,7 @@
       shell-integration-features = "ssh-env,ssh-terminfo";
       gtk-wide-tabs = false;
       font-family = "Intel One Mono";
-      font-size = 13;
+      font-size = 14;
       background-opacity = if config.theme.oled then 1.0 else 0.85;
 
       keybind = [
