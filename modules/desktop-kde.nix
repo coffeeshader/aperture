@@ -4,11 +4,6 @@
   services = {
     xserver.enable = false;
 
-    displayManager = {
-      plasma-login-manager.enable = true;
-      defaultSession = "plasma";
-    };
-
     desktopManager.plasma6.enable = true;
   };
 
