@@ -29,7 +29,7 @@ hl.monitor({
     max_luminance       = 560,
     sdr_max_luminance   = 250,
     sdr_min_luminance   = 0,
-    sdrsaturation       = 1.12,
+    sdrsaturation       = 0.95,
 })
 
 
