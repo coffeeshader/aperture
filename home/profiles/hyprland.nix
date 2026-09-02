@@ -19,6 +19,10 @@ let
 in
 {
   home.packages = [
+    (pkgs.writers.writeNuBin "sync-monitor-scale" (
+      builtins.readFile ../dotfiles/hyprland/sync-monitor-scale.nu
+    ))
+    
     pkgs.playerctl
     pkgs.brightnessctl
   ];
