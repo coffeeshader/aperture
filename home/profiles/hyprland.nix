@@ -34,6 +34,19 @@ in
     };
   };
 
+  services.hyprpaper =
+    let
+      # Change this later to a wallpaper in dotfiles/
+      wallpaper = "${config.home.homeDirectory}/Documents/Wallpapers/orange-clouds.jpg";
+    in
+    {
+      enable = true;
+      settings = {
+        preload = [ wallpaper ];
+        wallpaper = [ ",${wallpaper}" ];
+      };
+    };
+
   services.mako = {
     enable = true;
     settings = {
