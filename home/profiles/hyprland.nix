@@ -41,9 +41,9 @@ in
     in
     {
       enable = true;
-      settings = {
-        preload = [ wallpaper ];
-        wallpaper = [ ",${wallpaper}" ];
+      settings.wallpaper = {
+        monitor = "*";
+        path = wallpaper;
       };
     };
 
