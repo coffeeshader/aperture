@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 (setopt native-comp-async-report-warnings-errors 'silent)
 
 ;;;; UI / Theme

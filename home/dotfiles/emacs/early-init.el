@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t; -*-
+
 ;; Remove unwanted/unneeded UI elements
 
 (tool-bar-mode -1)

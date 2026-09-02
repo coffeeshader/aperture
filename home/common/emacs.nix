@@ -54,6 +54,7 @@
   xdg.configFile."emacs/custom.el".source = ../dotfiles/emacs/custom.el;
 
   xdg.configFile."emacs/theme.el".text = ''
+    ;;; -*- lexical-binding: t; -*-
     (setq catppuccin-flavor '${config.catppuccin.flavor})
   ''
   + lib.optionalString config.theme.oled (
