@@ -11,6 +11,7 @@
     ./discord.nix
     ./browser.nix
     ./documents.nix
+    ./files.nix
     ./media.nix
     ./music.nix
     ./development.nix
