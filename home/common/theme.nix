@@ -39,6 +39,17 @@
     hyprcursor.enable = true;
   };
 
+  config.qt = {
+    enable = true;
+    style = {
+      name = "kvantum";
+      package = [
+        pkgs.kdePackages.qtstyleplugin-kvantum
+        pkgs.libsForQt5.qtstyleplugin-kvantum
+      ];
+    };
+  };
+
   config.catppuccin = {
     enable = true;
     autoEnable = true;

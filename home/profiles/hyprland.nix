@@ -73,5 +73,6 @@ in
     export XCURSOR_SIZE=${toString cursor.size}
     export HYPRCURSOR_THEME=${cursor.name}
     export HYPRCURSOR_SIZE=${toString cursor.size}
+    export QT_STYLE_OVERRIDE=kvantum
   '';
 }
