@@ -6,6 +6,7 @@
     ../../modules/audio.nix
     ../../modules/syncthing.nix
     ../../modules/desktop-kde.nix
+    ../../modules/desktop-hyprland.nix
     ../../modules/gaming.nix
     ../../modules/vr.nix
   ];

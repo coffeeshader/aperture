@@ -36,6 +36,7 @@
   config.home.pointerCursor = {
     enable = true;
     size = 24;
+    hyprcursor.enable = true;
   };
 
   config.catppuccin = {

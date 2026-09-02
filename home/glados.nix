@@ -4,6 +4,7 @@
   imports = [
     ./common
     ./profiles/plasma.nix
+    ./profiles/hyprland.nix
     ./profiles/gaming.nix
     ./profiles/modding.nix
     ./profiles/library.nix
