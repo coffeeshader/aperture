@@ -18,6 +18,18 @@
 
   systemd.tmpfiles.rules = [ "d /var/cache/tuigreet 0755 greeter greeter -" ];
 
+  programs.ssh.askPassword = lib.getExe pkgs.kdePackages.ksshaskpass;
+
+  security.pam.services.greetd.kwallet = {
+    enable = true;
+    forceRun = true;
+  };
+
+  environment.systemPackages = [
+    pkgs.kdePackages.kwallet
+    pkgs.kdePackages.kwalletmanager
+  ];
+
   xdg.portal = {
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     config.Hyprland = {
