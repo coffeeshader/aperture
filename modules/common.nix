@@ -43,7 +43,7 @@
     LC_NUMERIC = "pt_PT.UTF-8";
     LC_PAPER = "pt_PT.UTF-8";
     LC_TELEPHONE = "pt_PT.UTF-8";
-    LC_TIME = "pt_PT.UTF-8";
+    LC_TIME = "en_GB.UTF-8";
   };
 
   users.users."coffeeshader" = {
