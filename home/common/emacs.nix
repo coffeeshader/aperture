@@ -49,9 +49,12 @@
     VISUAL = "emacsclient -c";
   };
 
-  xdg.configFile."emacs/early-init.el".source = ../dotfiles/emacs/early-init.el;
-  xdg.configFile."emacs/init.el".source = ../dotfiles/emacs/init.el;
-  xdg.configFile."emacs/custom.el".source = ../dotfiles/emacs/custom.el;
+  xdg.configFile."emacs/early-init.el".source =
+    config.lib.file.mkOutOfStoreSymlink "${config.repo.root}/home/dotfiles/emacs/early-init.el";
+  xdg.configFile."emacs/init.el".source =
+    config.lib.file.mkOutOfStoreSymlink "${config.repo.root}/home/dotfiles/emacs/init.el";
+  xdg.configFile."emacs/custom.el".source =
+    config.lib.file.mkOutOfStoreSymlink "${config.repo.root}/home/dotfiles/emacs/custom.el";
 
   xdg.configFile."emacs/theme.el".text = ''
     ;;; -*- lexical-binding: t; -*-
