@@ -15,6 +15,8 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  powerManagement.cpuFreqGovernor = "performance";
+
   networking.hostName = "glados";
   system.stateVersion = "26.05";
 }
