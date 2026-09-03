@@ -11,5 +11,10 @@
 
   theme.oled = true;
 
+  idle = {
+    dimAfter = 60;
+    screenOffAfter = 120;
+  };
+
   home.stateVersion = "26.05";
 }

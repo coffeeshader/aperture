@@ -56,6 +56,31 @@ in
 
   services.hyprpolkitagent.enable = true;
 
+  services.hyprsunset = {
+    enable = true;
+    extraArgs = [ "-i" ];
+  };
+
+  services.hypridle = {
+    enable = true;
+    settings = {
+      general = {
+        after_sleep_cmd = "hyprctl dispatch dpms on";
+      };
+      listener =
+        lib.optional (config.idle.dimAfter != null) {
+          timeout = config.idle.dimAfter;
+          on-timeout = "hyprctl hyprsunset gamma 30";
+          on-resume = "hyprctl hyprsunset gamma 100";
+        }
+        ++ lib.optional (config.idle.screenOffAfter != null) {
+          timeout = config.idle.screenOffAfter;
+          on-timeout = "hyprctl dispatch dpms off";
+          on-resume = "hyprctl dispatch dpms on";
+        };
+    };
+  };
+
   services.mako = {
     enable = true;
     settings = {
