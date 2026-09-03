@@ -181,6 +181,12 @@ hl.config({
     },
 })
 
+hl.device({
+    name          = "razer-razer-viper-v3-pro",
+    sensitivity   = -0.2,
+    accel_profile = "flat",
+})
+
 hl.gesture({
     fingers = 3,
     direction = "horizontal",
