@@ -200,30 +200,48 @@ hl.gesture({
 
 local mainMod = "SUPER"
 
-local function focusVertical(dir)
+local function verticalNeighbor(dir)
     local active = hl.get_active_window()
-    if active then
-        local ax, ay = active.at.x, active.at.y
-        local aw, ah = active.size.x, active.size.y
-        local best = nil
-        for _, w in ipairs(hl.get_workspace_windows(active.workspace)) do
-            if w.address ~= active.address and w.mapped and not w.hidden then
-                local gx, gy = w.at.x, w.at.y
-                local gw, gh = w.size.x, w.size.y
-                if gx < ax + aw and gx + gw > ax then
-                    local candidate = dir > 0 and gy >= ay + ah or dir < 0 and gy + gh <= ay
-                    if candidate and (not best or (dir > 0 and gy < best.y) or (dir < 0 and gy > best.y)) then
-                        best = { win = w, y = gy }
-                    end
+    if not active then
+        return nil, nil
+    end
+    local ax, ay = active.at.x, active.at.y
+    local aw, ah = active.size.x, active.size.y
+    local best = nil
+    for _, w in ipairs(hl.get_workspace_windows(active.workspace)) do
+        if w.address ~= active.address and w.mapped and not w.hidden then
+            local gx, gy = w.at.x, w.at.y
+            local gw, gh = w.size.x, w.size.y
+            if gx < ax + aw and gx + gw > ax then
+                local candidate = dir > 0 and gy >= ay + ah or dir < 0 and gy + gh <= ay
+                if candidate and (not best or (dir > 0 and gy < best.y) or (dir < 0 and gy > best.y)) then
+                    best = { win = w, y = gy }
                 end
             end
         end
-        if best then
-            hl.dispatch(hl.dsp.focus({ window = best.win }))
-            return
-        end
+    end
+    return active, best
+end
+
+local function focusVertical(dir)
+    local active, best = verticalNeighbor(dir)
+    if best then
+        hl.dispatch(hl.dsp.focus({ window = best.win }))
+        return
     end
     hl.dispatch(hl.dsp.focus({ workspace = dir > 0 and "+1" or "-1" }))
+end
+
+local function moveVertical(dir)
+    local active, best = verticalNeighbor(dir)
+    if not active then
+        return
+    end
+    if best then
+        hl.dispatch(hl.dsp.window.move({ direction = dir > 0 and "d" or "u" }))
+        return
+    end
+    hl.dispatch(hl.dsp.window.move({ workspace = dir > 0 and "+1" or "-1", follow = true }))
 end
 
 hl.bind(mainMod .. " + Return",     hl.dsp.exec_cmd(terminal))
@@ -256,9 +274,9 @@ hl.bind(mainMod .. " + SHIFT + H",     hl.dsp.layout("swapcol l"))
 hl.bind(mainMod .. " + SHIFT + right", hl.dsp.layout("swapcol r"))
 hl.bind(mainMod .. " + SHIFT + L",     hl.dsp.layout("swapcol r"))
 hl.bind(mainMod .. " + SHIFT + up",    hl.dsp.window.move({ direction = "u" }))
-hl.bind(mainMod .. " + SHIFT + K",     hl.dsp.window.move({ direction = "u" }))
+hl.bind(mainMod .. " + SHIFT + K",     function() moveVertical(-1) end)
 hl.bind(mainMod .. " + SHIFT + down",  hl.dsp.window.move({ direction = "d" }))
-hl.bind(mainMod .. " + SHIFT + J",     hl.dsp.window.move({ direction = "d" }))
+hl.bind(mainMod .. " + SHIFT + J",     function() moveVertical(1) end)
 
 hl.bind(mainMod .. " + bracketleft",  hl.dsp.layout("consume_or_expel prev"))
 hl.bind(mainMod .. " + bracketright", hl.dsp.layout("consume_or_expel next"))
