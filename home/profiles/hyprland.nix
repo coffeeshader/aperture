@@ -25,6 +25,8 @@ in
     
     pkgs.playerctl
     pkgs.brightnessctl
+    pkgs.hyprpicker
+    pkgs.wl-clipboard
   ];
 
   programs.fuzzel = {

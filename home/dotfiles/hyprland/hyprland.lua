@@ -252,6 +252,7 @@ hl.bind(mainMod .. " + E",          hl.dsp.exec_cmd(editor))
 hl.bind(mainMod .. " + B",          hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + M",          hl.dsp.exec_cmd(music))
 hl.bind(mainMod .. " + SHIFT + M",  hl.dsp.exec_cmd("rmpc togglepause"))
+hl.bind(mainMod .. " + C",          hl.dsp.exec_cmd("hyprpicker -a"))
 hl.bind(mainMod .. " + semicolon",  hl.dsp.exec_cmd("rmpc volume -5"))
 hl.bind(mainMod .. " + apostrophe", hl.dsp.exec_cmd("rmpc volume +5"))
 
