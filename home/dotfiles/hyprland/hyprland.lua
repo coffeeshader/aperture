@@ -62,7 +62,7 @@ hl.config({
 
         resize_on_border = false,
 
-        allow_tearing = false,
+        allow_tearing = true,
 
         layout = "scrolling",
     },
@@ -348,6 +348,14 @@ hl.window_rule({
     match = { class = ".*" },
 
     suppress_event = "maximize",
+})
+
+hl.window_rule({
+    name  = "deadlock",
+    match = { class = "steam_app_1422450" },
+
+    immediate = true,
+    content   = "game",
 })
 
 hl.window_rule({
