@@ -91,7 +91,8 @@ in
     };
   };
 
-  xdg.configFile."hypr/hyprland.lua".source = ../dotfiles/hyprland/hyprland.lua;
+  xdg.configFile."hypr/hyprland.lua".source =
+    config.lib.file.mkOutOfStoreSymlink "${config.repo.root}/home/dotfiles/hyprland/hyprland.lua";
 
   xdg.configFile."hypr/theme.lua".text = ''
     theme = {

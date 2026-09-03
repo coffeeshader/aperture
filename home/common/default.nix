@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./repo.nix
     ./idle.nix
     ./theme.nix
     ./git.nix
