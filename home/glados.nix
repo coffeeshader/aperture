@@ -14,6 +14,7 @@
   idle = {
     dimAfter = 60;
     screenOffAfter = 120;
+    lockAfter = 300;
   };
 
   home.stateVersion = "26.05";

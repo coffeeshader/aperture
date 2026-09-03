@@ -56,6 +56,8 @@ in
       };
     };
 
+  programs.hyprlock.enable = true;
+
   services.hyprpolkitagent.enable = true;
 
   services.hyprsunset = {
@@ -67,10 +69,16 @@ in
     enable = true;
     settings = {
       general = {
+        lock_cmd = "pidof hyprlock || hyprlock";
+        before_sleep_cmd = "loginctl lock-session";
         after_sleep_cmd = ''hyprctl eval "hl.dispatch(hl.dsp.dpms({ action = 'on' }))"'';
       };
       listener =
-        lib.optional (config.idle.dimAfter != null) {
+        lib.optional (config.idle.lockAfter != null) {
+          timeout = config.idle.lockAfter;
+          on-timeout = "loginctl lock-session";
+        }
+        ++ lib.optional (config.idle.dimAfter != null) {
           timeout = config.idle.dimAfter;
           on-timeout = "hyprctl hyprsunset gamma 30";
           on-resume = "hyprctl hyprsunset gamma 100";
