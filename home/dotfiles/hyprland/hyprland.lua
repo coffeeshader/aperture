@@ -115,8 +115,9 @@ hl.animation({ leaf = "zoomFactor", enabled = true,  speed = 7,   bezier = "quic
 
 hl.config({
     scrolling = {
-        fullscreen_on_one_column = true,
+        fullscreen_on_one_column = false,
         column_width = 0.5,
+        explicit_column_widths = "0.333, 0.5, 0.667",
     },
 })
 
@@ -166,7 +167,7 @@ hl.config({
 
         numlock_by_default = true,
 
-        follow_mouse = 1,
+        follow_mouse = 0,
 
         sensitivity = 0,
 
@@ -282,6 +283,8 @@ hl.bind(mainMod .. " + bracketleft",  hl.dsp.layout("consume_or_expel prev"))
 hl.bind(mainMod .. " + bracketright", hl.dsp.layout("consume_or_expel next"))
 
 hl.bind(mainMod .. " + F",        hl.dsp.window.fullscreen({ mode = "maximized" }))
+hl.bind(mainMod .. " + R",        hl.dsp.layout("colresize +conf"))
+hl.bind(mainMod .. " + CTRL + F", hl.dsp.layout("fit expand"))
 hl.bind(mainMod .. " + minus",    hl.dsp.layout("colresize -0.1"))
 hl.bind(mainMod .. " + equal",    hl.dsp.layout("colresize +0.1"))
 hl.bind(mainMod .. " + CTRL + C", hl.dsp.layout("center"))
