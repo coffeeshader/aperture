@@ -118,4 +118,6 @@ in
 
     Install.WantedBy = [ "graphical-session.target" ];
   };
+
+  xdg.mimeApps.defaultApplications."x-scheme-handler/discord" = "vesktop.desktop";
 }

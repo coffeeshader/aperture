@@ -19,4 +19,6 @@
       move_right = "l";
     };
   };
+
+  xdg.mimeApps.defaultApplications."application/pdf" = "sioyek.desktop";
 }
