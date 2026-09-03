@@ -54,6 +54,8 @@ in
       };
     };
 
+  services.hyprpolkitagent.enable = true;
+
   services.mako = {
     enable = true;
     settings = {
