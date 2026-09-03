@@ -1,5 +1,5 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
-  home.packages = [ pkgs.deadlock-mod-manager ];
+  home.packages = [ inputs.grimoire.packages.${pkgs.stdenv.hostPlatform.system}.default ];
 }

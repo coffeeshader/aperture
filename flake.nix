@@ -21,6 +21,11 @@
       url = "github:amaanq/helium-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    grimoire = {
+      url = "github:Slush97/grimoire";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
