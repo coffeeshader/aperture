@@ -65,7 +65,7 @@ in
     enable = true;
     settings = {
       general = {
-        after_sleep_cmd = "hyprctl dispatch dpms on";
+        after_sleep_cmd = ''hyprctl eval "hl.dispatch(hl.dsp.dpms({ action = 'on' }))"'';
       };
       listener =
         lib.optional (config.idle.dimAfter != null) {
@@ -75,8 +75,8 @@ in
         }
         ++ lib.optional (config.idle.screenOffAfter != null) {
           timeout = config.idle.screenOffAfter;
-          on-timeout = "hyprctl dispatch dpms off";
-          on-resume = "hyprctl dispatch dpms on";
+          on-timeout = ''hyprctl eval "hl.dispatch(hl.dsp.dpms({ action = 'off' }))"'';
+          on-resume = ''hyprctl eval "hl.dispatch(hl.dsp.dpms({ action = 'on' }))"'';
         };
     };
   };
