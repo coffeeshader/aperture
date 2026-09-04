@@ -1,6 +1,8 @@
-{ config, ... }:
+{ config, user, ... }:
 
 let
+  homeDirectory = config.users.users.${user}.home;
+
   allDevices = {
     glados.id = "MSMOCWY-FKLTHHO-ERQPZ42-HJVER5Z-KPW2Q2C-56RVHK5-2A4PION-3APWFAG";
     phone.id = "F6HJUKI-XSLZYZ3-COPRDER-LN7ZXWU-3CTNHEX-AKEIF4O-E6JUVOE-DV7NXAC";
@@ -13,9 +15,9 @@ in
 {
   services.syncthing = {
     enable = true;
-    user = "coffeeshader";
+    inherit user;
     group = "users";
-    dataDir = "/home/coffeeshader";
+    dataDir = homeDirectory;
     openDefaultPorts = true;
 
     overrideDevices = true;
@@ -25,7 +27,7 @@ in
       inherit devices;
 
       folders.Music = {
-        path = "/home/coffeeshader/Music";
+        path = "${homeDirectory}/Music";
         type = if config.networking.hostName == "glados" then "sendonly" else "receiveonly";
         devices = builtins.attrNames devices;
       };

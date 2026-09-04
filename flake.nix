@@ -39,7 +39,7 @@
         name:
         nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs user; };
           modules = [
             ./hosts/${name}
             ./modules/common.nix

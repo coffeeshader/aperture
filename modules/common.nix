@@ -1,5 +1,14 @@
-{ inputs, pkgs, ... }:
+{
+  config,
+  inputs,
+  pkgs,
+  user,
+  ...
+}:
 
+let
+  homeDirectory = config.users.users.${user}.home;
+in
 {
   nix = {
     registry.aperture.flake = inputs.self;
@@ -16,7 +25,7 @@
 
   programs.nh = {
     enable = true;
-    flake = "/home/coffeeshader/aperture";
+    flake = "${homeDirectory}/aperture";
 
     clean = {
       enable = true;
@@ -46,7 +55,7 @@
     LC_TIME = "en_GB.UTF-8";
   };
 
-  users.users."coffeeshader" = {
+  users.users.${user} = {
     isNormalUser = true;
     description = "Hélder Rodrigues";
     extraGroups = [

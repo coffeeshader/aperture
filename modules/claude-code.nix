@@ -1,7 +1,12 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  user,
+  ...
+}:
 
 let
-  inherit (config.home-manager.users."coffeeshader".ai) sandboxWritableRoots;
+  inherit (config.home-manager.users.${user}.ai) sandboxWritableRoots;
 in
 {
   environment.etc."claude-code/managed-settings.json".source =
