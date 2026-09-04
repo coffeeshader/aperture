@@ -114,6 +114,7 @@ in
   '';
 
   xdg.configFile."uwsm/env".text = ''
+    . ${config.home.profileDirectory}/etc/profile.d/hm-session-vars.sh
     export XCURSOR_THEME=${cursor.name}
     export XCURSOR_SIZE=${toString cursor.size}
     export HYPRCURSOR_THEME=${cursor.name}
