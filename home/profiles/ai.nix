@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 
@@ -23,11 +22,6 @@ in
   };
 
   config = {
-    home.packages = [
-      pkgs.bubblewrap
-      pkgs.socat
-    ];
-
     home.activation.createSandboxWritableRoots = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       run mkdir -p ${lib.escapeShellArgs sandboxWritableRoots}
     '';
