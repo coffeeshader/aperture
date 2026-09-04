@@ -26,30 +26,17 @@ in
       run mkdir -p ${lib.escapeShellArgs sandboxWritableRoots}
     '';
 
+    home.sessionVariables.CODEX_HOME = "${config.xdg.dataHome}/codex";
+
+    home.activation.createCodexHome = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      run mkdir -p -m 700 ${lib.escapeShellArg "${config.xdg.dataHome}/codex"}
+    '';
+
     programs.claude-code = {
       enable = true;
-      configDir = "${config.xdg.configHome}/claude";
+      configDir = "${config.xdg.dataHome}/claude";
     };
 
-    programs.codex = {
-      enable = true;
-
-      settings = {
-        approval_policy = "on-request";
-        sandbox_mode = "workspace-write";
-
-        analytics.enabled = false;
-        feedback.enabled = false;
-
-        sandbox_workspace_write.writable_roots = sandboxWritableRoots;
-
-        otel = {
-          exporter = "none";
-          metrics_exporter = "none";
-          trace_exporter = "none";
-          log_user_prompt = false;
-        };
-      };
-    };
+    programs.codex.enable = true;
   };
 }
