@@ -22,7 +22,7 @@ in
     (pkgs.writers.writeNuBin "sync-monitor-scale" (
       builtins.readFile ../dotfiles/hyprland/sync-monitor-scale.nu
     ))
-    
+
     pkgs.playerctl
     pkgs.brightnessctl
     pkgs.hyprpicker
@@ -36,6 +36,11 @@ in
       border = {
         width = 3;
         radius = 10;
+      };
+      key-bindings = {
+        prev = "Up Control+p Control+k";
+        next = "Down Control+n Control+j";
+        delete-line-forward = "none";
       };
     };
   };
