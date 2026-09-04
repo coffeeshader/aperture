@@ -33,6 +33,12 @@
     };
   };
 
+  config.home.packages = [
+    (pkgs.catppuccin-papirus-folders.override {
+      inherit (config.catppuccin) flavor accent;
+    })
+  ];
+
   config.home.pointerCursor = {
     enable = true;
     size = 24;
