@@ -88,3 +88,6 @@
   (setq meow-use-clipboard t)
   (meow-setup)
   (meow-global-mode 1))
+
+(with-eval-after-load 'transient
+  (keymap-set transient-map "<escape>" #'transient-quit-one))
