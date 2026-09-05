@@ -173,6 +173,7 @@
 ;; buffer-local direnv environments; must be enabled late in init
 (use-package envrc
   :config
+  (setopt envrc-async t)
   (envrc-global-mode))
 
 (provide 'init)
