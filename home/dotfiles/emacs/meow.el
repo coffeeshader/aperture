@@ -85,7 +85,9 @@
 
 (use-package meow
   :config
-  (setq meow-use-clipboard t)
+  (setq meow-use-clipboard t
+        meow-expand-hint-remove-delay 0.5)
+  (setf (alist-get 'line meow-expand-hint-counts) 0)
   (meow-setup)
   (meow-global-mode 1))
 
