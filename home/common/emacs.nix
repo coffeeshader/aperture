@@ -16,10 +16,7 @@
         company
         rust-mode
         zig-mode
-        evil
-        evil-surround
-        evil-collection
-        evil-org
+        meow
         magit
         markdown-mode
         nix-mode
@@ -55,6 +52,8 @@
     config.lib.file.mkOutOfStoreSymlink "${config.repo.root}/home/dotfiles/emacs/init.el";
   xdg.configFile."emacs/custom.el".source =
     config.lib.file.mkOutOfStoreSymlink "${config.repo.root}/home/dotfiles/emacs/custom.el";
+  xdg.configFile."emacs/meow.el".source =
+    config.lib.file.mkOutOfStoreSymlink "${config.repo.root}/home/dotfiles/emacs/meow.el";
 
   xdg.configFile."emacs/theme.el".text = ''
     ;;; -*- lexical-binding: t; -*-
