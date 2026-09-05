@@ -26,5 +26,8 @@
   xdg.dataFile."nushell/vendor/autoload/ghostty.nu".source =
     "${config.programs.ghostty.package}/share/ghostty/shell-integration/nushell/vendor/autoload/ghostty.nu";
 
-  xdg.configFile."nushell/autoload/ghostty.nu".text = "use ghostty *";
+  xdg.configFile."nushell/autoload/ghostty.nu".text = ''
+    $env.GHOSTTY_SHELL_FEATURES = ($env.GHOSTTY_SHELL_FEATURES? | default "")
+    use ghostty *
+  '';
 }

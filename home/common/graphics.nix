@@ -15,5 +15,5 @@
     pkgs.glsl_analyzer
   ];
 
-  home.sessionVariables.VK_LAYER_PATH = "${pkgs.vulkan-validation-layers}/share/vulkan/explicit_layer.d";
+  home.sessionVariables.VK_ADD_LAYER_PATH = "${pkgs.vulkan-validation-layers}/share/vulkan/explicit_layer.d";
 }

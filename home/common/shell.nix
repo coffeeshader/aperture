@@ -54,8 +54,6 @@ in
     ];
 
     environmentVariables = {
-      RIPGREP_CONFIG_PATH = "${config.xdg.configHome}/ripgrep/rg.conf";
-
       PROMPT_COMMAND = lib.hm.nushell.mkNushellInline ''
         {||
           let pwd = ($env.PWD | str replace $env.HOME "~")
