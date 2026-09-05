@@ -27,7 +27,7 @@ in
 
     shellAliases = {
       nrs = "nh os switch";
-      nru = "nh os switch --update";
+      nru = "nh os switch --update --commit-lock-file";
       ff = "fastfetch";
     };
 

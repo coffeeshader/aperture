@@ -37,6 +37,8 @@ in
 
   nixpkgs.config.allowUnfree = true;
 
+  nixpkgs.overlays = [ inputs.emacs-overlay.overlays.package ];
+
   networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/Lisbon";
