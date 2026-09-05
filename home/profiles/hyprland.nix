@@ -6,15 +6,7 @@
 }:
 
 let
-  palette =
-    (lib.importJSON "${config.catppuccin.sources.palette}/palette.json")
-    .${config.catppuccin.flavor}.colors;
-  color =
-    name:
-    if config.theme.oled && config.theme.oledColors ? ${name} then
-      config.theme.oledColors.${name}.to
-    else
-      lib.removePrefix "#" palette.${name}.hex;
+  color = name: config.theme.paletteOled.${name};
   cursor = config.home.pointerCursor;
 in
 {

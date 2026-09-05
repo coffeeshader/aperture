@@ -6,6 +6,9 @@
   ...
 }:
 
+let
+  oledOverrides = config.theme.oledColors |> lib.mapAttrs (_: c: c.to);
+in
 {
   imports = [ inputs.catppuccin.homeModules.catppuccin ];
 
@@ -30,6 +33,23 @@
           to = "020202";
         };
       };
+    };
+
+    palette = lib.mkOption {
+      internal = true;
+      readOnly = true;
+      type = lib.types.attrsOf lib.types.str;
+      default =
+        (lib.importJSON "${config.catppuccin.sources.palette}/palette.json")
+        .${config.catppuccin.flavor}.colors
+        |> lib.mapAttrs (_: c: lib.removePrefix "#" c.hex);
+    };
+
+    paletteOled = lib.mkOption {
+      internal = true;
+      readOnly = true;
+      type = lib.types.attrsOf lib.types.str;
+      default = if config.theme.oled then config.theme.palette // oledOverrides else config.theme.palette;
     };
   };
 
@@ -74,7 +94,7 @@
             postBuild =
               let
                 overrides = builtins.toJSON {
-                  ${config.catppuccin.flavor} = config.theme.oledColors |> lib.mapAttrs (_: c: c.to);
+                  ${config.catppuccin.flavor} = oledOverrides;
                 };
               in
               ''
