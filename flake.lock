@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "autolith": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1788710565,
+        "narHash": "sha256-uZvDl8XK2ggmd2+8Ue2kiqpMtzUJ5Wj93VP13h3t9w4=",
+        "owner": "lambda-symbolics",
+        "repo": "autolith",
+        "rev": "c5e89a18408134574aa22d057eb53a3fabb7db68",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lambda-symbolics",
+        "repo": "autolith",
+        "type": "github"
+      }
+    },
     "catppuccin": {
       "inputs": {
         "nixpkgs": [
@@ -193,6 +209,7 @@
     },
     "root": {
       "inputs": {
+        "autolith": "autolith",
         "catppuccin": "catppuccin",
         "emacs-overlay": "emacs-overlay",
         "grimoire": "grimoire",
