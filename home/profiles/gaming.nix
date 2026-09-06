@@ -34,7 +34,8 @@ in
     ram
     ram_color=${color "pink"}
     fps
-    fps_color_change=${color "red"},${color "yellow"},${color "green"}
+    fps_color_change=1
+    fps_color=${color "red"},${color "yellow"},${color "green"}
     frametime=1
     frametime_color=${color "green"}
     frame_timing=1
