@@ -17,7 +17,7 @@ home/profiles/     opt-in bundles a host imports (hyprland, gaming, modding, lib
 ## Hosts
 
 - **glados** - x86_64 desktop running Hyprland on nixos-unstable.
-- **chell** - x86_64 laptop running Niri on nixos-unstable.
+- **chell** - x86_64 laptop running Hyprland on nixos-unstable.
 
 ## Usage
 
