@@ -126,20 +126,6 @@
   (setq org-roam-completion-everywhere t)
   (org-roam-db-autosync-mode))
 
-(use-package org-roam-ui
-  :after org-roam
-  :config
-  (setq org-roam-ui-sync-theme t
-        org-roam-ui-follow t
-        org-roam-ui-update-on-save t))
-
-(defun my/org-roam-ui-toggle ()
-  "Start org-roam-ui and open the browser, or shut the server down."
-  (interactive)
-  (if (bound-and-true-p org-roam-ui-mode)
-      (org-roam-ui-mode -1)
-    (org-roam-ui-open)))
-
 (use-package org-modern
   :hook (org-mode . org-modern-mode))
 
