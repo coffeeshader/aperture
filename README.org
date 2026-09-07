@@ -1,10 +1,12 @@
-# Aperture Science System Configuration
+#+title: Aperture Science System Configuration
+#+description: My NixOS configuration, as a flake.
+#+options: toc:nil num:nil ^:nil
 
 My NixOS configuration, as a flake.
 
-## Layout
+* Layout
 
-```
+#+begin_example
 flake.nix          inputs and mkHost helper; one line per host
 hosts/<name>/      hardware scan + per-host module selection
 modules/           system modules (common, audio, syncthing, Hyprland, gaming, vr)
@@ -12,33 +14,33 @@ packages/          reusable flake packages; dev environments via nix shell apert
 home/<name>.nix    per-host home entry (stateVersion)
 home/common/       home-manager config, one file per topic (git, shell, emacs, ...)
 home/profiles/     opt-in bundles a host imports (hyprland, gaming, modding, library)
-```
+#+end_example
 
-## Hosts
+* Hosts
 
-- **glados** - x86_64 desktop running Hyprland on nixos-unstable.
-- **chell** - x86_64 laptop running Hyprland on nixos-unstable.
+- *glados* - x86_64 desktop running Hyprland on nixos-unstable.
+- *chell* - x86_64 laptop running Hyprland on nixos-unstable.
 
-## Usage
+* Usage
 
 Rebuild the system:
 
-```sh
+#+begin_src sh
 nh os switch
-```
+#+end_src
 
 Or without nh:
 
-```sh
+#+begin_src sh
 nixos-rebuild switch --flake ~/aperture --elevate=run0
-```
+#+end_src
 
 Format the Nix files:
 
-```sh
+#+begin_src sh
 nix fmt
-```
+#+end_src
 
-## License
+* License
 
-[MIT](LICENSE)
+[[file:LICENSE][MIT]]
