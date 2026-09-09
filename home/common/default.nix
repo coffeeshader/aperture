@@ -22,6 +22,7 @@
   ];
 
   xdg.enable = true;
+  xdg.autostart.enable = true;
 
   home.packages = [
     pkgs.fastfetch

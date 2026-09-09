@@ -3,16 +3,27 @@
 {
   programs.keepassxc = {
     enable = true;
+    autostart = true;
 
     settings = {
-      General.ConfigVersion = 2;
-      GUI.ApplicationTheme = "classic";
+      General = {
+        ConfigVersion = 2;
+        AutoSaveAfterEveryChange = false;
+        AutoSaveNonDataChanges = false;
+      };
+
+      GUI = {
+        ApplicationTheme = "classic";
+        MinimizeOnStartup = true;
+        MinimizeOnClose = true;
+      };
 
       Browser = {
         Enabled = true;
         UpdateBinaryPath = false;
       };
 
+      Security.LockDatabaseIdle = false;
       SSHAgent.Enabled = true;
     };
   };
