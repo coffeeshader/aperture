@@ -12,6 +12,7 @@
     ./emacs.nix
     ./discord.nix
     ./browser.nix
+    ./passwords.nix
     ./documents.nix
     ./files.nix
     ./media.nix
