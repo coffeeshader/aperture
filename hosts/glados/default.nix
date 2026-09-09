@@ -11,6 +11,7 @@
     ../../modules/desktop-hyprland.nix
     ../../modules/gaming.nix
     ../../modules/vr.nix
+    ../../modules/yubikey.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
