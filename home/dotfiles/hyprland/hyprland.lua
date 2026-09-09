@@ -321,6 +321,7 @@ hl.bind(mainMod .. " + CTRL + Page_Up",   hl.dsp.window.move({ workspace = "-1",
 
 hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+hl.bind(mainMod .. " + P",         hl.dsp.workspace.toggle_special("vault"))
 
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
@@ -372,4 +373,11 @@ hl.window_rule({
     },
 
     no_focus = true,
+})
+
+hl.window_rule({
+    name  = "keepassxc-scratchpad",
+    match = { class = "org.keepassxc.KeePassXC" },
+
+    workspace = "special:vault silent",
 })
