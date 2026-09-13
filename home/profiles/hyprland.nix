@@ -1,41 +1,17 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ config, pkgs, ... }:
 
 let
   color = name: config.theme.paletteOled.${name};
   cursor = config.home.pointerCursor;
 in
 {
+  imports = [ ./desktop.nix ];
+
   home.packages = [
     (pkgs.writers.writeNuBin "sync-monitor-scale" (
       builtins.readFile ../dotfiles/hyprland/sync-monitor-scale.nu
     ))
-
-    pkgs.playerctl
-    pkgs.brightnessctl
-    pkgs.hyprpicker
-    pkgs.wl-clipboard
   ];
-
-  programs.fuzzel = {
-    enable = true;
-    settings = {
-      main.icon-theme = "Papirus-Dark";
-      border = {
-        width = 3;
-        radius = 10;
-      };
-      key-bindings = {
-        prev = "Up Control+p Control+k";
-        next = "Down Control+n Control+j";
-        delete-line-forward = "none";
-      };
-    };
-  };
 
   services.hyprpaper =
     let
@@ -53,49 +29,16 @@ in
       };
     };
 
-  programs.hyprlock.enable = true;
-
-  services.hyprpolkitagent.enable = true;
-
   services.hyprsunset = {
     enable = true;
     extraArgs = [ "-i" ];
   };
 
-  services.hypridle = {
-    enable = true;
-    settings = {
-      general = {
-        lock_cmd = "pidof hyprlock || hyprlock";
-        before_sleep_cmd = "loginctl lock-session";
-        after_sleep_cmd = ''hyprctl eval "hl.dispatch(hl.dsp.dpms({ action = 'on' }))"'';
-      };
-      listener =
-        lib.optional (config.idle.lockAfter != null) {
-          timeout = config.idle.lockAfter;
-          on-timeout = "loginctl lock-session";
-        }
-        ++ lib.optional (config.idle.dimAfter != null) {
-          timeout = config.idle.dimAfter;
-          on-timeout = "hyprctl hyprsunset gamma 30";
-          on-resume = "hyprctl hyprsunset gamma 100";
-        }
-        ++ lib.optional (config.idle.screenOffAfter != null) {
-          timeout = config.idle.screenOffAfter;
-          on-timeout = ''hyprctl eval "hl.dispatch(hl.dsp.dpms({ action = 'off' }))"'';
-          on-resume = ''hyprctl eval "hl.dispatch(hl.dsp.dpms({ action = 'on' }))"'';
-        };
-    };
-  };
-
-  services.mako = {
-    enable = true;
-    settings = {
-      default-timeout = 5000;
-      border-radius = 10;
-      max-visible = 5;
-      layer = "overlay";
-    };
+  idle = {
+    dimCommand = "hyprctl hyprsunset gamma 30";
+    undimCommand = "hyprctl hyprsunset gamma 100";
+    screenOffCommand = ''hyprctl eval "hl.dispatch(hl.dsp.dpms({ action = 'off' }))"'';
+    screenOnCommand = ''hyprctl eval "hl.dispatch(hl.dsp.dpms({ action = 'on' }))"'';
   };
 
   xdg.configFile."hypr/hyprland.lua".source =

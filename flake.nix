@@ -75,5 +75,6 @@
         }
       ) environments;
       nixosConfigurations.glados = mkHost "glados";
+      nixosConfigurations.chell = mkHost "chell";
     };
 }

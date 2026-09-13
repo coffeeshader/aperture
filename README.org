@@ -9,11 +9,11 @@ My NixOS configuration, as a flake.
 #+begin_example
 flake.nix          inputs and mkHost helper; one line per host
 hosts/<name>/      hardware scan + per-host module selection
-modules/           system modules (common, audio, syncthing, Hyprland, gaming, vr)
+modules/           system modules (common, audio, syncthing, desktop, gaming, vr)
 packages/          reusable flake packages; dev environments via nix shell aperture#<env>
 home/<name>.nix    per-host home entry (stateVersion)
 home/common/       home-manager config, one file per topic (git, shell, emacs, ...)
-home/profiles/     opt-in bundles a host imports (hyprland, gaming, modding, library)
+home/profiles/     opt-in bundles a host imports (desktop, gaming, modding, library)
 #+end_example
 
 * Hosts
