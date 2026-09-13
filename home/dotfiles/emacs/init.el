@@ -132,6 +132,10 @@
 (use-package org-appear
   :hook (org-mode . org-appear-mode))
 
+;;;; Windows
+
+(winner-mode 1)
+
 ;;;; Keybindings
 
 (load (locate-user-emacs-file "meow"))
