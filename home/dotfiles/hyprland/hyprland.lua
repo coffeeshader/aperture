@@ -185,7 +185,7 @@ hl.config({
 
 hl.device({
     name          = "razer-razer-viper-v3-pro",
-    sensitivity   = -0.2,
+    sensitivity   = -0.6,
     accel_profile = "flat",
 })
 
