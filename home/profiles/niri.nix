@@ -1,9 +1,7 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 
 {
   imports = [ ./desktop.nix ];
-
-  home.packages = [ pkgs.awww ];
 
   idle = {
     dimCommand = "brightnessctl -s set 30%";

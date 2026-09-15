@@ -13,21 +13,8 @@ in
     ))
   ];
 
-  services.hyprpaper =
-    let
-      # Change this later to a wallpaper in dotfiles/
-      wallpaper = "${config.home.homeDirectory}/Documents/Wallpapers/orange-clouds.jpg";
-    in
-    {
-      enable = true;
-      settings = {
-        splash = false;
-        wallpaper = {
-          monitor = "*";
-          path = wallpaper;
-        };
-      };
-    };
+  systemd.user.services.awww.Service.ExecStartPost =
+    "${config.services.awww.package}/bin/awww img ${config.home.homeDirectory}/Documents/Wallpapers/orange-clouds.jpg";
 
   services.hyprsunset = {
     enable = true;

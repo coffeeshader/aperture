@@ -13,6 +13,9 @@
     pkgs.wl-clipboard
   ];
 
+  services.awww.enable = true;
+  systemd.user.services.awww.Service.Type = "notify";
+
   programs.fuzzel = {
     enable = true;
     settings = {

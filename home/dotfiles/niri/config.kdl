@@ -71,8 +71,6 @@ environment {
     XCURSOR_THEME "catppuccin-mocha-mauve-cursors"
 }
 
-spawn-at-startup "awww-daemon"
-
 hotkey-overlay {
     skip-at-startup
 }
