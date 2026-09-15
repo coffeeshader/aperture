@@ -15,6 +15,7 @@
       gpu-context = "waylandvk";
       hwdec = "auto";
       save-position-on-quit = true;
+      screenshot-directory = "~/Pictures/Screenshots/mpv";
       volume = 60;
     };
   };
