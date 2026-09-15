@@ -6,7 +6,7 @@ in
 {
   programs.mangohud = {
     enable = true;
-    enableSessionWide = true;
+    enableSessionWide = false;
   };
 
   catppuccin.mangohud.enable = false;
