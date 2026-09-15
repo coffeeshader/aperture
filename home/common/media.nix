@@ -2,6 +2,7 @@
 
 {
   home.packages = [
+    pkgs.ani-cli
     pkgs.yt-dlp
   ];
 
@@ -13,7 +14,7 @@
       gpu-context = "waylandvk";
       hwdec = "auto-copy";
       save-position-on-quit = true;
-      volume = 20;
+      volume = 60;
     };
   };
 }
