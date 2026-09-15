@@ -9,10 +9,11 @@
   programs.mpv = {
     enable = true;
     config = {
+      profile = "high-quality";
       vo = "gpu-next";
       gpu-api = "vulkan";
       gpu-context = "waylandvk";
-      hwdec = "auto-copy";
+      hwdec = "auto";
       save-position-on-quit = true;
       volume = 60;
     };
