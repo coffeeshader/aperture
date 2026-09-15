@@ -65,6 +65,11 @@ in
     hyprcursor.enable = true;
   };
 
+  config.gtk = {
+    enable = true;
+    colorScheme = "dark";
+  };
+
   config.qt = {
     enable = true;
     style = {
