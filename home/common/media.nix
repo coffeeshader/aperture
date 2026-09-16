@@ -17,6 +17,7 @@
       save-position-on-quit = true;
       screenshot-directory = "~/Pictures/Screenshots/mpv";
       volume = 60;
+      sub-pos = 93;
       sub-hdr-peak = 350;
       image-subs-hdr-peak = 350;
       alang = "ja,en";
