@@ -17,6 +17,8 @@
       save-position-on-quit = true;
       screenshot-directory = "~/Pictures/Screenshots/mpv";
       volume = 60;
+      alang = "ja,en";
+      slang = "en";
     };
   };
 }
