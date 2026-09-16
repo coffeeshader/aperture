@@ -16,6 +16,7 @@
     ./documents.nix
     ./files.nix
     ./media.nix
+    ./torrent.nix
     ./music.nix
     ./development.nix
     ./graphics.nix
