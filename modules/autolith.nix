@@ -6,13 +6,18 @@
 
   nixpkgs.overlays = [
     (final: _prev: {
-      autolith = import "${inputs.autolith}/nix/package.nix" {
-        pkgs = final // {
-          sbcl = final.sbcl_2_6_6;
-          sbclPackages = final.sbcl_2_6_6.pkgs;
+      autolith =
+        let
+          src = final.applyPatches {
+            name = "autolith-source";
+            src = inputs.autolith;
+            patches = [ ./patches/autolith-sbcl-minimum.patch ];
+          };
+        in
+        import "${src}/nix/package.nix" {
+          pkgs = final;
+          inherit src;
         };
-        src = inputs.autolith;
-      };
     })
   ];
 }

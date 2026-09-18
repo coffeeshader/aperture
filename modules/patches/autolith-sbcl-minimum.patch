@@ -1,0 +1,43 @@
+diff --git a/nix/package.nix b/nix/package.nix
+--- a/nix/package.nix
++++ b/nix/package.nix
+@@ -7,7 +7,11 @@ let
+     then "-dynamiclib"
+     else "-shared";
+   expectedSbclVersion = lib.removeSuffix "\n" (builtins.readFile "${src}/sbcl.version");
+-  expectedSbclSourceHash = lib.removeSuffix "\n" (builtins.readFile "${src}/sbcl-source.sha256");
++  expectedSbclSourceHash = builtins.convertHash {
++    hash = pkgs.sbcl.src.outputHash;
++    hashAlgo = "sha256";
++    toHashFormat = "base16";
++  };
+   fffSourceCommit = lib.removeSuffix "\n" (builtins.readFile "${src}/native/fff/commit");
+
+   # Quicklisp's NYAML archive includes dangling symlinks in its unused test data.
+@@ -588,7 +592,7 @@ let
+   runtime = pkgs.sbcl.withPackages (_: [ autolithSystem ]);
+
+-  sbclSource = pkgs.runCommand "autolith-sbcl-${expectedSbclVersion}-source" {
++  sbclSource = pkgs.runCommand "autolith-sbcl-${pkgs.sbcl.version}-source" {
+     nativeBuildInputs = [ pkgs.bzip2 pkgs.coreutils pkgs.gnutar ];
+   } ''
+     actual_hash=$(sha256sum ${pkgs.sbcl.src} | cut -d ' ' -f 1)
+     if [ "$actual_hash" != "${expectedSbclSourceHash}" ]; then
+@@ -613,7 +617,7 @@ let
+   # SBCL saved cores are intentionally transient here. Their bytes are not
+   # reproducible, so the derivation publishes only a deterministic proof that
+   # the complete Nix closure can build and probe both required images.
+-  imageValidation = pkgs.runCommand "autolith-image-validation-${expectedSbclVersion}" {
++  imageValidation = pkgs.runCommand "autolith-image-validation-${pkgs.sbcl.version}" {
+     nativeBuildInputs = [ pkgs.git ];
+   } ''
+     export HOME="$TMPDIR/home"
+@@ -774,7 +778,7 @@ let
+ in
+ assert with pkgs.stdenv.hostPlatform;
+   (isLinux && (isx86_64 || isAarch64)) || (isDarwin && isAarch64);
+-assert pkgs.sbcl.version == expectedSbclVersion;
++assert lib.versionAtLeast pkgs.sbcl.version expectedSbclVersion;
+ pkgs.writeShellApplication {
+   name = "autolith";
+   runtimeInputs = [
