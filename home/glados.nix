@@ -8,6 +8,7 @@
     ./profiles/gaming.nix
     ./profiles/modding.nix
     ./profiles/library.nix
+    ./profiles/torrent.nix
   ];
 
   theme.oled = true;

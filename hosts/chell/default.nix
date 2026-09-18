@@ -4,6 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/audio.nix
+    ../../modules/vpn.nix
     ../../modules/syncthing.nix
     ../../modules/claude-code.nix
     ../../modules/codex.nix
