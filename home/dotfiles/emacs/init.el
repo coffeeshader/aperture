@@ -36,6 +36,18 @@
               c-ts-mode-indent-style 'bsd
               c-ts-indent-offset 4)
 
+;; Backport Emacs bug #81735: indentation across blank lines.
+(with-eval-after-load 'treesit
+  (defun treesit--indent-prev-line-node (pos)
+    "Find the indentation node on the preceding nonblank line."
+    (save-excursion
+      (goto-char pos)
+      (when (eq (forward-line -1) 0)
+        (while (and (looking-at-p (rx (* (syntax whitespace)) eol))
+                    (eq (forward-line -1) 0)))
+        (back-to-indentation)
+        (treesit--indent-largest-node-at (point))))))
+
 ;;;; Images
 (add-hook
  'image-mode-hook
