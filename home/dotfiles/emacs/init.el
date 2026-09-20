@@ -80,7 +80,8 @@
   :config
   (setopt flymake-margin-indicators-string '((error "x" compilation-error)
                                              (warning "!" compilation-warning)
-                                             (note "!" compilation-info))))
+                                             (note "!" compilation-info)))
+  (put 'eglot-flymake-backend 'flymake-always-safe t))
 
 (use-package company
   :hook (prog-mode . company-mode))
