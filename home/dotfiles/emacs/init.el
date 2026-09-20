@@ -6,8 +6,8 @@
 
 (use-package dashboard
   :config
-  (setq dashboard-banner-logo-title "Welcome to Emacs!"
-        dashboard-startup-banner 'logo
+  (setq dashboard-banner-logo-title "This was a triumph. I'm making a note here: HUGE SUCCESS."
+        dashboard-startup-banner (locate-user-emacs-file "aperture.svg")
         dashboard-center-content t
         dashboard-projects-backend 'project-el
         dashboard-items '((projects  . 8)

@@ -54,6 +54,8 @@
     config.lib.file.mkOutOfStoreSymlink "${config.repo.root}/home/dotfiles/emacs/custom.el";
   xdg.configFile."emacs/meow.el".source =
     config.lib.file.mkOutOfStoreSymlink "${config.repo.root}/home/dotfiles/emacs/meow.el";
+  xdg.configFile."emacs/aperture.svg".source =
+    config.lib.file.mkOutOfStoreSymlink "${config.repo.root}/home/dotfiles/emacs/aperture.svg";
 
   xdg.configFile."emacs/theme.el".text = ''
     ;;; -*- lexical-binding: t; -*-
