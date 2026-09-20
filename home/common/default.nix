@@ -26,6 +26,7 @@
 
   home.packages = [
     pkgs.fastfetch
+    pkgs.ripgrep
   ];
 
   programs.btop.enable = true;

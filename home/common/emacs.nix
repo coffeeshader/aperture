@@ -13,7 +13,10 @@
       epkgs: with epkgs; [
         dashboard
         catppuccin-theme
-        company
+        vertico
+        consult
+        orderless
+        corfu
         rust-mode
         zig-mode
         meow
