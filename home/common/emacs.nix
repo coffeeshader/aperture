@@ -32,6 +32,7 @@
             tree-sitter-odin
             tree-sitter-zig
             tree-sitter-c
+            tree-sitter-cpp
             tree-sitter-python
           ]
         ))

@@ -33,8 +33,8 @@
 ;;;; Indentation
 (setq-default indent-tabs-mode nil
               tab-always-indent 'complete
-              c-default-style "bsd"
-              c-basic-offset 4)
+              c-ts-mode-indent-style 'bsd
+              c-ts-indent-offset 4)
 
 ;;;; Images
 (add-hook
@@ -49,7 +49,8 @@
           java-ts-mode
           zig-mode
           python-mode
-          c-mode
+          c-ts-mode
+          c++-ts-mode
           nix-mode
           ) . eglot-ensure)
   :config
@@ -95,6 +96,8 @@
 (use-package nix-mode
   :mode "\\.nix\\'")
 
+(add-to-list 'major-mode-remap-alist '(c-mode . c-ts-mode))
+(add-to-list 'major-mode-remap-alist '(c++-mode . c++-ts-mode))
 (add-to-list 'major-mode-remap-alist '(java-mode . java-ts-mode))
 (add-to-list 'major-mode-remap-alist '(rust-mode . rust-ts-mode))
 
