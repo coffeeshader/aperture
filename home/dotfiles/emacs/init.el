@@ -101,6 +101,9 @@
                                             :documentRangeFormattingProvider)
         eglot-code-action-indicator ""))
 
+(use-package eldoc-box
+  :commands eldoc-box-help-at-point)
+
 (use-package compile
   :defer t
   :config

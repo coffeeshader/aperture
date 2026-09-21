@@ -33,6 +33,7 @@
    '("p k" . project-kill-buffers)
    '("p c" . project-compile)
    '("l r" . eglot-rename)
+   '("l h" . eldoc-box-help-at-point)
    '("w h" . windmove-left)
    '("w j" . windmove-down)
    '("w k" . windmove-up)

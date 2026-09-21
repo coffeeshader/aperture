@@ -17,6 +17,7 @@
         consult
         orderless
         corfu
+        eldoc-box
         rust-mode
         zig-mode
         meow
