@@ -1,9 +1,12 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 let
   color = name: config.theme.palette.${name};
 in
 {
+
+  home.packages = [ pkgs.osu-lazer-bin ];
+
   programs.mangohud = {
     enable = true;
     enableSessionWide = false;
