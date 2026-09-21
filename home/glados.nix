@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -10,6 +10,8 @@
     ./profiles/library.nix
     ./profiles/torrent.nix
   ];
+
+  home.packages = [ pkgs.razergenie ];
 
   theme.oled = true;
 
