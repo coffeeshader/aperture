@@ -9,6 +9,7 @@
     ./profiles/modding.nix
     ./profiles/library.nix
     ./profiles/torrent.nix
+    ./profiles/university.nix
   ];
 
   home.packages = [ pkgs.razergenie ];

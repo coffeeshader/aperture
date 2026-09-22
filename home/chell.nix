@@ -8,6 +8,7 @@
     ./profiles/gaming.nix
     ./profiles/modding.nix
     ./profiles/library.nix
+    ./profiles/university.nix
   ];
 
   theme.oled = false;
