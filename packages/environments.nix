@@ -7,6 +7,7 @@
       pkgs.clang
       pkgs.clang-tools
       pkgs.lld
+      pkgs.gnumake
     ];
   };
 
