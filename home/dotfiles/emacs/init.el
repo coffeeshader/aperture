@@ -145,6 +145,7 @@
 
 (use-package org
   :defer t
+  :commands (org-store-link org-link-preview)
   :config
   (setq org-element-use-cache t
         org-element-cache-persistent t
@@ -159,6 +160,7 @@
 
 (use-package org-roam
   :defer t
+  :commands (org-roam-buffer-toggle org-roam-tag-add org-roam-alias-add)
   :init
   (setq org-roam-directory (file-truename "~/Notes")
         org-roam-db-location
