@@ -33,6 +33,24 @@ in
         devices = builtins.attrNames devices;
       };
 
+      folders.Notes = {
+        path = "${homeDirectory}/Notes";
+        type = "sendreceive";
+        devices = builtins.attrNames devices;
+
+        versioning = {
+          type = "simple";
+          fsPath = "${homeDirectory}/.local/share/syncthing/versions/Notes";
+          params.keep = "10";
+        };
+      };
+
+      folders.Vault = {
+        path = "${homeDirectory}/Vault";
+        type = if config.networking.hostName == "glados" then "sendonly" else "receiveonly";
+        devices = builtins.attrNames devices;
+      };
+
       options = {
         urAccepted = -1;
         globalAnnounceEnabled = false;
