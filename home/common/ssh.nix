@@ -12,6 +12,13 @@
       "github.com git.sr.ht codeberg.org" = {
         User = "git";
         IdentityFile = "~/.ssh/id_ed25519_sk_ciri";
+        IdentitiesOnly = "yes";
+      };
+      "github-uni" = {
+        HostName = "github.com";
+        User = "git";
+        IdentityFile = "~/.ssh/id_ed25519_sk_uni";
+        IdentitiesOnly = "yes";
       };
     };
   };
