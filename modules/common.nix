@@ -37,7 +37,10 @@ in
 
   nixpkgs.config.allowUnfree = true;
 
-  nixpkgs.overlays = [ inputs.emacs-overlay.overlays.package ];
+  nixpkgs.overlays = [
+    inputs.emacs-overlay.overlays.package
+    inputs.emacs-overlay.overlays.emacs
+  ];
 
   networking.networkmanager.enable = true;
 

@@ -36,6 +36,11 @@
       url = "github:nix-community/emacs-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    emacs-igc-src = {
+      url = "git+https://https.git.savannah.gnu.org/git/emacs.git?ref=feature/igc3&shallow=1";
+      flake = false;
+    };
   };
 
   outputs =

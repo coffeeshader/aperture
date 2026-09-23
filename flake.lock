@@ -36,6 +36,24 @@
         "type": "github"
       }
     },
+    "emacs-igc-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1790061165,
+        "narHash": "sha256-rDZt9h+okSb8LAvbYu4ADv6Pa0ArkRENfwy0fgqhuoo=",
+        "ref": "feature/igc3",
+        "rev": "97f3611f90c9c02305062ad8cd2b90259874dfc2",
+        "shallow": true,
+        "type": "git",
+        "url": "https://https.git.savannah.gnu.org/git/emacs.git"
+      },
+      "original": {
+        "ref": "feature/igc3",
+        "shallow": true,
+        "type": "git",
+        "url": "https://https.git.savannah.gnu.org/git/emacs.git"
+      }
+    },
     "emacs-overlay": {
       "inputs": {
         "nixpkgs": [
@@ -211,6 +229,7 @@
       "inputs": {
         "autolith": "autolith",
         "catppuccin": "catppuccin",
+        "emacs-igc-src": "emacs-igc-src",
         "emacs-overlay": "emacs-overlay",
         "grimoire": "grimoire",
         "helium": "helium",

@@ -1,14 +1,39 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
 }:
 
+let
+  # The emacs-overlay's igc snapshot lags behind feature/igc3.
+  emacsIgcPgtk =
+    let
+      version = "${lib.substring 0 8 inputs.emacs-igc-src.lastModifiedDate}.0";
+    in
+    pkgs.emacs-igc-pgtk.overrideAttrs (old: {
+      inherit version;
+      name = "emacs-igc-pgtk-${version}";
+      src = inputs.emacs-igc-src;
+
+      configureFlags = old.configureFlags ++ [
+        "--enable-link-time-optimization"
+        "CFLAGS=-O2"
+      ];
+
+      env = (old.env or { }) // {
+        NIX_CFLAGS_COMPILE = toString (old.env.NIX_CFLAGS_COMPILE or "") + " -march=native -pipe";
+      };
+      NIX_ENFORCE_NO_NATIVE = false;
+      preferLocalBuild = true;
+      allowSubstitutes = false;
+    });
+in
 {
   programs.emacs = {
     enable = true;
-    package = pkgs.emacs-pgtk;
+    package = emacsIgcPgtk;
     extraPackages =
       epkgs: with epkgs; [
         dashboard

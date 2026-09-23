@@ -24,14 +24,10 @@
 ;; Faster startup
 (defvar old-file-name-handler file-name-handler-alist)
 
-(setq file-name-handler-alist nil
-      gc-cons-threshold most-positive-fixnum
-      gc-cons-percentage 0.8)
+(setq file-name-handler-alist nil)
 
 (add-hook 'emacs-startup-hook
           (lambda ()
-            (setq file-name-handler-alist old-file-name-handler
-                  gc-cons-threshold (* 64 1024 1024)
-                  gc-cons-percentage 0.1)))
+            (setq file-name-handler-alist old-file-name-handler)))
 
 (provide 'early-init)
