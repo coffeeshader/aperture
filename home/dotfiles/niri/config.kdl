@@ -11,6 +11,8 @@ input {
         tap
         natural-scroll
     }
+
+    workspace-auto-back-and-forth
 }
 
 cursor {
@@ -79,9 +81,22 @@ prefer-no-csd
 
 screenshot-path "~/Pictures/Screenshots/%Y-%m-%d %H-%M-%S.png"
 
+workspace "vault"
+
 window-rule {
     geometry-corner-radius 10
     clip-to-geometry true
+}
+
+window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"# at-startup=true
+    open-on-workspace "vault"
+    open-focused false
+}
+
+window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    block-out-from "screencast"
 }
 
 binds {
@@ -188,6 +203,8 @@ binds {
     Mod+Ctrl+7 { move-column-to-workspace 7 focus=false; }
     Mod+Ctrl+8 { move-column-to-workspace 8 focus=false; }
     Mod+Ctrl+9 { move-column-to-workspace 9 focus=false; }
+
+    Mod+P hotkey-overlay-title="Vault: toggle" { focus-workspace "vault"; }
 
     Mod+BracketLeft  { consume-or-expel-window-left; }
     Mod+BracketRight { consume-or-expel-window-right; }
