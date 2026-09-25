@@ -97,7 +97,6 @@
   :config
   (setopt compilation-ask-about-save nil
           compilation-scroll-output t
-          compilation-auto-jump-to-first-error t
           compilation-max-output-line-length nil
           compile-command ""))
 
