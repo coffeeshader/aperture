@@ -22,6 +22,8 @@
    '("K" . kill-current-buffer)
    '("r c" . compile)
    '("r r" . recompile)
+   '("r n" . next-error)
+   '("r p" . previous-error)
    '("s l" . consult-line)
    '("s r" . consult-ripgrep)
    '("s i" . consult-imenu)
