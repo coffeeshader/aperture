@@ -355,7 +355,7 @@ hl.window_rule({
 
 hl.window_rule({
     name  = "deadlock",
-    match = { class = "steam_app_1422450" },
+    match = { class = "^(deadlock\\.exe|steam_app_1422450)$" },
 
     immediate = true,
     content   = "game",
