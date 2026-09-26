@@ -19,6 +19,16 @@ in
     home.packages = [
       pkgs.nil
       pkgs.nixfmt
+
+      (pkgs.symlinkJoin {
+        name = "freeze-wrapped";
+        paths = [ pkgs.charm-freeze ];
+        nativeBuildInputs = [ pkgs.makeBinaryWrapper ];
+        postBuild = ''
+          wrapProgram $out/bin/freeze --add-flags "--config full --theme catppuccin-${config.catppuccin.flavor} --border.color #${config.theme.palette.surface1} --output freeze.svg"
+        '';
+        meta.mainProgram = "freeze";
+      })
     ];
 
     home.sessionVariables = {
