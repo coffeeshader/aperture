@@ -14,6 +14,7 @@ let
 in
 {
   programs.bat.enable = true;
+  programs.zoxide.enable = true;
 
   programs.nushell = {
     enable = true;
