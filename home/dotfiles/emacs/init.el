@@ -169,6 +169,11 @@
 
 (winner-mode 1)
 
+(use-package ace-window
+  :bind ([remap other-window] . ace-window)
+  :config
+  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
+
 ;;;; Keybindings
 
 (load (locate-user-emacs-file "meow"))

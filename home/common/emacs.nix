@@ -46,6 +46,7 @@ in
         rust-mode
         zig-mode
         meow
+        ace-window
         magit
         markdown-mode
         nix-mode

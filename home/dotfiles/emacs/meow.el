@@ -50,6 +50,7 @@
    '("w j" . windmove-down)
    '("w k" . windmove-up)
    '("w l" . windmove-right)
+   '("w w" . ace-window)
    '("w s" . split-window-right)
    '("w S" . split-window-below)
    '("w q" . delete-window)
