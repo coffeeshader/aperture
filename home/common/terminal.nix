@@ -12,7 +12,7 @@
       quit-after-last-window-closed = false;
       shell-integration-features = "ssh-env,ssh-terminfo";
       gtk-wide-tabs = false;
-      font-family = "Intel One Mono";
+      font-family = "CommitMonoAperture";
       font-size = 14;
       background-opacity = if config.theme.oled then 1.0 else 0.85;
 

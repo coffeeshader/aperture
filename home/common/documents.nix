@@ -7,7 +7,7 @@
     config = {
       should_load_tutorial_when_no_other_file = "0";
       collapsed_toc = "1";
-      ui_font = "Intel One Mono";
+      ui_font = "CommitMonoAperture";
       should_launch_new_window = "1";
       startup_commands = [ "toggle_custom_color" ];
     };

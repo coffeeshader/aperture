@@ -84,7 +84,7 @@ in
     pkgs.git
   ];
 
-  fonts.packages = [ pkgs.intel-one-mono ];
+  fonts.packages = [ (pkgs.callPackage ../packages/commit-mono.nix { }) ];
 
   # Use run0 instead of sudo
   security = {
