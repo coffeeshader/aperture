@@ -38,6 +38,7 @@ in
       epkgs: with epkgs; [
         dashboard
         catppuccin-theme
+        ligature
         vertico
         consult
         orderless

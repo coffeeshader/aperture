@@ -30,6 +30,11 @@
   (load (locate-user-emacs-file "theme") 'noerror)
   (load-theme 'catppuccin :no-confirm))
 
+(use-package ligature
+  :config
+  (ligature-set-ligatures t '("->" "=>"))
+  (global-ligature-mode 1))
+
 ;;;; Completion
 
 (use-package vertico
