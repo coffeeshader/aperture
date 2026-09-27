@@ -25,6 +25,7 @@
   systemd.user.services.plasma-kwallet-pam = {
     description = "Unlock kwallet from pam credentials";
     partOf = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
     wantedBy = [ "graphical-session.target" ];
 
     serviceConfig = {
