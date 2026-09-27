@@ -15,6 +15,58 @@ let
     name = "helium-native-messaging-hosts";
     paths = nativeMessagingHosts;
   };
+
+  imageTypes = [
+    "image/png"
+    "image/jpeg"
+    "image/gif"
+    "image/webp"
+    "image/avif"
+    "image/bmp"
+    "image/svg+xml"
+  ];
+
+  helium-image = pkgs.writeShellApplication {
+    name = "helium-image";
+    runtimeInputs = [ pkgs.coreutils ];
+    text = ''
+      src=$(realpath -- "$1")
+      name=$(basename -- "$src")
+
+      ext=''${name##*.}
+      if [ "''${ext,,}" = svg ]; then
+        img=image.svg; fit="s"
+      else
+        img=image; fit="Math.min(1, s)"
+      fi
+
+      dir=$(mktemp -d "''${XDG_RUNTIME_DIR:-/tmp}/helium-image.XXXXXX")
+      ln -s -- "$src" "$dir/$img"
+
+      title=''${name//&/&amp;}
+      title=''${title//</&lt;}
+      title=''${title//>/&gt;}
+
+      cat > "$dir/index.html" <<EOF
+      <!doctype html>
+      <title>$title</title>
+      <style>
+      html, body { margin: 0; height: 100%; background: #${config.theme.paletteOled.crust}; }
+      body { display: flex; }
+      img { margin: auto; }
+      </style>
+      <img id="i" src="$img">
+      <script>
+      i.onload = () => {
+        const s = Math.min(innerWidth / i.naturalWidth, innerHeight / i.naturalHeight);
+        i.width = i.naturalWidth * ($fit);
+      };
+      </script>
+      EOF
+
+      exec ${lib.getExe helium} --incognito "--app=file://$dir/index.html"
+    '';
+  };
 in
 {
   options.browser.nativeMessagingHosts = lib.mkOption {
@@ -56,5 +108,16 @@ in
         };
       };
     };
+
+    xdg.desktopEntries.helium-image = {
+      name = "Helium Image Viewer";
+      exec = "${lib.getExe helium-image} %f";
+      mimeType = imageTypes;
+      icon = "image-viewer";
+      terminal = false;
+      noDisplay = true;
+    };
+
+    xdg.mimeApps.defaultApplications = lib.genAttrs imageTypes (_: "helium-image.desktop");
   };
 }
