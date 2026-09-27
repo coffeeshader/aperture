@@ -49,6 +49,7 @@ in
         meow
         ace-window
         magit
+        forge
         markdown-mode
         nix-mode
         envrc

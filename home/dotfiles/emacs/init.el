@@ -170,6 +170,18 @@
 (use-package org-appear
   :hook (org-mode . org-appear-mode))
 
+;;;; Git
+
+(use-package auth-source
+  :config
+  (setq auth-sources '("secrets:kdewallet")))
+
+(use-package forge
+  :after magit
+  :config
+  (add-to-list 'forge-alist
+               '("github-uni" "api.github.com" "github.com" forge-github-repository)))
+
 ;;;; Windows
 
 (winner-mode 1)
