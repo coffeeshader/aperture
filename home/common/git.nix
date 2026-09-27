@@ -1,5 +1,14 @@
 { config, ... }:
 
+let
+  uni = {
+    user = {
+      email = "1251034@isep.ipp.pt";
+      signingkey = "~/.ssh/id_ed25519_sk_uni.pub";
+    };
+    github.user = "helder-rodrigues-ISEP";
+  };
+in
 {
   programs.git = {
     enable = true;
@@ -9,6 +18,8 @@
         email = "me@shader.coffee";
         signingkey = "~/.ssh/id_ed25519_sk_ciri.pub";
       };
+
+      github.user = "coffeeshader";
 
       push = {
         default = "simple";
@@ -38,10 +49,11 @@
     includes = [
       {
         condition = "gitdir:~/uni/";
-        contents.user = {
-          email = "1251034@isep.ipp.pt";
-          signingkey = "~/.ssh/id_ed25519_sk_uni.pub";
-        };
+        contents = uni;
+      }
+      {
+        condition = "hasconfig:remote.*.url:git@github-uni:**";
+        contents = uni;
       }
     ];
   };
