@@ -13,7 +13,8 @@
         dashboard-items '((projects  . 6)
                           (bookmarks . 5)
                           (recents   . 6)
-                          (agenda    . 7)))
+                          (agenda    . 7))
+        dashboard-agenda-prefix-format " %i %(my/org-agenda-title) %s ")
   ;; emacsclient frames (no file args) open on the dashboard too
   (setq initial-buffer-choice (lambda () (get-buffer-create dashboard-buffer-name)))
   (dashboard-setup-startup-hook))
@@ -158,6 +159,14 @@
         org-log-done 'time
         org-log-into-drawer t)
 
+  (defun my/org-agenda-title ()
+    "Note title for agenda lines, padded to a fixed width."
+    (truncate-string-to-width
+     (or (and (derived-mode-p 'org-mode)
+              (or (org-get-title) (org-get-category)))
+         "")
+     12 nil ?\s))
+
   (setq org-agenda-files '("~/Notes" "~/Notes/daily")
         org-agenda-skip-unavailable-files t
         org-agenda-span 'week
@@ -165,11 +174,25 @@
         org-agenda-skip-scheduled-if-done t
         org-agenda-skip-deadline-if-done t
         org-deadline-warning-days 7
+        org-agenda-prefix-format
+        '((agenda . " %i %(my/org-agenda-title) %?-12t% s")
+          (todo   . " %i %(my/org-agenda-title) ")
+          (tags   . " %i %(my/org-agenda-title) ")
+          (search . " %i %(my/org-agenda-title) "))
+        org-agenda-tags-column 0
+        org-agenda-block-separator ?─
+        org-agenda-time-grid
+        '((daily today require-timed)
+          (800 1000 1200 1400 1600 1800 2000)
+          " ┄┄┄┄┄ " "┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄")
+        org-agenda-current-time-string
+        "◀── now ─────────────────────────────────────────────────"
         org-agenda-custom-commands
         '(("d" "Dashboard"
-           ((agenda "" ((org-agenda-span 'day)))
-            (todo "NEXT")
-            (todo "TODO|WAIT")))))
+           ((agenda "" ((org-agenda-span 'day)
+                        (org-agenda-overriding-header "Today")))
+            (todo "NEXT" ((org-agenda-overriding-header "Next")))
+            (todo "TODO|WAIT" ((org-agenda-overriding-header "Other tasks")))))))
 
   (setq org-capture-templates
         '(("t" "Task" entry (file "~/Notes/inbox.org")
@@ -202,7 +225,8 @@
   (org-roam-db-autosync-mode))
 
 (use-package org-modern
-  :hook (org-mode . org-modern-mode)
+  :hook ((org-mode . org-modern-mode)
+         (org-agenda-finalize . org-modern-agenda))
   :config
   (setq org-modern-star 'replace))
 
