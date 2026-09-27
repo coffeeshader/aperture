@@ -13,14 +13,13 @@
     ../../modules/gaming.nix
     ../../modules/vr.nix
     ../../modules/yubikey.nix
+    ../../modules/power.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  powerManagement.cpuFreqGovernor = "powersave";
 
   networking.hostName = "chell";
   system.stateVersion = "26.05";
