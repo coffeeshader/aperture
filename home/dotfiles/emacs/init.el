@@ -10,9 +10,10 @@
         dashboard-startup-banner (locate-user-emacs-file "aperture.svg")
         dashboard-center-content t
         dashboard-projects-backend 'project-el
-        dashboard-items '((projects  . 8)
-                          (bookmarks . 8)
-                          (recents   . 5)))
+        dashboard-items '((projects  . 6)
+                          (bookmarks . 5)
+                          (recents   . 6)
+                          (agenda    . 7)))
   ;; emacsclient frames (no file args) open on the dashboard too
   (setq initial-buffer-choice (lambda () (get-buffer-create dashboard-buffer-name)))
   (dashboard-setup-startup-hook))
@@ -137,7 +138,8 @@
 
 (use-package org
   :defer t
-  :commands (org-store-link org-link-preview)
+  :commands (org-store-link org-link-preview
+             org-time-stamp org-time-stamp-inactive org-schedule org-deadline)
   :config
   (setq org-element-use-cache t
         org-element-cache-persistent t
@@ -148,7 +150,38 @@
         org-startup-with-inline-images t
         org-startup-folded 'overview
         org-edit-src-content-indentation 0
-        org-yank-image-save-method "images"))
+        org-yank-image-save-method "images")
+
+  (setq org-todo-keywords
+        '((sequence "TODO(t)" "NEXT(n)" "WAIT(w@)" "|" "DONE(d)" "CANCELLED(c@)"))
+        org-use-fast-todo-selection t
+        org-log-done 'time
+        org-log-into-drawer t)
+
+  (setq org-agenda-files '("~/Notes" "~/Notes/daily")
+        org-agenda-skip-unavailable-files t
+        org-agenda-span 'week
+        org-agenda-start-on-weekday 1
+        org-agenda-skip-scheduled-if-done t
+        org-agenda-skip-deadline-if-done t
+        org-deadline-warning-days 7
+        org-agenda-custom-commands
+        '(("d" "Dashboard"
+           ((agenda "" ((org-agenda-span 'day)))
+            (todo "NEXT")
+            (todo "TODO|WAIT")))))
+
+  (setq org-capture-templates
+        '(("t" "Task" entry (file "~/Notes/inbox.org")
+           "* TODO %?\n%U" :empty-lines 1)
+          ("l" "Task with link" entry (file "~/Notes/inbox.org")
+           "* TODO %?\n%U\n%a" :empty-lines 1))
+        org-refile-targets '((org-agenda-files :maxlevel . 2))))
+
+(use-package calendar
+  :defer t
+  :config
+  (setq calendar-week-start-day 1))
 
 (use-package org-roam
   :defer t
@@ -161,11 +194,17 @@
   (make-directory org-roam-directory t)
 
   :config
-  (setq org-roam-completion-everywhere t)
+  (setq org-roam-completion-everywhere t
+        org-roam-dailies-directory "daily/"
+        org-roam-dailies-capture-templates
+        '(("d" "default" entry "* %<%H:%M> %?"
+           :target (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n"))))
   (org-roam-db-autosync-mode))
 
 (use-package org-modern
-  :hook (org-mode . org-modern-mode))
+  :hook (org-mode . org-modern-mode)
+  :config
+  (setq org-modern-star 'replace))
 
 (use-package org-appear
   :hook (org-mode . org-appear-mode))
@@ -197,6 +236,14 @@
 
 ;;;; Save information across sessions
 (save-place-mode t)
+
+(use-package recentf
+  :defer t
+  :config
+  (add-to-list 'recentf-exclude
+               (lambda (file)
+                 (and (not (file-remote-p file))
+                      (file-in-directory-p file "~/Notes")))))
 
 ;;;; etc
 ;;;; TODO: CLEANUP
