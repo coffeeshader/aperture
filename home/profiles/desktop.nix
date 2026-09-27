@@ -58,6 +58,14 @@
           timeout = config.idle.screenOffAfter;
           on-timeout = config.idle.screenOffCommand;
           on-resume = config.idle.screenOnCommand;
+        }
+        ++ lib.optional (config.idle.suspendAfter != null) {
+          timeout = config.idle.suspendAfter;
+          on-timeout =
+            if config.idle.suspendOnBatteryOnly then
+              "grep -qx Discharging /sys/class/power_supply/BAT*/status && systemctl suspend"
+            else
+              "systemctl suspend";
         };
     };
   };

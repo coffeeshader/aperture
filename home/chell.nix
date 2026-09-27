@@ -14,9 +14,11 @@
   theme.oled = false;
 
   idle = {
-    dimAfter = 90;
-    screenOffAfter = 150;
-    lockAfter = 600;
+    dimAfter = 60;
+    screenOffAfter = 120;
+    lockAfter = 180;
+    suspendAfter = 300;
+    suspendOnBatteryOnly = true;
   };
 
   home.stateVersion = "26.05";
