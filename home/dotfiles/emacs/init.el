@@ -201,6 +201,12 @@
            "* TODO %?\n%U\n%a" :empty-lines 1))
         org-refile-targets '((org-agenda-files :maxlevel . 2))))
 
+(use-package ox-latex
+  :defer t
+  :config
+  (setcar (cdr (assoc "article" org-latex-classes))
+          "\\documentclass[11pt,a4paper]{article}"))
+
 (use-package calendar
   :defer t
   :config
