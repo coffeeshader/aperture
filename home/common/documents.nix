@@ -1,6 +1,18 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
+  home.packages = [
+    (pkgs.texliveBasic.withPackages (
+      ps: with ps; [
+        wrapfig
+        capt-of
+        ulem
+        ec
+        cm-super
+      ]
+    ))
+  ];
+
   programs.sioyek = {
     enable = true;
 
