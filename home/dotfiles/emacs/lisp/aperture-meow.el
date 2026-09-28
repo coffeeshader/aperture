@@ -1,5 +1,16 @@
 ;;; -*- lexical-binding: t; -*-
 
+;;;; Windows
+
+(winner-mode 1)
+
+(use-package ace-window
+  :bind ([remap other-window] . ace-window)
+  :config
+  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
+
+;;;; Keybindings
+
 (defun meow-setup ()
   (setq meow-cheatsheet-layout meow-cheatsheet-layout-qwerty)
   (meow-motion-define-key
@@ -146,3 +157,5 @@
 
 (with-eval-after-load 'transient
   (keymap-set transient-map "<escape>" #'transient-quit-one))
+
+(provide 'aperture-meow)
