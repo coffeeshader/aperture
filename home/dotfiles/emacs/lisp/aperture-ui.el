@@ -36,14 +36,25 @@
   (global-ligature-mode 1))
 
 (use-package nerd-icons
-  :custom (nerd-icons-font-family "Symbols Nerd Font Mono"))
+  :custom (nerd-icons-font-family "Symbols Nerd Font Mono")
+  :config
+  (pcase-dolist (`(,name . ,color)
+                 '((red . red) (maroon . maroon) (orange . peach) (yellow . yellow)
+                   (green . green) (cyan . teal) (blue . blue) (purple . mauve)
+                   (pink . pink) (silver . overlay2)))
+    (dolist (prefix '("" "l" "d"))
+      (dolist (suffix '("" "-alt"))
+        (let ((face (intern (format "nerd-icons-%s%s%s" prefix name suffix))))
+          (when (facep face)
+            (set-face-attribute face nil
+                                :foreground (catppuccin-get-color color))))))))
 
 (use-package doom-modeline
   :custom
   (doom-modeline-height 28)
   (doom-modeline-bar-width 4)
   (doom-modeline-buffer-file-name-style 'truncate-with-project)
-  (doom-modeline-major-mode-icon nil)
+  (doom-modeline-major-mode-icon t)
   (doom-modeline-buffer-encoding t)
   (doom-modeline-lsp t)
   (doom-modeline-modal t)
