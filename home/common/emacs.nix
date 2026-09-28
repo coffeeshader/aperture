@@ -39,6 +39,8 @@ in
         dashboard
         catppuccin-theme
         ligature
+        nerd-icons
+        doom-modeline
         vertico
         consult
         orderless
@@ -50,6 +52,7 @@ in
         ace-window
         magit
         forge
+        diff-hl
         markdown-mode
         nix-mode
         envrc

@@ -84,7 +84,10 @@ in
     pkgs.git
   ];
 
-  fonts.packages = [ (pkgs.callPackage ../packages/commit-mono.nix { }) ];
+  fonts.packages = [
+    (pkgs.callPackage ../packages/commit-mono.nix { })
+    pkgs.nerd-fonts.symbols-only
+  ];
 
   # Use run0 instead of sudo
   security = {

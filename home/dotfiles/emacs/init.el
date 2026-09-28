@@ -37,6 +37,37 @@
   (ligature-set-ligatures t '("->" "=>"))
   (global-ligature-mode 1))
 
+(use-package nerd-icons
+  :custom (nerd-icons-font-family "Symbols Nerd Font Mono"))
+
+(use-package doom-modeline
+  :custom
+  (doom-modeline-height 28)
+  (doom-modeline-bar-width 4)
+  (doom-modeline-buffer-file-name-style 'truncate-with-project)
+  (doom-modeline-major-mode-icon nil)
+  (doom-modeline-buffer-encoding t)
+  (doom-modeline-lsp t)
+  (doom-modeline-modal t)
+  (doom-modeline-modal-icon t)
+  (doom-modeline-modal-modern-icon t)
+  (doom-modeline-check-simple-format nil)
+  :config
+  (let ((accent (catppuccin-get-color 'mauve)))
+    (set-face-attribute 'doom-modeline-project-dir nil :foreground accent :inherit 'bold)
+    (set-face-attribute 'doom-modeline-bar nil :background accent))
+  (set-face-attribute 'doom-modeline-meow-normal-state nil
+                      :foreground (catppuccin-get-color 'blue))
+  (set-face-attribute 'doom-modeline-vcs-default nil
+                      :foreground (catppuccin-get-color 'mauve))
+  (define-advice doom-modeline-vcs-icon (:filter-args (args) aperture-recolor)
+    "Draw the git icon in the branch name's face instead of `doom-modeline-info'."
+    (pcase-let ((`(,icon ,unicode ,text ,face ,icon-set) args))
+      (list icon unicode text
+            (if (eq face 'doom-modeline-info) 'doom-modeline-vcs-default face)
+            icon-set)))
+  (doom-modeline-mode 1))
+
 ;;;; Completion
 
 (use-package vertico
@@ -250,6 +281,16 @@
   :config
   (add-to-list 'forge-alist
                '("github-uni" "api.github.com" "github.com" forge-github-repository)))
+
+(use-package diff-hl
+  :demand t
+  :custom
+  (diff-hl-bmp-max-width 8)
+  :hook ((magit-pre-refresh  . diff-hl-magit-pre-refresh)
+         (magit-post-refresh . diff-hl-magit-post-refresh))
+  :config
+  (global-diff-hl-mode)
+  (diff-hl-flydiff-mode))
 
 ;;;; Windows
 
