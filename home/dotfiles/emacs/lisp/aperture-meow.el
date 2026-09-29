@@ -31,6 +31,7 @@
    '("." . find-file)
    '("b" . consult-buffer)
    '("K" . kill-current-buffer)
+   '("y" . aperture-freeze-region)
    '("a" . org-agenda)
    '("t" . org-capture)
    '("r c" . compile)
