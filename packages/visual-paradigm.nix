@@ -19,6 +19,18 @@ let
     gawk
     which
   ];
+  addOpens = map (pkg: "--add-opens=java.desktop/${pkg}=ALL-UNNAMED") [
+    "javax.swing.plaf.metal"
+    "javax.swing.plaf.basic"
+    "javax.swing"
+    "sun.swing"
+    "com.sun.java.swing.plaf.gtk"
+    "sun.awt"
+    "sun.awt.X11"
+    "sun.java2d"
+    "sun.font"
+    "java.awt"
+  ];
 in
 stdenv.mkDerivation {
   pname = "visual-paradigm";
@@ -46,7 +58,8 @@ stdenv.mkDerivation {
       --replace-fail 'app_home=../../' "app_home=${placeholder "out"}/share/visual-paradigm" \
       --replace-fail '\''${installer:sys.userHome}' '$HOME'
     makeWrapper $out/share/visual-paradigm/Application/bin/Visual_Paradigm $out/bin/Visual_Paradigm \
-      --prefix PATH : ${runtimePath}
+      --prefix PATH : ${runtimePath} \
+      --prefix INSTALL4J_ADD_VM_PARAMS " " "${lib.concatStringsSep " " addOpens}"
 
     runHook postInstall
   '';
