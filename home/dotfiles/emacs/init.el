@@ -12,7 +12,7 @@
 (require 'aperture-meow)
 (require 'aperture-defaults)
 
-(load-file custom-file)
+(load custom-file 'noerror 'nomessage)
 
 (require 'aperture-envrc)
 

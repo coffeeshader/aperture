@@ -14,9 +14,7 @@
   :config
   (setq eglot-autoshutdown t
         eglot-events-buffer-config '(:size 0 :format short)
-        eglot-ignored-server-capabilities '(:documentFormattingProvider
-                                            :documentOnTypeFormattingProvider
-                                            :documentRangeFormattingProvider)
+        eglot-ignored-server-capabilities '(:documentOnTypeFormattingProvider)
         eglot-code-action-indicator ""))
 
 (use-package eldoc-box
@@ -30,7 +28,6 @@
           compilation-max-output-line-length nil
           compile-command ""))
 
-(require 'ansi-color)
 (add-hook 'compilation-filter-hook #'ansi-color-compilation-filter)
 
 (add-hook 'compilation-mode-hook
@@ -47,11 +44,6 @@
 (use-package rust-mode
   :init
   (setq rust-mode-treesitter-derive t))
-
-(use-package zig-mode)
-
-(use-package nix-mode
-  :mode "\\.nix\\'")
 
 (add-to-list 'major-mode-remap-alist '(c-mode . c-ts-mode))
 (add-to-list 'major-mode-remap-alist '(c++-mode . c++-ts-mode))

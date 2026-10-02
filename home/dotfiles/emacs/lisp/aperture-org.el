@@ -15,20 +15,18 @@
   :commands (org-store-link org-link-preview
              org-time-stamp org-time-stamp-inactive org-schedule org-deadline)
   :config
-  (setq org-element-use-cache t
-        org-element-cache-persistent t
+  (setq org-element-cache-persistent t
         org-directory "~/Notes"
         org-return-follows-link t
         org-hide-emphasis-markers t
         org-startup-indented t
-        org-startup-with-inline-images t
+        org-startup-with-link-previews t
         org-startup-folded 'overview
         org-edit-src-content-indentation 0
         org-yank-image-save-method "images")
 
   (setq org-todo-keywords
         '((sequence "TODO(t)" "NEXT(n)" "WAIT(w@)" "|" "DONE(d)" "CANCELLED(c@)"))
-        org-use-fast-todo-selection t
         org-log-done 'time
         org-log-into-drawer t)
 
@@ -85,7 +83,6 @@
         org-roam-db-location
         (expand-file-name "emacs/org-roam.db"
                           (or (getenv "XDG_CACHE_HOME") "~/.cache")))
-  (make-directory org-roam-directory t)
 
   :config
   (setq org-roam-completion-everywhere t

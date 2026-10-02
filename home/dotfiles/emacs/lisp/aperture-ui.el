@@ -2,6 +2,8 @@
 
 ;;;; UI / Theme
 
+(set-face-attribute 'default nil :family "CommitMonoAperture" :height 140)
+
 (use-package dashboard
   :config
   (setq dashboard-banner-logo-title "This was a triumph. I'm making a note here: HUGE SUCCESS."
@@ -18,12 +20,12 @@
   (dashboard-setup-startup-hook))
 
 (global-so-long-mode 1)
+(pixel-scroll-precision-mode 1)
 
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
 (add-hook 'text-mode-hook #'visual-line-mode)
 
-(setq-default display-line-numbers-type 'relative
-              whitespace-style '(face trailing tabs spaces space-mark tab-mark missing-newline-at-eof))
+(setq-default display-line-numbers-type 'relative)
 
 (use-package catppuccin-theme
   :config
@@ -52,15 +54,7 @@
 (use-package doom-modeline
   :custom
   (doom-modeline-height 28)
-  (doom-modeline-bar-width 4)
   (doom-modeline-buffer-file-name-style 'truncate-with-project)
-  (doom-modeline-major-mode-icon t)
-  (doom-modeline-buffer-encoding t)
-  (doom-modeline-lsp t)
-  (doom-modeline-modal t)
-  (doom-modeline-modal-icon t)
-  (doom-modeline-modal-modern-icon t)
-  (doom-modeline-check-simple-format nil)
   :config
   (let ((accent (catppuccin-get-color 'mauve)))
     (set-face-attribute 'doom-modeline-project-dir nil :foreground accent :inherit 'bold)

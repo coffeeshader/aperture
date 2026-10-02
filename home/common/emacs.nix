@@ -64,11 +64,8 @@ in
           grammars: with grammars; [
             tree-sitter-rust
             tree-sitter-java
-            tree-sitter-odin
-            tree-sitter-zig
             tree-sitter-c
             tree-sitter-cpp
-            tree-sitter-python
           ]
         ))
       ];
@@ -85,8 +82,6 @@ in
     config.lib.file.mkOutOfStoreSymlink "${config.repo.root}/home/dotfiles/emacs/early-init.el";
   xdg.configFile."emacs/init.el".source =
     config.lib.file.mkOutOfStoreSymlink "${config.repo.root}/home/dotfiles/emacs/init.el";
-  xdg.configFile."emacs/custom.el".source =
-    config.lib.file.mkOutOfStoreSymlink "${config.repo.root}/home/dotfiles/emacs/custom.el";
   xdg.configFile."emacs/lisp".source =
     config.lib.file.mkOutOfStoreSymlink "${config.repo.root}/home/dotfiles/emacs/lisp";
   xdg.configFile."emacs/aperture.svg".source =

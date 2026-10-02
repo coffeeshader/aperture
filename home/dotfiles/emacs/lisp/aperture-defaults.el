@@ -7,6 +7,8 @@
 ;;;; Save information across sessions
 (save-place-mode t)
 
+(global-auto-revert-mode t)
+
 (use-package recentf
   :defer t
   :config
@@ -16,18 +18,16 @@
                       (file-in-directory-p file "~/Notes")))))
 
 ;;;; etc
-;;;; TODO: CLEANUP
-(setopt custom-file "~/.config/emacs/custom.el"
-        use-short-answers t
+(setopt custom-file (expand-file-name "emacs/custom.el"
+                                      (or (getenv "XDG_CACHE_HOME") "~/.cache")))
+
+(setopt use-short-answers t
         confirm-kill-processes nil
         electric-pair-mode t
         view-read-only t
         make-backup-files nil)
 
 (setq-default create-lockfiles nil
-              backup-inhibited t
-              delete-auto-save-files t
-              auto-save-mode nil
               auto-save-default nil)
 
 (provide 'aperture-defaults)
