@@ -24,6 +24,7 @@
 (setopt use-short-answers t
         confirm-kill-processes nil
         electric-pair-mode t
+        repeat-mode t
         view-read-only t
         make-backup-files nil)
 

@@ -15,8 +15,9 @@
   :config
   (setq eglot-autoshutdown t
         eglot-events-buffer-config '(:size 0 :format short)
-        eglot-ignored-server-capabilities '(:documentOnTypeFormattingProvider)
-        eglot-code-action-indicator "")
+        eglot-ignored-server-capabilities '(:documentOnTypeFormattingProvider
+                                            :semanticTokensProvider)
+        eglot-code-action-indications nil)
   (add-to-list 'eglot-server-programs
                '(typst-ts-mode "tinymist"
                  :initializationOptions (:formatterMode "typstyle"))))

@@ -46,6 +46,7 @@ in
         orderless
         corfu
         eldoc-box
+        dape
         rust-mode
         zig-mode
         typst-ts-mode

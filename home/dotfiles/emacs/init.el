@@ -7,6 +7,7 @@
 (require 'aperture-ui)
 (require 'aperture-completion)
 (require 'aperture-prog)
+(require 'aperture-debug)
 (require 'aperture-org)
 (require 'aperture-git)
 (require 'aperture-meow)
