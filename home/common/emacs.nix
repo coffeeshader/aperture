@@ -48,6 +48,7 @@ in
         eldoc-box
         rust-mode
         zig-mode
+        typst-ts-mode
         meow
         ace-window
         magit
@@ -66,6 +67,7 @@ in
             tree-sitter-java
             tree-sitter-c
             tree-sitter-cpp
+            tree-sitter-typst
           ]
         ))
       ];

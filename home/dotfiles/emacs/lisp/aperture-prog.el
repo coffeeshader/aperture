@@ -10,12 +10,16 @@
           c-ts-mode
           c++-ts-mode
           nix-mode
+          typst-ts-mode
           ) . eglot-ensure)
   :config
   (setq eglot-autoshutdown t
         eglot-events-buffer-config '(:size 0 :format short)
         eglot-ignored-server-capabilities '(:documentOnTypeFormattingProvider)
-        eglot-code-action-indicator ""))
+        eglot-code-action-indicator "")
+  (add-to-list 'eglot-server-programs
+               '(typst-ts-mode "tinymist"
+                 :initializationOptions (:formatterMode "typstyle"))))
 
 (use-package eldoc-box
   :commands eldoc-box-help-at-point)
@@ -44,6 +48,18 @@
 (use-package rust-mode
   :init
   (setq rust-mode-treesitter-derive t))
+
+(use-package typst-ts-mode
+  :mode "\\.typ\\'"
+  :hook (typst-ts-mode . aperture-typst-watch-command))
+
+(defun aperture-typst-watch-command ()
+  "Make `compile' run typst watch on the current file."
+  (when buffer-file-name
+    (setq-local compile-command
+                (concat "typst watch "
+                        (shell-quote-argument
+                         (file-name-nondirectory buffer-file-name))))))
 
 (add-to-list 'major-mode-remap-alist '(c-mode . c-ts-mode))
 (add-to-list 'major-mode-remap-alist '(c++-mode . c++-ts-mode))

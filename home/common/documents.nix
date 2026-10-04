@@ -11,6 +11,8 @@
         cm-super
       ]
     ))
+    pkgs.typst
+    pkgs.tinymist
   ];
 
   programs.sioyek = {
