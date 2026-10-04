@@ -1,0 +1,18 @@
+diff --git a/nix/package.nix b/nix/package.nix
+--- a/nix/package.nix
++++ b/nix/package.nix
+@@ -594,7 +594,13 @@ let
+     ${autolithSystem}
+   '';
+ 
+-  runtime = pkgs.sbcl.withPackages (_: [ autolithSystem ]);
++  runtime = (pkgs.sbcl.withPackages (_: [ autolithSystem ])).overrideAttrs (old: {
++    installPhase =
++      builtins.replaceStrings
++        [ "--prefix CL_SOURCE_REGISTRY :" "--prefix ASDF_OUTPUT_TRANSLATIONS :" ]
++        [ "--set CL_SOURCE_REGISTRY" "--set ASDF_OUTPUT_TRANSLATIONS" ]
++        old.installPhase;
++  });
+ 
+   sbclSource = pkgs.runCommand "autolith-sbcl-${pkgs.sbcl.version}-source" {
+     nativeBuildInputs = [ pkgs.bzip2 pkgs.coreutils pkgs.gnutar ];

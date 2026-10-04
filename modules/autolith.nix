@@ -11,7 +11,10 @@
           src = final.applyPatches {
             name = "autolith-source";
             src = inputs.autolith;
-            patches = [ ./patches/autolith-sbcl-minimum.patch ];
+            patches = [
+              ./patches/autolith-sbcl-minimum.patch
+              ./patches/autolith-sbcl-wrapper-set.patch
+            ];
           };
         in
         import "${src}/nix/package.nix" {
