@@ -16,28 +16,4 @@
   systemd.tmpfiles.rules = [ "d /var/cache/tuigreet 0755 greeter greeter -" ];
 
   programs.ssh.askPassword = lib.getExe pkgs.kdePackages.ksshaskpass;
-
-  security.pam.services.login.kwallet = {
-    enable = true;
-    forceRun = true;
-  };
-
-  systemd.user.services.plasma-kwallet-pam = {
-    description = "Unlock kwallet from pam credentials";
-    partOf = [ "graphical-session.target" ];
-    after = [ "graphical-session.target" ];
-    wantedBy = [ "graphical-session.target" ];
-
-    serviceConfig = {
-      ExecStart = "${pkgs.kdePackages.kwallet-pam}/libexec/pam_kwallet_init";
-      Type = "simple";
-      Slice = "background.slice";
-      Restart = "no";
-    };
-  };
-
-  environment.systemPackages = [
-    pkgs.kdePackages.kwallet
-    pkgs.kdePackages.kwalletmanager
-  ];
 }

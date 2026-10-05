@@ -4,7 +4,7 @@
 
 (use-package auth-source
   :config
-  (setq auth-sources '("secrets:kdewallet")))
+  (setq auth-sources '("secrets:Companion Cube")))
 
 (use-package forge
   :after magit

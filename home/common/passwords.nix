@@ -25,6 +25,11 @@
 
       Security.LockDatabaseIdle = false;
       SSHAgent.Enabled = true;
+
+      FdoSecrets = {
+        Enabled = true;
+        UnlockBeforeSearch = true;
+      };
     };
   };
 
