@@ -90,6 +90,11 @@ in
   xdg.configFile."emacs/aperture.svg".source =
     config.lib.file.mkOutOfStoreSymlink "${config.repo.root}/home/dotfiles/emacs/aperture.svg";
 
+  xdg.configFile."emacs/font.el".text = ''
+    ;;; -*- lexical-binding: t; -*-
+    (set-face-attribute 'default nil :family "${config.theme.font.family}" :height ${toString (config.theme.font.size * 10)})
+  '';
+
   xdg.configFile."emacs/theme.el".text = ''
     ;;; -*- lexical-binding: t; -*-
     (setq catppuccin-flavor '${config.catppuccin.flavor})

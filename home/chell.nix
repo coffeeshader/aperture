@@ -12,6 +12,10 @@
   ];
 
   theme.oled = false;
+  theme.font = {
+    family = "CommitMonoAperture";
+    size = 14;
+  };
 
   idle = {
     dimAfter = 60;

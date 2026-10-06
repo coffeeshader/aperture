@@ -12,8 +12,8 @@
       quit-after-last-window-closed = false;
       shell-integration-features = "ssh-env,ssh-terminfo";
       gtk-wide-tabs = false;
-      font-family = "CommitMonoAperture";
-      font-size = 14;
+      font-family = config.theme.font.family;
+      font-size = config.theme.font.size;
       background-opacity = if config.theme.oled then 1.0 else 0.85;
 
       keybind = [

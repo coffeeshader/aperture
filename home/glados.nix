@@ -15,6 +15,10 @@
   home.packages = [ pkgs.razergenie ];
 
   theme.oled = true;
+  theme.font = {
+    family = "CommitMonoAperture";
+    size = 14;
+  };
 
   idle = {
     dimAfter = 90;

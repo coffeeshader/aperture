@@ -15,6 +15,19 @@ in
   options.theme = {
     oled = lib.mkEnableOption "OLED-optimized Catppuccin backgrounds";
 
+    font = {
+      family = lib.mkOption {
+        type = lib.types.str;
+        default = "CommitMonoAperture";
+        description = "Monospace font used by the terminal, editor and other apps";
+      };
+      size = lib.mkOption {
+        type = lib.types.ints.positive;
+        default = 14;
+        description = "Font size in points";
+      };
+    };
+
     oledColors = lib.mkOption {
       internal = true;
       readOnly = true;

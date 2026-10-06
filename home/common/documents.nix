@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   home.packages = [
@@ -21,7 +21,7 @@
     config = {
       should_load_tutorial_when_no_other_file = "0";
       collapsed_toc = "1";
-      ui_font = "CommitMonoAperture";
+      ui_font = config.theme.font.family;
       should_launch_new_window = "1";
       startup_commands = [ "toggle_custom_color" ];
     };

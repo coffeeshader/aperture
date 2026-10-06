@@ -2,7 +2,7 @@
 
 ;;;; UI / Theme
 
-(set-face-attribute 'default nil :family "CommitMonoAperture" :height 140)
+(load (locate-user-emacs-file "font") 'noerror)
 
 (use-package dashboard
   :config
