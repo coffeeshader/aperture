@@ -23,7 +23,7 @@ cursor {
 
 output "eDP-2" {
     mode "2560x1600@165.000"
-    variable-refresh-rate
+    variable-refresh-rate on-demand=true
     scale 1.5
 
     focus-at-startup
@@ -97,6 +97,12 @@ window-rule {
 window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     block-out-from "screencast"
+}
+
+window-rule {
+    match app-id=r#"^steam_app_"#
+    match app-id=r#"(?i)\.exe$"#
+    variable-refresh-rate true
 }
 
 binds {
