@@ -92,7 +92,9 @@ in
 
   xdg.configFile."emacs/font.el".text = ''
     ;;; -*- lexical-binding: t; -*-
-    (set-face-attribute 'default nil :family "${config.theme.font.family}" :height ${toString (config.theme.font.size * 10)})
+    (set-face-attribute 'default nil :family "${config.theme.font.family}" :height ${
+      toString (config.theme.font.size * 10)
+    })
   '';
 
   xdg.configFile."emacs/theme.el".text = ''
