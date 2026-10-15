@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 
@@ -39,7 +38,5 @@ in
     };
 
     programs.codex.enable = true;
-
-    home.packages = [ pkgs.autolith ];
   };
 }

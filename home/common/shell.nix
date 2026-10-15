@@ -32,7 +32,6 @@ in
       cat = "bat";
       nrs = "nh os switch";
       nru = "nh os switch --update --commit-lock-file";
-      al = "autolith";
       ff = "fastfetch";
     };
 
