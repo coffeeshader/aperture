@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1789553013,
-        "narHash": "sha256-W5dvgFOuVs24X3G5tUb8C2IHU7ICXNvyGPiWWFjfbuo=",
+        "lastModified": 1791795517,
+        "narHash": "sha256-hmF0FVrUW6UKQ74qyGJSepMYadnIqzVe2h7TQtZdbmo=",
         "owner": "catppuccin",
         "repo": "nix",
-        "rev": "89b3eacf59d6b5eefbc2d69c3a4eb5aaf66d63bc",
+        "rev": "2e605f61db52a45a7ff1db414df395ef566565a3",
         "type": "github"
       },
       "original": {
@@ -23,10 +23,10 @@
     "emacs-igc-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1790410942,
-        "narHash": "sha256-5bdLmiED/RXZ2cVWnrdv2gMdukKpDOQCaVSDHPxeW5c=",
+        "lastModified": 1791874525,
+        "narHash": "sha256-Icpfj3wIt7lLQedmqRdzedn5yQCLttaR6jvuaRol9mU=",
         "ref": "feature/igc3",
-        "rev": "9c38c2f42c0686df50fbe486aaccda84641f082e",
+        "rev": "fcc5248da472415c54c1825c49e91a9bdd5aa072",
         "shallow": true,
         "type": "git",
         "url": "https://https.git.savannah.gnu.org/git/emacs.git"
@@ -46,11 +46,11 @@
         "nixpkgs-stable": "nixpkgs-stable"
       },
       "locked": {
-        "lastModified": 1791056378,
-        "narHash": "sha256-6jiNqTMwqTBg869t/KdePVZDbfoPX2vEt+Ah6T2V9zk=",
+        "lastModified": 1792072733,
+        "narHash": "sha256-Q+c4fV/OShePs5FdPldh00mywqU0Wl1y8zF8ss07aRM=",
         "owner": "nix-community",
         "repo": "emacs-overlay",
-        "rev": "091fd2d58f1725163fe2b46a564fd2fc187898ae",
+        "rev": "08c72b09663805de26057dfed80b7153846336ca",
         "type": "github"
       },
       "original": {
@@ -68,11 +68,11 @@
         "vpkmerge": "vpkmerge"
       },
       "locked": {
-        "lastModified": 1791005380,
-        "narHash": "sha256-tY2IvlUzpVegDg+DBPCNkbramrg3Y7HHkQ85nNYdsAg=",
+        "lastModified": 1791791941,
+        "narHash": "sha256-4JVjR8XCgdvDjjOSFqYE/KHoku8ekto89ZUWzX7j/08=",
         "owner": "Slush97",
         "repo": "grimoire",
-        "rev": "de1e4a51bfc5e7bebbc6e7afc584c8f6061add4a",
+        "rev": "42c729ec2df78cff5eb8d1095b6efc113cbb699d",
         "type": "github"
       },
       "original": {
@@ -104,11 +104,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790829646,
-        "narHash": "sha256-DElBT51c3oIxydiC/8KNScp8S/U0WV46ZnWclvb61iw=",
+        "lastModified": 1792078832,
+        "narHash": "sha256-k8lRJtrKCMLytFBj4gSuziZQdkGKJswQ9MBbiu2Fx6k=",
         "owner": "amaanq",
         "repo": "helium-flake",
-        "rev": "fa670d821a8b1dcbf653256e48a9387285b02748",
+        "rev": "11f936cf417fcb4d3751aa5eeefa46ff9d007232",
         "type": "github"
       },
       "original": {
@@ -124,11 +124,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790989254,
-        "narHash": "sha256-ZN+riaeFuE+DZ5zfqJiXlM12jLwZzeIXiNkU1YeHMXI=",
+        "lastModified": 1792085665,
+        "narHash": "sha256-X9iN67cdW9KqLuvbyyr9rdF4Zssk1uFHh1UC/GZH08s=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "acd21c5a3420a9d5fd0ed06299b10828267ef9ba",
+        "rev": "54ad640b81c5e9a32db1a29e7561fda628601117",
         "type": "github"
       },
       "original": {
@@ -147,11 +147,11 @@
       },
       "locked": {
         "dir": "packages/nix",
-        "lastModified": 1791044936,
-        "narHash": "sha256-+mNY2lHscvVa4KntAxuRMMFYMYxju06avIKyHooM8EE=",
+        "lastModified": 1792022604,
+        "narHash": "sha256-xyl3KTB+j4W3dAxQVSolNJCQZOasDnCLB3Dr14adBmU=",
         "owner": "SteamClientHomebrew",
         "repo": "Millennium",
-        "rev": "63c3928f0306edd83122c0f5b085a9b1a3d60f55",
+        "rev": "22af2f453777a925fb398a3dab60a407e66aa83f",
         "type": "github"
       },
       "original": {
@@ -164,27 +164,27 @@
     "millennium-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1790436335,
-        "narHash": "sha256-ghYUa4gPLV/VOflM2zkl/gtdwLWHQpRxG4boQoj4yKM=",
+        "lastModified": 1791947497,
+        "narHash": "sha256-sNpoyJ+IjrTiDGfX2QiKVg4jkrJR7n9PdBeOYJSS4n8=",
         "owner": "SteamClientHomebrew",
         "repo": "Millennium",
-        "rev": "765aa8802f8a4d942ad8ac8323a9e0f233a50fa8",
+        "rev": "401d532543a0fbff469653ccba802bdd7e45f861",
         "type": "github"
       },
       "original": {
         "owner": "SteamClientHomebrew",
         "repo": "Millennium",
-        "rev": "765aa8802f8a4d942ad8ac8323a9e0f233a50fa8",
+        "rev": "401d532543a0fbff469653ccba802bdd7e45f861",
         "type": "github"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1790822859,
-        "narHash": "sha256-69xHQhAeMAD2wDXO7T2pcOZIF9Sga2W+JkmY2a11Ops=",
+        "lastModified": 1791956154,
+        "narHash": "sha256-jBYGPi4udQ9uo4KQp9m2J0546nJVQitG15gvZSaVVAs=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "c59305bab2065cfecc4944690d9eedbb56f3a9fa",
+        "rev": "55bfb4d7437bd4e09ab7cba58a43bd68eb310044",
         "type": "github"
       },
       "original": {
@@ -212,11 +212,11 @@
     },
     "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1790920529,
-        "narHash": "sha256-nQyFkMR78WP6PiXKkDW2SjqzLf/spQqjRuxRGSbcV8k=",
+        "lastModified": 1791883866,
+        "narHash": "sha256-yvkDdToRZ4IgPc9tSBzzCYJvTLf8n5eE3rgUkpCuD5A=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "774debe7a0d1b496e35677ad955a1011c6ff74f3",
+        "rev": "a033e66ab94a6bedf2c3d58d93a36319d3cbbbaf",
         "type": "github"
       },
       "original": {
@@ -241,16 +241,16 @@
     "vpkmerge": {
       "flake": false,
       "locked": {
-        "lastModified": 1790470205,
-        "narHash": "sha256-OwR1p2DHoDPxYaStdsnXRUH7L0g+bwWBE1UNPrrOwlA=",
+        "lastModified": 1791603794,
+        "narHash": "sha256-RmU2EWMDE0VmzInkTzjvkRpvEktLBDyKD47JMENOlYY=",
         "owner": "Slush97",
         "repo": "vpkmerge",
-        "rev": "9b1a3a57be8b3339be9d140a990fd599ce1c4f4b",
+        "rev": "b05118fc17b61f718d041cd546e03512c1a9f65d",
         "type": "github"
       },
       "original": {
         "owner": "Slush97",
-        "ref": "v0.19.1",
+        "ref": "v0.21.1",
         "repo": "vpkmerge",
         "type": "github"
       }
