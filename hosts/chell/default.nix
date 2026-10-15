@@ -8,7 +8,7 @@
     ../../modules/syncthing.nix
     ../../modules/claude-code.nix
     ../../modules/codex.nix
-    ../../modules/desktop-niri.nix
+    ../../modules/desktop-hyprland.nix
     ../../modules/gaming.nix
     ../../modules/vr.nix
     ../../modules/yubikey.nix

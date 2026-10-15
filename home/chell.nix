@@ -3,7 +3,7 @@
 {
   imports = [
     ./common
-    ./profiles/niri.nix
+    ./profiles/hyprland.nix
     ./profiles/ai.nix
     ./profiles/gaming.nix
     ./profiles/modding.nix

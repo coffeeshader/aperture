@@ -1,0 +1,15 @@
+hl.monitor({
+    output              = "DP-1",
+    mode                = "preferred",
+    position            = "0x0",
+    scale               = 4 / 3,
+    bitdepth            = 10,
+    vrr                 = 2,
+    cm                  = "hdredid",
+    supports_hdr        = 1,
+    supports_wide_color = 1,
+    max_luminance       = 560,
+    sdr_max_luminance   = 250,
+    sdr_min_luminance   = 0,
+    sdrsaturation       = 1,
+})
