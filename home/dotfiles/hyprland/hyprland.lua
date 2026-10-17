@@ -240,6 +240,8 @@ hl.bind(mainMod .. " + M",          hl.dsp.exec_cmd(music))
 hl.bind(mainMod .. " + SHIFT + M",  hl.dsp.exec_cmd("rmpc togglepause"))
 hl.bind(mainMod .. " + ALT + L",    hl.dsp.exec_cmd("loginctl lock-session"))
 hl.bind(mainMod .. " + C",          hl.dsp.exec_cmd("hyprpicker -a"))
+hl.bind(mainMod .. " + S",          hl.dsp.exec_cmd("grimblast --notify --freeze copysave area"))
+hl.bind(mainMod .. " + SHIFT + S",  hl.dsp.exec_cmd("grimblast --notify copysave output"))
 hl.bind(mainMod .. " + comma",      hl.dsp.exec_cmd("rmpc volume -5"), { repeating = true })
 hl.bind(mainMod .. " + period",     hl.dsp.exec_cmd("rmpc volume +5"), { repeating = true })
 
@@ -305,8 +307,6 @@ hl.bind(mainMod .. " + CTRL + Page_Down", hl.dsp.window.move({ workspace = "+1",
 hl.bind(mainMod .. " + CTRL + I",         hl.dsp.window.move({ workspace = "-1", follow = true }))
 hl.bind(mainMod .. " + CTRL + Page_Up",   hl.dsp.window.move({ workspace = "-1", follow = true }))
 
-hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 hl.bind(mainMod .. " + P",         hl.dsp.workspace.toggle_special("vault"))
 
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))

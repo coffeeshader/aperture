@@ -16,6 +16,7 @@ in
     (pkgs.writers.writeNuBin "sync-monitor-scale" (
       builtins.readFile ../dotfiles/hyprland/sync-monitor-scale.nu
     ))
+    pkgs.grimblast
   ];
 
   systemd.user.services.awww.Service.ExecStartPost =
