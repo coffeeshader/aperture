@@ -9,6 +9,11 @@ let
     dir="$HOME/uni/bddad"
     mkdir -p "$dir/.config/VisualParadigm/tmp"
 
+    args=()
+    for a in "$@"; do
+      if [ -e "$a" ]; then args+=("$(${pkgs.coreutils}/bin/realpath "$a")"); else args+=("$a"); fi
+    done
+
     exec ${lib.getExe pkgs.bubblewrap} \
       --unshare-user --unshare-pid --unshare-uts --unshare-cgroup \
       --die-with-parent --new-session \
@@ -35,7 +40,7 @@ let
       --setenv XDG_STATE_HOME "$dir/.local/state" \
       --setenv _JAVA_AWT_WM_NONREPARENTING 1 \
       --setenv INSTALL4J_ADD_VM_PARAMS "-Duser.home=$dir" \
-      -- ${lib.getExe visualParadigm} "$@"
+      -- ${lib.getExe visualParadigm} "''${args[@]}"
   '';
 in
 {
