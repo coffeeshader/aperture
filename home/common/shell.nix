@@ -18,6 +18,7 @@ in
 
   programs.nushell = {
     enable = true;
+    loadSessionVariables = false;
 
     settings = {
       edit_mode = "vi";
