@@ -12,7 +12,7 @@
 
 let
   version = "18.1";
-  build = "20260913";
+  build = "20261012";
   runtimePath = lib.makeBinPath [
     coreutils
     gnused
@@ -40,7 +40,7 @@ stdenv.mkDerivation {
     url = "https://eu10-dl.visual-paradigm.com/visual-paradigm/vp${version}/${build}/Visual_Paradigm_${
       builtins.replaceStrings [ "." ] [ "_" ] version
     }_${build}_Linux64_InstallFree.tar.gz";
-    hash = "sha256-5440ZL7/jND2JCsgwXF1NFWP6kA+loS6L90i8oW0yMY=";
+    hash = "sha256-w2kI9SXsqietjlq+IbbFjNYfGFVHZRJ0J4yfLNj8D6k=";
   };
 
   nativeBuildInputs = [ makeWrapper ];
