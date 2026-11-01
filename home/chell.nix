@@ -27,5 +27,7 @@
     undimCommand = lib.mkForce "brightnessctl -r";
   };
 
+  programs.hyprlock.settings.auth.fingerprint.enabled = true;
+
   home.stateVersion = "26.05";
 }

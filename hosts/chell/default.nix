@@ -27,6 +27,9 @@
   ];
 
   services.fwupd.enable = true;
+  services.fprintd.enable = true;
+
+  security.pam.services.hyprlock.fprintAuth = false;
 
   services.udev.extraRules = ''
     ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="0bda", ATTR{idProduct}=="8156", ATTR{power/autosuspend}="20"
