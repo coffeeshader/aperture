@@ -163,7 +163,7 @@ hl.config({
     },
 
     cursor = {
-        no_hardware_cursors = 1,
+        no_hardware_cursors = hwCursors and 0 or 1,
         inactive_timeout = 3,
         hide_on_key_press = true,
     },
@@ -252,7 +252,6 @@ hl.bind(mainMod .. " + SHIFT + F",     hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + V",             hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + X",             hl.dsp.group.toggle())
 
-local hwCursors = false
 hl.bind(mainMod .. " + SHIFT + C", function()
     hwCursors = not hwCursors
     hl.config({ cursor = { no_hardware_cursors = hwCursors and 0 or 1 } })
