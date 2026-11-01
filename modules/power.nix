@@ -44,7 +44,7 @@
         ];
         cpu.turbo = {
           "if" = "?turbo-available";
-          "then" = false;
+          "then" = true;
         };
         power.platform-profile.first-available-platform-profile = [
           "balanced"
