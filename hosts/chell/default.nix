@@ -20,6 +20,8 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  services.fwupd.enable = true;
+
   networking.hostName = "chell";
   system.stateVersion = "26.05";
 }
