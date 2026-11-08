@@ -15,6 +15,11 @@
     localNetworkGameTransfers.openFirewall = true;
   };
 
+  programs.gamescope = {
+    enable = true;
+    capSysNice = false;
+  };
+
   programs.gamemode = {
     enable = true;
     enableRenice = true;
