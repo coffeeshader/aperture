@@ -81,7 +81,7 @@ in
         ${themeName} = oledTheme;
       };
       settings = {
-        autoUpdate = false;
+        autoUpdate = true;
         autoUpdateNotification = false;
         enabledThemes = lib.mkIf config.theme.oled [ "${themeName}.css" ];
         plugins = {
