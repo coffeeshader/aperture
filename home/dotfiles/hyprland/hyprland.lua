@@ -163,7 +163,7 @@ hl.config({
     },
 
     cursor = {
-        no_hardware_cursors = hwCursors and 0 or 1,
+        no_hardware_cursors = 0,
         inactive_timeout = 3,
         hide_on_key_press = true,
     },
@@ -251,12 +251,6 @@ hl.bind(mainMod .. " + CTRL + Escape", hl.dsp.window.kill())
 hl.bind(mainMod .. " + SHIFT + F",     hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + V",             hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + X",             hl.dsp.group.toggle())
-
-hl.bind(mainMod .. " + SHIFT + C", function()
-    hwCursors = not hwCursors
-    hl.config({ cursor = { no_hardware_cursors = hwCursors and 0 or 1 } })
-    hl.notification.create({ text = hwCursors and "Hardware cursors" or "Software cursors", duration = 1500 })
-end)
 
 hl.bind(mainMod .. " + left",  hl.dsp.layout("focus l"))
 hl.bind(mainMod .. " + H",     hl.dsp.layout("focus l"))

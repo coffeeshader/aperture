@@ -6,8 +6,6 @@ hl.monitor({
     vrr      = 1,
 })
 
-hwCursors = true
-
 hl.config({
     render = {
         direct_scanout = 1,
