@@ -74,6 +74,7 @@
     enable = true;
     settings = {
       default-timeout = 5000;
+      ignore-timeout = 1;
       border-radius = 10;
       max-visible = 5;
       layer = "overlay";
