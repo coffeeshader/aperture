@@ -3,6 +3,8 @@
 {
   nixpkgs.overlays = [ inputs.millennium.overlays.default ];
 
+  boot.kernelModules = [ "ntsync" ];
+
   programs.steam = {
     enable = true;
     package = pkgs.millennium-steam;
