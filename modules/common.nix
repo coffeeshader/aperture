@@ -44,6 +44,8 @@ in
 
   networking.networkmanager.enable = true;
 
+  zramSwap.enable = true;
+
   time.timeZone = "Europe/Lisbon";
 
   i18n.defaultLocale = "en_US.UTF-8";
