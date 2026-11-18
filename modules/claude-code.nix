@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   user,
   ...
@@ -7,6 +8,23 @@
 
 let
   inherit (config.home-manager.users.${user}.ai) sandboxWritableRoots;
+
+  privatePaths = [
+    "~/Vault"
+    "~/Notes"
+    "~/.config/syncthing"
+    "~/.local/share/syncthing"
+    "~/.config/net.imput.helium"
+    "~/.cache/net.imput.helium"
+    "~/.librewolf"
+    "~/.config/librewolf"
+    "~/.cache/librewolf"
+  ];
+
+  denyAccess = path: [
+    "Read(${path}/**)"
+    "Edit(${path}/**)"
+  ];
 in
 {
   environment.etc."claude-code/managed-settings.json".source =
@@ -47,7 +65,8 @@ in
             "Read(~/.cargo/credentials.toml)"
             "Read(~/.dev-env/cargo/credentials)"
             "Read(~/.dev-env/cargo/credentials.toml)"
-          ];
+          ]
+          ++ lib.concatMap denyAccess privatePaths;
         };
 
         sandbox = {
