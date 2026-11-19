@@ -99,6 +99,8 @@ in
     };
   };
 
+  home.file."${config.xdg.configHome}/vesktop/settings.json".force = true;
+
   xdg.configFile."mprisence/config.toml".source = tomlFormat.generate "mprisence-config" {
     cover.provider.provider = [ "musicbrainz" ];
   };

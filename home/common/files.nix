@@ -21,4 +21,6 @@
       "application/vnd.rar" = "org.kde.ark.desktop";
     };
   };
+
+  xdg.configFile."mimeapps.list".force = true;
 }
