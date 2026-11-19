@@ -39,6 +39,7 @@ in
       flavour = [ flavor ];
       accents = [ accent ];
     })
+    pkgs.flameshot
   ];
 
   xdg.configFile."plasma-workspace/env/hm-session-vars.sh".text = ''
@@ -127,8 +128,22 @@ in
     hotkeys.commands =
       let
         rmpc = lib.getExe config.programs.rmpc.package;
+        flameshot = lib.getExe pkgs.flameshot;
       in
       {
+        screenshot-area = {
+          name = "Screenshot an area";
+          keys = [
+            "Meta+S"
+            "Print"
+          ];
+          command = "${flameshot} gui";
+        };
+        screenshot-screen = {
+          name = "Screenshot the screen";
+          key = "Meta+Shift+S";
+          command = "${flameshot} screen --clipboard";
+        };
         rmpc-volume-down = {
           name = "Decrease rmpc volume";
           key = "Meta+;";
