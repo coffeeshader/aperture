@@ -12,7 +12,6 @@
     ../../modules/gaming.nix
     ../../modules/vr.nix
     ../../modules/yubikey.nix
-    ../../modules/power.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
