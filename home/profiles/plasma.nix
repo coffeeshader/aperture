@@ -67,6 +67,7 @@ in
         number = 9;
         rows = 1;
       };
+      effects.desktopSwitching.animation = "fade";
     };
 
     powerdevil = {
@@ -190,6 +191,7 @@ in
         TerminalApplication = "ghostty";
         TerminalService = "com.mitchellh.ghostty.desktop";
       };
+      kdeglobals.KDE.AnimationDurationFactor = 0.5;
       krunnerrc.Plugins = {
         baloosearchEnabled = false;
         krunner_appstreamEnabled = false;
