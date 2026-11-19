@@ -38,6 +38,7 @@
         enable = true;
         settings = id: {
           "mail.server.server_${id}.authMethod" = 10;
+          "mail.server.server_${id}.autosync_max_age_days" = 180;
           "mail.smtpserver.smtp_${id}.authMethod" = 10;
         };
       };
