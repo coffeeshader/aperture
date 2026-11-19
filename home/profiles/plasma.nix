@@ -92,16 +92,18 @@ in
         floating = true;
         hiding = "autohide";
         alignment = "center";
-        lengthMode = "fit";
+        lengthMode = "custom";
+        minLength = 1355;
+        maxLength = 3879;
         widgets = [
           "org.kde.plasma.kickoff"
-          "org.kde.plasma.pager"
           {
             iconTasks.launchers = [
               "applications:systemsettings.desktop"
               "preferred://filemanager"
               "applications:com.mitchellh.ghostty.desktop"
               "preferred://browser"
+              "applications:helium.desktop"
               "applications:emacsclient.desktop"
               "applications:vesktop.desktop"
               "applications:steam.desktop"
