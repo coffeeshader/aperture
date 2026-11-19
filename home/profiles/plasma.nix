@@ -133,7 +133,10 @@ in
         map (i: { "activate task manager entry ${toString i}" = [ ]; }) (lib.range 1 9)
       );
 
-      kwin = lib.mergeAttrsList (
+      kwin = {
+        Overview = "Meta+O";
+      }
+      // lib.mergeAttrsList (
         map (
           i:
           let
@@ -200,6 +203,7 @@ in
       };
       kwalletrc.KSecretD.Enabled = false;
       kwalletrc."org.freedesktop.secrets".apiEnabled = false;
+      kwinrc."Effect-overview".BorderActivate = 9;
       kwinrc.Plugins.hidecursorEnabled = true;
       kwinrc."Effect-hidecursor" = {
         InactivityDuration = 3;
