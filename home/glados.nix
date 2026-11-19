@@ -24,6 +24,11 @@
     }
   ];
 
+  programs.plasma.configFile.kwinrc.Windows_HDR = {
+    MaxLuminance = 560;
+    Reference = 250;
+  };
+
   theme.oled = true;
   theme.font = {
     family = "CommitMonoAperture";
