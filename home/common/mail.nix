@@ -3,7 +3,10 @@
 {
   programs.thunderbird = {
     enable = true;
-    profiles.default.isDefault = true;
+    profiles.default = {
+      isDefault = true;
+      settings."mail.tabs.drawInTitlebar" = false;
+    };
   };
 
   catppuccin.thunderbird.profile = "default";
