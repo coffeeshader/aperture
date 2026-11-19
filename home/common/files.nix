@@ -1,8 +1,6 @@
 { pkgs, ... }:
 
 {
-  programs.yazi.enable = true;
-
   home.packages = [
     pkgs.kdePackages.ark
   ];
@@ -10,7 +8,7 @@
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
-      "inode/directory" = "yazi.desktop";
+      "inode/directory" = "org.kde.dolphin.desktop";
 
       "application/zip" = "org.kde.ark.desktop";
       "application/gzip" = "org.kde.ark.desktop";
