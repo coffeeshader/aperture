@@ -14,6 +14,8 @@
 
       GUI = {
         ApplicationTheme = "classic";
+        ShowTrayIcon = true;
+        MinimizeToTray = true;
         MinimizeOnStartup = true;
         MinimizeOnClose = true;
       };
