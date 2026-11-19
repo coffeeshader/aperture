@@ -17,6 +17,12 @@
     pkgs.kdePackages.spectacle
     pkgs.kdePackages.gwenview
     pkgs.kdePackages.konsole
+    pkgs.kdePackages.plasma-keyboard
+    pkgs.kdePackages.qtvirtualkeyboard
+    pkgs.kdePackages.union
+    pkgs.kdePackages.aurorae
+    pkgs.kdePackages.qrca
+    pkgs.kdePackages.baloo-widgets
   ];
 
   security.pam.services = {
