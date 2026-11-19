@@ -121,12 +121,7 @@ in
       "services/emacsclient.desktop"._launch = "Meta+E";
       "services/helium.desktop"._launch = "Meta+B";
       "services/rmpc.desktop"._launch = "Meta+M";
-      "services/org.kde.krunner.desktop"._launch = [
-        "Meta+Space"
-        "Alt+Space"
-        "Alt+F2"
-        "Search"
-      ];
+      "services/org.kde.krunner.desktop"._launch = "Meta+Space";
 
       "services/org.kde.dolphin.desktop"._launch = [ ];
 
