@@ -102,7 +102,7 @@ in
               "applications:systemsettings.desktop"
               "preferred://filemanager"
               "applications:com.mitchellh.ghostty.desktop"
-              "preferred://browser"
+              "applications:librewolf.desktop"
               "applications:helium.desktop"
               "applications:emacsclient.desktop"
               "applications:vesktop.desktop"
