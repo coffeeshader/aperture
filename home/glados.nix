@@ -14,6 +14,16 @@
 
   home.packages = [ pkgs.razergenie ];
 
+  programs.plasma.input.mice = [
+    {
+      name = "Razer Razer Viper V3 Pro";
+      vendorId = "1532";
+      productId = "00c1";
+      acceleration = -0.6;
+      accelerationProfile = "none";
+    }
+  ];
+
   theme.oled = true;
   theme.font = {
     family = "CommitMonoAperture";
