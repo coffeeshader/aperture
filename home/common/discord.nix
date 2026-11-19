@@ -73,7 +73,7 @@ in
       discordBranch = "stable";
       arRPC = true;
       tray = true;
-      minimizeToTray = false;
+      minimizeToTray = true;
       hardwareAcceleration = true;
     };
     vencord = {
