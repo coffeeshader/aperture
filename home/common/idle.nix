@@ -27,22 +27,5 @@
       default = false;
       description = "Whether to only suspend on inactivity while discharging";
     };
-
-    dimCommand = lib.mkOption {
-      type = lib.types.str;
-      description = "Command that dims the screen";
-    };
-    undimCommand = lib.mkOption {
-      type = lib.types.str;
-      description = "Command that restores the screen after dimming";
-    };
-    screenOffCommand = lib.mkOption {
-      type = lib.types.str;
-      description = "Command that powers off the screen";
-    };
-    screenOnCommand = lib.mkOption {
-      type = lib.types.str;
-      description = "Command that powers the screen back on";
-    };
   };
 }

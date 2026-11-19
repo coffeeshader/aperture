@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ ... }:
 
 {
   imports = [
@@ -23,11 +23,7 @@
     lockAfter = 180;
     suspendAfter = 300;
     suspendOnBatteryOnly = true;
-    dimCommand = lib.mkForce "brightnessctl -s set 10%";
-    undimCommand = lib.mkForce "brightnessctl -r";
   };
-
-  programs.hyprlock.settings.auth.fingerprint.enabled = true;
 
   home.stateVersion = "26.05";
 }
