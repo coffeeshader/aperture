@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, pkgs, ... }:
 
 {
   imports = [
@@ -10,6 +10,12 @@
     ./profiles/library.nix
     ./profiles/university.nix
   ];
+
+  programs.plasma.startup.startupScript.monitor.text = ''
+    ${lib.getExe' pkgs.kdePackages.libkscreen "kscreen-doctor"} \
+      output.eDP-2.scale.1.5 \
+      output.eDP-2.vrrpolicy.always
+  '';
 
   theme.oled = false;
   theme.font = {

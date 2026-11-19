@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   imports = [
@@ -28,6 +28,18 @@
     MaxLuminance = 560;
     Reference = 250;
   };
+
+  programs.plasma.startup.startupScript.monitor.text = ''
+    ${lib.getExe' pkgs.kdePackages.libkscreen "kscreen-doctor"} \
+      output.DP-1.scale.1.3 \
+      output.DP-1.vrrpolicy.automatic \
+      output.DP-1.hdr.enable \
+      output.DP-1.wcg.enable \
+      output.DP-1.sdr-brightness.250 \
+      output.DP-1.sdrGamut.50 \
+      output.DP-1.maxBrightnessOverride.560 \
+      output.DP-1.colorPowerTradeoff.preferAccuracy
+  '';
 
   theme.oled = true;
   theme.font = {
