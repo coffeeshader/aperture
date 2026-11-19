@@ -62,6 +62,13 @@ in
 
     input.keyboard.numlockOnStartup = "on";
 
+    kwin = {
+      virtualDesktops = {
+        number = 9;
+        rows = 1;
+      };
+    };
+
     powerdevil = {
       AC = idleProfile (!idle.suspendOnBatteryOnly) // {
         powerProfile = "performance";
@@ -123,6 +130,23 @@ in
       "services/org.kde.dolphin.desktop"._launch = [ ];
 
       org_kde_powerdevil.powerProfile = "Battery";
+
+      plasmashell = lib.mergeAttrsList (
+        map (i: { "activate task manager entry ${toString i}" = [ ]; }) (lib.range 1 9)
+      );
+
+      kwin = lib.mergeAttrsList (
+        map (
+          i:
+          let
+            n = toString i;
+          in
+          {
+            "Switch to Desktop ${n}" = "Meta+${n}";
+            "Window to Desktop ${n}" = "Meta+Ctrl+${n}";
+          }
+        ) (lib.range 1 9)
+      );
     };
 
     hotkeys.commands =
