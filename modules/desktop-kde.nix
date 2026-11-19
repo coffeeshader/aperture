@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   services = {
@@ -18,6 +18,11 @@
     pkgs.kdePackages.gwenview
     pkgs.kdePackages.konsole
   ];
+
+  security.pam.services = {
+    login.kwallet.enable = lib.mkForce false;
+    kde.kwallet.enable = lib.mkForce false;
+  };
 
   qt = {
     enable = true;

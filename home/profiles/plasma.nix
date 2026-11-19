@@ -175,6 +175,8 @@ in
         krunner_sessionsEnabled = false;
         helprunnerEnabled = false;
       };
+      kwalletrc.KSecretD.Enabled = false;
+      kwalletrc."org.freedesktop.secrets".apiEnabled = false;
       kwinrc.Plugins.hidecursorEnabled = true;
       kwinrc."Effect-hidecursor" = {
         InactivityDuration = 3;
