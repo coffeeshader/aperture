@@ -12,6 +12,7 @@
     ./emacs.nix
     ./discord.nix
     ./browser.nix
+    ./mail.nix
     ./passwords.nix
     ./documents.nix
     ./files.nix
