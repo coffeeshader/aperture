@@ -27,6 +27,8 @@
 
   programs.kde-pim.enable = false;
 
+  programs.kdeconnect.enable = true;
+
   security.pam.services = {
     login.kwallet.enable = lib.mkForce false;
     kde.kwallet.enable = lib.mkForce false;
