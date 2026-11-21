@@ -85,6 +85,7 @@ in
   environment.systemPackages = [
     pkgs.vim
     pkgs.git
+    pkgs.keepassxc
   ];
 
   fonts.packages = [
