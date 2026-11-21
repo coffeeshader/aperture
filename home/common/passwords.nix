@@ -6,11 +6,7 @@
     autostart = true;
 
     settings = {
-      General = {
-        ConfigVersion = 2;
-        AutoSaveAfterEveryChange = false;
-        AutoSaveNonDataChanges = false;
-      };
+      General.ConfigVersion = 2;
 
       GUI = {
         ApplicationTheme = "classic";
