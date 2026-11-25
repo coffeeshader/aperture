@@ -76,7 +76,10 @@ in
   };
 
   config = {
-    home.packages = [ helium ];
+    home.packages = [
+      helium
+      pkgs.ladybird
+    ];
 
     xdg.configFile."net.imput.helium/NativeMessagingHosts" = {
       enable = nativeMessagingHosts != [ ];
