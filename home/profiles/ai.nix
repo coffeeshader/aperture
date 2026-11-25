@@ -1,6 +1,8 @@
 {
   config,
+  inputs,
   lib,
+  pkgs,
   ...
 }:
 
@@ -38,5 +40,7 @@ in
     };
 
     programs.codex.enable = true;
+
+    home.packages = [ inputs.autolith.packages.${pkgs.stdenv.hostPlatform.system}.default ];
   };
 }
