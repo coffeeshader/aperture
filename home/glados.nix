@@ -1,5 +1,15 @@
 { lib, pkgs, ... }:
 
+let
+  apply-display-settings = pkgs.writers.writeNuBin "apply-display-settings" {
+    makeWrapperArgs = [
+      "--prefix"
+      "PATH"
+      ":"
+      (lib.makeBinPath [ pkgs.kdePackages.libkscreen ])
+    ];
+  } (builtins.readFile ./dotfiles/apply-display-settings.nu);
+in
 {
   imports = [
     ./common
@@ -12,7 +22,10 @@
     ./profiles/university.nix
   ];
 
-  home.packages = [ pkgs.razergenie ];
+  home.packages = [
+    pkgs.razergenie
+    apply-display-settings
+  ];
 
   programs.plasma.input.mice = [
     {
@@ -29,17 +42,7 @@
     Reference = 250;
   };
 
-  programs.plasma.startup.startupScript.monitor.text = ''
-    ${lib.getExe' pkgs.kdePackages.libkscreen "kscreen-doctor"} \
-      output.DP-1.scale.1.3 \
-      output.DP-1.vrrpolicy.automatic \
-      output.DP-1.hdr.enable \
-      output.DP-1.wcg.enable \
-      output.DP-1.sdr-brightness.250 \
-      output.DP-1.sdrGamut.50 \
-      output.DP-1.maxBrightnessOverride.560 \
-      output.DP-1.colorPowerTradeoff.preferAccuracy
-  '';
+  programs.plasma.startup.startupScript.monitor.text = lib.getExe apply-display-settings;
 
   theme.oled = true;
   theme.font = {
