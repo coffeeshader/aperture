@@ -1,4 +1,10 @@
-{ pkgs, user, ... }:
+{
+  inputs,
+  lib,
+  pkgs,
+  user,
+  ...
+}:
 
 {
   imports = [
@@ -18,7 +24,12 @@
   boot.loader.systemd-boot.editor = false;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages =
+    inputs.nix-cachyos-kernel.legacyPackages.${pkgs.stdenv.hostPlatform.system}.linuxPackages-cachyos-latest;
+
+  specialisation.linux-latest.configuration = {
+    boot.kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
+  };
 
   powerManagement.cpuFreqGovernor = "performance";
 

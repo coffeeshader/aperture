@@ -63,6 +63,14 @@
     "narHash": "sha256-BPZeT1hnHARhoEQwkUjW6WCUC4c7A7tE3Zrh9z76EeQ=",
     "lastModified": 1795299394
   },
+  "nix-cachyos-kernel": {
+    "type": "github",
+    "owner": "xddxdd",
+    "repo": "nix-cachyos-kernel",
+    "rev": "2294a3b7da84c589792b586e66d9989400977977",
+    "narHash": "sha256-HlnL2pmxTSz/ql/1AGsHhiP5Rdj26QSsI4kcm6BxAMw=",
+    "lastModified": 1795741760
+  },
   "nixpkgs": {
     "type": "github",
     "owner": "NixOS",

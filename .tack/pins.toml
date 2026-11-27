@@ -28,6 +28,10 @@ url = "github:Slush97/grimoire"
 url = "github:lambda-symbolics/autolith"
 exclude_follow = ["nixpkgs"]
 
+[inputs.nix-cachyos-kernel]
+url = "github:xddxdd/nix-cachyos-kernel/release"
+exclude_follow = ["nixpkgs"]
+
 [inputs.emacs-overlay]
 url = "github:nix-community/emacs-overlay"
 
