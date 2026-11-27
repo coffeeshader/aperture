@@ -9,7 +9,9 @@
 let
   inherit (config.browser) nativeMessagingHosts;
 
-  helium = inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default;
+  helium = inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
+    commandLineArgs = "--password-store=gnome-libsecret";
+  };
 
   manifests = pkgs.symlinkJoin {
     name = "helium-native-messaging-hosts";
