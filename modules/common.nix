@@ -23,6 +23,8 @@ in
     };
   };
 
+  programs.tack.enable = true;
+
   programs.nh = {
     enable = true;
     flake = "${homeDirectory}/aperture";

@@ -10,7 +10,10 @@ let
   # The emacs-overlay's igc snapshot lags behind feature/igc3.
   emacsIgcPgtk =
     let
-      version = "${lib.substring 0 8 inputs.emacs-igc-src.lastModifiedDate}.0";
+      inherit ((builtins.fetchTree (lib.importJSON ../../.tack/pins.lock.json).emacs-igc-src))
+        lastModifiedDate
+        ;
+      version = "${lib.substring 0 8 lastModifiedDate}.0";
     in
     pkgs.emacs-igc-pgtk.overrideAttrs (old: {
       inherit version;

@@ -1,0 +1,36 @@
+[all_follow]
+nixpkgs = "nixpkgs"
+
+[inputs.nixpkgs]
+url = "github:NixOS/nixpkgs/nixos-unstable"
+
+[inputs.home-manager]
+url = "github:nix-community/home-manager"
+
+[inputs.plasma-manager]
+url = "github:nix-community/plasma-manager"
+follows = { home-manager = "home-manager" }
+
+[inputs.catppuccin]
+url = "github:catppuccin/nix"
+
+[inputs.millennium]
+url = "github:SteamClientHomebrew/Millennium"
+dir = "packages/nix"
+
+[inputs.helium]
+url = "github:amaanq/helium-flake"
+
+[inputs.grimoire]
+url = "github:Slush97/grimoire"
+
+[inputs.autolith]
+url = "github:lambda-symbolics/autolith"
+exclude_follow = ["nixpkgs"]
+
+[inputs.emacs-overlay]
+url = "github:nix-community/emacs-overlay"
+
+[inputs.emacs-igc-src]
+url  = "github:emacs-mirror/emacs/feature/igc3"
+type = "fetch"

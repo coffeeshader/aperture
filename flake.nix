@@ -1,54 +1,11 @@
 {
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    plasma-manager = {
-      url = "github:nix-community/plasma-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
-
-    catppuccin = {
-      url = "github:catppuccin/nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    millennium = {
-      url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    helium = {
-      url = "github:amaanq/helium-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    grimoire = {
-      url = "github:Slush97/grimoire";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    autolith.url = "github:lambda-symbolics/autolith";
-
-    emacs-overlay = {
-      url = "github:nix-community/emacs-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    emacs-igc-src = {
-      url = "git+https://https.git.savannah.gnu.org/git/emacs.git?ref=feature/igc3&shallow=1";
-      flake = false;
-    };
-  };
-
   outputs =
-    { nixpkgs, home-manager, ... }@inputs:
+    { self, ... }:
     let
+      inputs = (import ./.tack) { } // {
+        inherit self;
+      };
+      inherit (inputs) nixpkgs home-manager;
       user = "coffeeshader";
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};

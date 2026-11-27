@@ -32,11 +32,22 @@ in
     shellAliases = {
       cat = "bat";
       nrs = "nh os switch";
-      nru = "nh os switch --update --commit-lock-file";
       ff = "fastfetch";
     };
 
     extraConfig = ''
+      def nru [] {
+        let flake = ($env.NH_FLAKE? | default ($env.HOME | path join "aperture"))
+        let lock = ".tack/pins.lock.json"
+        do { cd $flake; tack update }
+        nh os switch $flake
+        let changed = (git -C $flake diff --quiet -- $lock | complete | get exit_code) != 0
+        if $changed {
+          git -C $flake commit -m "tack: update pins" -- $lock
+        }
+      }
+
+
       def --wrapped dev [environment: string, ...args: string] {
         let environments = ["rust" "c" "zig" "odin" "java"]
         if $environment not-in $environments {

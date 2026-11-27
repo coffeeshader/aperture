@@ -1,0 +1,82 @@
+{
+  "autolith": {
+    "type": "github",
+    "owner": "lambda-symbolics",
+    "repo": "autolith",
+    "rev": "e9f542d8ccde5c7a0d6c3e00a57a785f775ff5e9",
+    "narHash": "sha256-JxwFdzfUnAPNLHlGSfL0JgxDXYsEM/SMKNGXa/YKd9w=",
+    "lastModified": 1795799775
+  },
+  "catppuccin": {
+    "type": "github",
+    "owner": "catppuccin",
+    "repo": "nix",
+    "rev": "52d3e4d6acd366265fdb19e64c660b40c5ba4ee4",
+    "narHash": "sha256-ttivMJX0RaqFVnq08hWVlxAZA3wFN/1MA1ryrm3MwzA=",
+    "lastModified": 1795767995
+  },
+  "emacs-igc-src": {
+    "type": "github",
+    "owner": "emacs-mirror",
+    "repo": "emacs",
+    "rev": "07b2772e9f7c6d2146397ad1a1273e42b6128403",
+    "narHash": "sha256-/Sw805Z9a9ou7DR/Kc3MW80ROdxIxFCI0wbEA3ujbz4=",
+    "lastModified": 1795711092
+  },
+  "emacs-overlay": {
+    "type": "github",
+    "owner": "nix-community",
+    "repo": "emacs-overlay",
+    "rev": "30b5f9eab2f5f51f17b498734593afef36d53741",
+    "narHash": "sha256-xqd4cun6CN8zSTss8vgzDunPZJ+5UGCdeoFzeCZEl3o=",
+    "lastModified": 1795764276
+  },
+  "grimoire": {
+    "type": "github",
+    "owner": "Slush97",
+    "repo": "grimoire",
+    "rev": "6fec44a1128fd8de33a7a196c04ff9e3c21c6131",
+    "narHash": "sha256-2BsezPbWM3JPsExOOxxK6KaTqC90YBQK99Q3P9OCi3s=",
+    "lastModified": 1795300967
+  },
+  "helium": {
+    "type": "github",
+    "owner": "amaanq",
+    "repo": "helium-flake",
+    "rev": "8f978b543fe1863c84c543d379c543b21eacbb0e",
+    "narHash": "sha256-Qwy97hBOaFd1Om3X3vEJ73rYO1vb9hJk6Zbt4GJqH5o=",
+    "lastModified": 1795732087
+  },
+  "home-manager": {
+    "type": "github",
+    "owner": "nix-community",
+    "repo": "home-manager",
+    "rev": "54f903fdaaf5d5720ed36706fe75332af69eb793",
+    "narHash": "sha256-J1iQ1QMnkFwZFXnlPt2t3Qx7TsGjw08/0L3QMqNt+Wg=",
+    "lastModified": 1795748630
+  },
+  "millennium": {
+    "type": "github",
+    "owner": "SteamClientHomebrew",
+    "repo": "Millennium",
+    "rev": "3b3702aa4838a22dbf7277dbd535d40499f26e4a",
+    "narHash": "sha256-BPZeT1hnHARhoEQwkUjW6WCUC4c7A7tE3Zrh9z76EeQ=",
+    "lastModified": 1795299394
+  },
+  "nixpkgs": {
+    "type": "github",
+    "owner": "NixOS",
+    "repo": "nixpkgs",
+    "rev": "2786a2a72088ecf32aea5b3ec52099e6a7cff78f",
+    "narHash": "sha256-f/VVvxf5RsQgWVhUtefoca5ktVg0DA2bnkMOcmSnozo=",
+    "lastModified": 1795234589
+  },
+  "plasma-manager": {
+    "type": "github",
+    "owner": "nix-community",
+    "repo": "plasma-manager",
+    "rev": "a19a2a029fa180911bd89c554dca1616e10f4c1d",
+    "narHash": "sha256-jZhZkzAwc7f3exzcTDJWP2WCAchCv0iNC3UF/QsahdQ=",
+    "lastModified": 1785762349
+  }
+}
