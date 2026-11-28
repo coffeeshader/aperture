@@ -13,7 +13,12 @@
   :init
   (setq completion-styles '(orderless basic)))
 
-(use-package consult)
+(use-package consult
+  :bind (:map minibuffer-local-map
+              ("C-r" . consult-history))
+  :init
+  (setq xref-show-xrefs-function #'consult-xref
+        xref-show-definitions-function #'consult-xref))
 
 (use-package corfu
   :bind (:map corfu-map
