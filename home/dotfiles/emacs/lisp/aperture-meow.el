@@ -101,6 +101,9 @@
    '("w u" . winner-undo)
    '("w U" . winner-redo)
    '("w =" . balance-windows)
+   '("z a" . treesit-fold-toggle)
+   '("z m" . treesit-fold-close-all)
+   '("z r" . treesit-fold-open-all)
    '("/" . meow-keypad-describe-key)
    '("?" . meow-cheatsheet))
   (meow-normal-define-key

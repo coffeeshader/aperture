@@ -53,6 +53,7 @@ in
         rust-mode
         zig-mode
         typst-ts-mode
+        treesit-fold
         meow
         ace-window
         magit

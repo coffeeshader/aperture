@@ -25,6 +25,10 @@
 (use-package eldoc-box
   :commands eldoc-box-help-at-point)
 
+(use-package treesit-fold
+  :config
+  (global-treesit-fold-mode 1))
+
 (use-package compile
   :defer t
   :config
