@@ -61,6 +61,7 @@
    '("l r" . eglot-rename)
    '("l h" . eldoc-box-help-at-point)
    '("l a" . eglot-code-actions)
+   '("l o" . eglot-code-action-organize-imports)
    '("l f" . eglot-format)
    '("l e" . consult-flymake)
    '("n f" . org-roam-node-find)
@@ -96,6 +97,7 @@
    '("w q" . delete-window)
    '("w f" . delete-other-windows)
    '("w u" . winner-undo)
+   '("w U" . winner-redo)
    '("w =" . balance-windows)
    '("/" . meow-keypad-describe-key)
    '("?" . meow-cheatsheet))
@@ -127,7 +129,10 @@
    '("e" . meow-next-word)
    '("E" . meow-next-symbol)
    '("f" . meow-find)
-   '("g" . meow-cancel-selection)
+   '("g d" . xref-find-definitions)
+   '("g y" . eglot-find-typeDefinition)
+   '("g r" . xref-find-references)
+   '("g i" . eglot-find-implementation)
    '("G" . meow-grab)
    '("h" . meow-left)
    '("H" . meow-left-expand)
@@ -161,7 +166,7 @@
    '("Y" . meow-sync-grab)
    '("z" . meow-pop-selection)
    '("'" . repeat)
-   '("<escape>" . ignore)))
+   '("<escape>" . meow-cancel-selection)))
 
 (use-package meow
   :config
